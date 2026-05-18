@@ -1849,10 +1849,6 @@
       Ada pesan cinta spesial yang terkunci untukmu...<br/>
       Kamu harus menyelesaikan tantangan dulu sebelum bisa membacanya!
     </p>
-    <div class="sender-wrap">
-      <label class="sender-label">Dari siapa pesan ini?</label>
-      <input id="sender-name" class="sender-input" type="text" maxlength="25" placeholder="Nama kamu..." autocomplete="off" value="Rafli" />
-    </div>
     <div class="hint-box">
       Tangkap <strong>20 hati 💕</strong> yang terbang di layar untuk membuka pesannya!
     </div>
@@ -1936,7 +1932,7 @@
         <p>Semoga di tahun yang baru ini, kamu terus tumbuh, belajar, dan mencapai semua impian mu. Semoga kesehatan selalu menyertaimu, dan setiap hari membawa kebahagiaan baru untuk hidupmu.</p><br/>
         <p style="text-align:center;margin-top:2rem;"><strong>🎉 Banyak cinta & bahagia untukmu! 🎉</strong></p>
       </div>
-      <p class="letter-sig">— Dari Rafli & Teman-teman ❤️</p>
+      <p class="letter-sig">— Dari Rafli ❤️</p>
     </div>
   </section>
 
@@ -2303,12 +2299,6 @@ function showPhase(id) {
 }
 
 function startGame() {
-  /* save sender name */
-  const name = document.getElementById('sender-name').value.trim();
-  if (name) {
-    localStorage.setItem('sender_name', name);
-    applySenderName(name);
-  }
   showPhase('phase-game');
   gameActive = true;
   collected  = 0;
@@ -2317,10 +2307,6 @@ function startGame() {
   rafId = requestAnimationFrame(gameLoop);
 }
 
-function applySenderName(name) {
-  const sig = document.querySelector('.letter-sig');
-  if (sig) sig.textContent = '— Dari ' + name + ' ❤️';
-}
 
 function spawnHeart() {
   const arena = document.getElementById('arena');
@@ -2484,9 +2470,8 @@ function revealSite() {
   /* music */
   startMusic();
 
-  /* restore saved photos, sender name & letter */
+  /* restore saved photos & letter */
   loadSavedPhotos();
-  loadSavedSender();
   loadSavedLetter();
 
   /* show share & back-top */
@@ -2634,13 +2619,6 @@ function loadSavedPhotos() {
   }
 }
 
-function loadSavedSender() {
-  const name = localStorage.getItem('sender_name');
-  if (name) {
-    document.getElementById('sender-name').value = name;
-    applySenderName(name);
-  }
-}
 
 /* ── Lightbox ── */
 function openLightbox(src) {
