@@ -32,6 +32,7 @@
       color: #fff;
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
+      overflow-y: hidden;
     }
 
     /* ===== LEOPARD BAR ===== */
@@ -1613,6 +1614,9 @@ function revealSite() {
   /* hide overlay */
   const overlay = document.getElementById('game-overlay');
   overlay.classList.add('hidden');
+
+  /* unlock scroll */
+  document.body.style.overflowY = 'auto';
 
   /* show main site */
   const site = document.getElementById('main-site');
