@@ -1050,6 +1050,61 @@
                   0 0 28px rgba(255,215,0,0.3);
     }
 
+    /* ── Music Player Button ── */
+    #music-btn {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--hot-pink), var(--dark-red));
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 4px 24px rgba(255,0,127,0.45),
+                  inset 0 1px 0 rgba(255,255,255,0.15);
+      cursor: pointer;
+      z-index: 500;
+      font-size: 1.5rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      touch-action: manipulation;
+    }
+    #music-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 36px rgba(255,0,127,0.65);
+    }
+    #music-btn.playing { animation: musicPulse 1.8s ease-in-out infinite; }
+    @keyframes musicPulse {
+      0%,100% { box-shadow: 0 4px 24px rgba(255,0,127,0.45); }
+      50%      { box-shadow: 0 4px 40px rgba(255,0,127,0.75), 0 0 60px rgba(255,215,0,0.2); }
+    }
+
+    /* Ripple rings when playing */
+    .music-rings {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .music-rings span {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(255,20,147,0.5);
+      opacity: 0;
+      display: none;
+    }
+    #music-btn.playing .music-rings span { display: block; }
+    #music-btn.playing .music-rings span:nth-child(1) { animation: ringExpand 2s ease-out infinite 0s; }
+    #music-btn.playing .music-rings span:nth-child(2) { animation: ringExpand 2s ease-out infinite 0.6s; }
+    #music-btn.playing .music-rings span:nth-child(3) { animation: ringExpand 2s ease-out infinite 1.2s; }
+    @keyframes ringExpand {
+      0%   { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
     /* ── Bouquet msg glow ── */
     .bouquet-msg {
       text-shadow: 0 0 30px rgba(255,20,147,0.5);
@@ -1342,25 +1397,25 @@
 
   <!-- GALLERY — Polaroid Album -->
   <section class="gallery-section section-pad">
-    <h2 class="section-title reveal">Album Foto Kita 📸</h2>
+    <h2 class="section-title reveal">Foto-Foto Cantiknya 📸</h2>
     <div class="section-divider reveal"></div>
     <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:0.82rem;margin-bottom:2rem;" class="reveal">
-      Klik foto untuk menambahkan kenangan kita 💕 · Klik foto yang sudah ada untuk memperbesar
+      Klik untuk menambahkan foto dia 💕 · Klik foto yang sudah ada untuk memperbesar
     </p>
     <div class="polaroid-grid">
       <div class="polaroid-wrap reveal" style="transition-delay:.0s">
         <div class="polaroid">
           <div class="polaroid-img-wrap" id="slot0">
-            <div class="polaroid-placeholder"><span class="plus-icon">📷</span><p>Foto pertama kita</p></div>
+            <div class="polaroid-placeholder"><span class="plus-icon">📷</span><p>Foto dia</p></div>
           </div>
-          <span class="polaroid-caption">Kenangan Indah 🌹</span>
+          <span class="polaroid-caption">Cantiknya Dia 🌹</span>
           <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,0)" />
         </div>
       </div>
       <div class="polaroid-wrap reveal" style="transition-delay:.1s">
         <div class="polaroid">
           <div class="polaroid-img-wrap" id="slot1">
-            <div class="polaroid-placeholder"><span class="plus-icon">🤳</span><p>Foto selfie</p></div>
+            <div class="polaroid-placeholder"><span class="plus-icon">🤳</span><p>Selfie dia</p></div>
           </div>
           <span class="polaroid-caption">Selfie Cantik 💕</span>
           <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,1)" />
@@ -1369,7 +1424,7 @@
       <div class="polaroid-wrap reveal" style="transition-delay:.2s">
         <div class="polaroid">
           <div class="polaroid-img-wrap" id="slot2">
-            <div class="polaroid-placeholder"><span class="plus-icon">🌅</span><p>Momen indah</p></div>
+            <div class="polaroid-placeholder"><span class="plus-icon">🌅</span><p>Foto dia</p></div>
           </div>
           <span class="polaroid-caption">Momen Spesial ✨</span>
           <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,2)" />
@@ -1378,7 +1433,7 @@
       <div class="polaroid-wrap reveal" style="transition-delay:.3s">
         <div class="polaroid">
           <div class="polaroid-img-wrap" id="slot3">
-            <div class="polaroid-placeholder"><span class="plus-icon">🥰</span><p>Foto favorit</p></div>
+            <div class="polaroid-placeholder"><span class="plus-icon">🥰</span><p>Foto dia</p></div>
           </div>
           <span class="polaroid-caption">My Favourite Girl 💖</span>
           <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,3)" />
@@ -1387,23 +1442,34 @@
       <div class="polaroid-wrap reveal" style="transition-delay:.4s">
         <div class="polaroid">
           <div class="polaroid-img-wrap" id="slot4">
-            <div class="polaroid-placeholder"><span class="plus-icon">🌺</span><p>Momen bahagia</p></div>
+            <div class="polaroid-placeholder"><span class="plus-icon">🌺</span><p>Foto dia</p></div>
           </div>
-          <span class="polaroid-caption">Bahagia Bersamamu 🍀</span>
+          <span class="polaroid-caption">Senyumnya Indah 🍀</span>
           <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,4)" />
         </div>
       </div>
       <div class="polaroid-wrap reveal" style="transition-delay:.5s">
         <div class="polaroid">
           <div class="polaroid-img-wrap" id="slot5">
-            <div class="polaroid-placeholder"><span class="plus-icon">💑</span><p>Foto berdua</p></div>
+            <div class="polaroid-placeholder"><span class="plus-icon">💑</span><p>Foto dia</p></div>
           </div>
-          <span class="polaroid-caption">Forever Together 💝</span>
+          <span class="polaroid-caption">Forever & Always 💝</span>
           <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,5)" />
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Music Player -->
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-btn" onclick="toggleMusic()" title="Play / Pause Musik">
+    <span id="music-icon">🎵</span>
+    <div class="music-rings">
+      <span></span><span></span><span></span>
+    </div>
+  </button>
 
   <!-- Lightbox -->
   <div id="lightbox">
@@ -1639,6 +1705,9 @@ function revealSite() {
 
   /* bouquet */
   initBouquet();
+
+  /* music */
+  startMusic();
 }
 
 /* ══════════════════════════════════════════════
@@ -1847,6 +1916,39 @@ function updateCountdown() {
        <div class="cdown-box"><span class="cdown-num">${hours}</span><span class="cdown-label">Jam</span></div>
        <div class="cdown-box"><span class="cdown-num">${mins}</span><span class="cdown-label">Menit</span></div>
        <div class="cdown-box"><span class="cdown-num">${secs}</span><span class="cdown-label">Detik</span></div>`;
+}
+
+/* ══════════════════════════════════════════════
+   MUSIC PLAYER
+══════════════════════════════════════════════ */
+const music   = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-btn');
+let musicStarted = false;
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play().then(() => {
+      musicBtn.classList.add('playing');
+      document.getElementById('music-icon').textContent = '🎶';
+    }).catch(() => {});
+  } else {
+    music.pause();
+    musicBtn.classList.remove('playing');
+    document.getElementById('music-icon').textContent = '🎵';
+  }
+}
+
+function startMusic() {
+  if (musicStarted) return;
+  musicStarted = true;
+  musicBtn.style.display = 'flex';
+  music.volume = 0.45;
+  music.play().then(() => {
+    musicBtn.classList.add('playing');
+    document.getElementById('music-icon').textContent = '🎶';
+  }).catch(() => {
+    /* autoplay blocked — button still visible for manual play */
+  });
 }
 
 /* ── Init fireworks canvas immediately (game win needs it) ── */
