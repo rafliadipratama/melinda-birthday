@@ -41,8 +41,6 @@
     .gphase.active { display: flex; }
   </style>
   <script>
-    // Suppress Tailwind CDN warning for single-file deployment
-    if (typeof process === 'undefined') window.__TAILWIND_MODE__ = 'watch';
     tailwind.config = {
       theme: {
         extend: {
