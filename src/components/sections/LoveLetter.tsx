@@ -7,8 +7,41 @@ const LoveLetter = () => {
   ]
 
   return (
-    <section className="min-h-screen w-full px-4 sm:px-6 py-16 flex items-center justify-center" style={{ backgroundColor: '#8B5A5A' }}>
-      <div className="max-w-5xl w-full mx-auto relative">
+    <section
+      className="min-h-screen w-full px-4 sm:px-6 py-16 flex items-center justify-center relative overflow-hidden"
+      style={{
+        background: `
+          repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.05) 35px, rgba(0,0,0,.05) 70px),
+          repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(0,0,0,.03) 35px, rgba(0,0,0,.03) 70px),
+          radial-gradient(circle at 20% 50%, rgba(0,0,0,0.3) 0%, transparent 50%),
+          radial-gradient(circle at 60% 30%, rgba(0,0,0,0.25) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(0,0,0,0.28) 0%, transparent 50%),
+          #F5A9B8
+        `,
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Leopard print pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 15% 20%, rgba(0,0,0,0.4) 0%, transparent 8%),
+            radial-gradient(circle at 25% 35%, rgba(0,0,0,0.35) 0%, transparent 6%),
+            radial-gradient(circle at 45% 15%, rgba(0,0,0,0.38) 0%, transparent 7%),
+            radial-gradient(circle at 65% 25%, rgba(0,0,0,0.36) 0%, transparent 6%),
+            radial-gradient(circle at 80% 40%, rgba(0,0,0,0.4) 0%, transparent 8%),
+            radial-gradient(circle at 10% 65%, rgba(0,0,0,0.37) 0%, transparent 7%),
+            radial-gradient(circle at 35% 75%, rgba(0,0,0,0.39) 0%, transparent 6%),
+            radial-gradient(circle at 55% 60%, rgba(0,0,0,0.35) 0%, transparent 7%),
+            radial-gradient(circle at 75% 75%, rgba(0,0,0,0.4) 0%, transparent 8%),
+            radial-gradient(circle at 90% 70%, rgba(0,0,0,0.36) 0%, transparent 6%)
+          `,
+          backgroundSize: '200% 200%',
+          backgroundPosition: '0% 0%'
+        }}
+      ></div>
+      <div className="max-w-5xl w-full mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="font-playfair text-5xl italic" style={{ color: '#FFE4E1' }}>

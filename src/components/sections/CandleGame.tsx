@@ -33,21 +33,21 @@ const CandleGame = () => {
   }
 
   return (
-    <section className="min-h-screen px-6 py-20 flex items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
+    <section className="min-h-screen px-6 py-20 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="font-playfair text-5xl italic mb-2" style={{ color: '#FF1493' }}>
           🎂 Tiup Lilin Ulang Tahun
         </h2>
-        <p className="text-lg mb-16" style={{ color: 'rgba(255,255,255,0.7)' }}>
+        <p className="text-lg mb-20" style={{ color: 'rgba(255,255,255,0.7)' }}>
           {allBlown ? '✨ Semua lilin sudah padam! ✨' : 'Buat doa terbaik & klik atau tiup lilinnya! 🎉'}
         </p>
 
-        {/* Cake with Candles */}
-        <div className="mb-16 flex justify-center">
-          <div className="relative" style={{ perspective: '1000px' }}>
+        {/* Cake Container with proper spacing for candles */}
+        <div className="mb-20 flex justify-center" style={{ minHeight: '550px', display: 'flex', alignItems: 'flex-end' }}>
+          <div className="relative" style={{ perspective: '1000px', width: '520px' }}>
             {/* Wind Effect */}
             {blowEffect && (
-              <div className="absolute -inset-32 pointer-events-none">
+              <div className="absolute pointer-events-none" style={{ inset: '-128px', top: 0 }}>
                 <div
                   className="absolute inset-0"
                   style={{
@@ -58,84 +58,8 @@ const CandleGame = () => {
               </div>
             )}
 
-            {/* Cake Base - Large Bottom Layer */}
-            <div
-              className="relative mx-auto"
-              style={{
-                width: '420px',
-                height: '140px',
-                borderRadius: '0 0 40px 40px',
-                background: 'linear-gradient(135deg, #D2691E 0%, #8B4513 50%, #654321 100%)',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.7), inset -5px -5px 20px rgba(0,0,0,0.5)',
-                position: 'relative'
-              }}>
-
-              {/* Frosting on bottom layer */}
-              <div
-                className="absolute top-0 left-0 right-0"
-                style={{
-                  height: '25px',
-                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
-                  borderRadius: '40px 40px 0 0',
-                  boxShadow: 'inset 0 2px 5px rgba(255,255,255,0.3)'
-                }}
-              ></div>
-
-              {/* Sprinkles */}
-              <div className="absolute top-6 left-0 right-0 flex justify-around px-8">
-                {['🍮', '🍓', '✨', '🍮', '🍓'].map((item, i) => (
-                  <span key={i} className="text-lg">{item}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* Cake Middle Layer */}
-            <div
-              className="relative mx-auto -mt-4"
-              style={{
-                width: '340px',
-                height: '100px',
-                borderRadius: '0 0 30px 30px',
-                background: 'linear-gradient(135deg, #CD853F 0%, #8B4513 50%, #5C2E0F 100%)',
-                boxShadow: '0 15px 40px rgba(0,0,0,0.6), inset -4px -4px 15px rgba(0,0,0,0.4)',
-                position: 'relative'
-              }}>
-
-              <div
-                className="absolute top-0 left-0 right-0"
-                style={{
-                  height: '20px',
-                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
-                  borderRadius: '30px 30px 0 0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,0.3)'
-                }}
-              ></div>
-            </div>
-
-            {/* Cake Top Layer */}
-            <div
-              className="relative mx-auto -mt-3"
-              style={{
-                width: '260px',
-                height: '80px',
-                borderRadius: '0 0 20px 20px',
-                background: 'linear-gradient(135deg, #DAA520 0%, #8B4513 50%, #5C2E0F 100%)',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset -3px -3px 10px rgba(0,0,0,0.3)',
-                position: 'relative'
-              }}>
-
-              <div
-                className="absolute top-0 left-0 right-0"
-                style={{
-                  height: '16px',
-                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
-                  borderRadius: '20px 20px 0 0'
-                }}
-              ></div>
-            </div>
-
-            {/* Candles - positioned absolutely above cake */}
-            <div className="absolute -top-40 left-0 right-0 flex gap-10 justify-center px-8">
+            {/* Candles Container */}
+            <div className="absolute -top-48 left-0 right-0 flex gap-10 justify-center px-8 h-40">
               {candles.map((candle) => (
                 <button
                   key={candle.id}
@@ -228,6 +152,83 @@ const CandleGame = () => {
                 </button>
               ))}
             </div>
+
+            {/* Cake Base - Large Bottom Layer */}
+            <div
+              className="relative mx-auto"
+              style={{
+                width: '420px',
+                height: '140px',
+                borderRadius: '0 0 40px 40px',
+                background: 'linear-gradient(135deg, #D2691E 0%, #8B4513 50%, #654321 100%)',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.7), inset -5px -5px 20px rgba(0,0,0,0.5)',
+                position: 'relative'
+              }}>
+
+              {/* Frosting on bottom layer */}
+              <div
+                className="absolute top-0 left-0 right-0"
+                style={{
+                  height: '25px',
+                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
+                  borderRadius: '40px 40px 0 0',
+                  boxShadow: 'inset 0 2px 5px rgba(255,255,255,0.3)'
+                }}
+              ></div>
+
+              {/* Sprinkles */}
+              <div className="absolute top-6 left-0 right-0 flex justify-around px-8">
+                {['🍮', '🍓', '✨', '🍮', '🍓'].map((item, i) => (
+                  <span key={i} className="text-lg">{item}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Cake Middle Layer */}
+            <div
+              className="relative mx-auto -mt-4"
+              style={{
+                width: '340px',
+                height: '100px',
+                borderRadius: '0 0 30px 30px',
+                background: 'linear-gradient(135deg, #CD853F 0%, #8B4513 50%, #5C2E0F 100%)',
+                boxShadow: '0 15px 40px rgba(0,0,0,0.6), inset -4px -4px 15px rgba(0,0,0,0.4)',
+                position: 'relative'
+              }}>
+
+              <div
+                className="absolute top-0 left-0 right-0"
+                style={{
+                  height: '20px',
+                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
+                  borderRadius: '30px 30px 0 0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,0.3)'
+                }}
+              ></div>
+            </div>
+
+            {/* Cake Top Layer */}
+            <div
+              className="relative mx-auto -mt-3"
+              style={{
+                width: '260px',
+                height: '80px',
+                borderRadius: '0 0 20px 20px',
+                background: 'linear-gradient(135deg, #DAA520 0%, #8B4513 50%, #5C2E0F 100%)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset -3px -3px 10px rgba(0,0,0,0.3)',
+                position: 'relative'
+              }}>
+
+              <div
+                className="absolute top-0 left-0 right-0"
+                style={{
+                  height: '16px',
+                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
+                  borderRadius: '20px 20px 0 0'
+                }}
+              ></div>
+            </div>
+
           </div>
         </div>
 
