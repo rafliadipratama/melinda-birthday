@@ -1,0 +1,42 @@
+﻿const WishWall = () => {
+  const wishes = [
+    { icon: '💪', title: 'Kesehatan', text: 'Semoga kamu selalu diberikan kesehatan yang prima dan energi untuk menjalani setiap hari.' },
+    { icon: '✨', title: 'Kebahagiaan', text: 'Semoga hidupmu penuh dengan tawa, kebahagiaan, dan momen-momen indah yang tak terlupakan.' },
+    { icon: '🌟', title: 'Kesuksesan', text: 'Semoga semua cita-cita dan impianmu tercapai satu persatu, sesuai waktu yang tepat.' },
+    { icon: '💝', title: 'Cinta', text: 'Semoga cinta kita tumbuh semakin kuat dan indah, melewati semua suka dan duka bersama.' },
+    { icon: '🍀', title: 'Keberuntungan', text: 'Semoga selalu ada kemudahan di setiap langkahmu dan keberuntungan selalu berpihak padamu.' },
+    { icon: '🌺', title: 'Kedamaian', text: 'Semoga hatimu selalu tenang, damai, dan dipenuhi rasa syukur di setiap harinya.' }
+  ]
+
+  return (
+    <section className="min-h-screen px-6 py-20" style={{ backgroundColor: "#0f0006" }}>
+      <div className="max-w-7xl mx-auto">
+        <h2 className="font-playfair text-5xl italic text-center mb-6" style={{ color: '#FF1493' }}>🎉 Doa & Harapan Untukmu</h2>
+        <p className="text-center text-lg mb-16" style={{ color: 'rgba(255,255,255,0.7)' }}>6 hal yang saya inginkan untuk kamu di tahun ini</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {wishes.map((wish, idx) => (
+            <div key={idx} className="p-8 rounded-2xl border backdrop-blur-md transition-all hover:scale-110 group cursor-pointer"
+              style={{
+                backgroundColor: 'rgba(255,20,147,0.08)',
+                borderColor: 'rgba(255,20,147,0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 0 25px rgba(255,20,147,0.7), 0 0 50px rgba(255,215,0,0.3)'
+                e.currentTarget.style.borderColor = 'rgba(255,20,147,0.7)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.borderColor = 'rgba(255,20,147,0.2)'
+              }}>
+              <div className="text-4xl mb-4 group-hover:scale-150 transition-transform duration-300 inline-block group-hover:animate-bounce">{wish.icon}</div>
+              <h3 className="font-playfair text-2xl mb-3 group-hover:text-pink-200 transition-colors duration-300" style={{ color: '#FFD700' }}>{wish.title}</h3>
+              <p style={{ color: 'rgba(255,255,255,0.7)' }} className="group-hover:text-white transition-colors duration-300">{wish.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+export default WishWall

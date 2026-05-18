@@ -1,0 +1,108 @@
+@import '@fontsource/playfair-display';
+@import '@fontsource/cormorant-garamond';
+@import '@fontsource/lato';
+@import '@fontsource/pacifico';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Disable text selection & copy-paste */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -khtml-user-select: none;
+}
+
+/* Disable drag on images */
+img {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+/* Allow selection only on specific elements if needed */
+p, h1, h2, h3, h4, h5, h6, div, span {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 20, 147, 0.6); }
+}
+
+@keyframes pulse-scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shine {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    background-color: #F7E7CE;
+    color: #3b0b17;
+    font-family: 'Lato', sans-serif;
+  }
+
+  h1, h2, h3 {
+    @apply font-playfair;
+  }
+
+  h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .leopard-stripe {
+    background-color: #C8956C;
+    background-image:
+      radial-gradient(ellipse 12px 8px at 20% 50%, #6B3A2A 100%, transparent 100%),
+      radial-gradient(ellipse 8px 12px at 60% 30%, #6B3A2A 100%, transparent 100%),
+      radial-gradient(ellipse 10px 7px at 80% 70%, #5a2e1e 100%, transparent 100%);
+    background-size: 80px 60px;
+  }
+
+  .glass-card {
+    @apply rounded-2xl backdrop-blur-md bg-white/30 border border-white/40 shadow-2xl;
+  }
+
+  .wine-glow {
+    @apply shadow-[0_0_30px_rgba(170,32,64,0.3)];
+  }
+
+  .wine-glow-hover:hover {
+    @apply shadow-[0_0_40px_rgba(170,32,64,0.6)];
+  }
+}
+
+/* Custom cursor */
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ctext y='20' font-size='20'%3E💖%3C/text%3E%3C/svg%3E") 12 12, auto;
+}
+
+button, a, [role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ctext y='20' font-size='20'%3E💕%3C/text%3E%3C/svg%3E") 12 12, pointer;
+}
