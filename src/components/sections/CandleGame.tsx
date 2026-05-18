@@ -33,17 +33,17 @@ const CandleGame = () => {
   }
 
   return (
-    <section className="min-h-screen px-6 py-20 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
+    <section className="min-h-screen px-6 py-8 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="font-playfair text-5xl italic mb-2" style={{ color: '#FF1493' }}>
           🎂 Tiup Lilin Ulang Tahun
         </h2>
-        <p className="text-lg mb-20" style={{ color: 'rgba(255,255,255,0.7)' }}>
+        <p className="text-lg mb-6" style={{ color: 'rgba(255,255,255,0.7)' }}>
           {allBlown ? '✨ Semua lilin sudah padam! ✨' : 'Buat doa terbaik & klik atau tiup lilinnya! 🎉'}
         </p>
 
         {/* Cake Container with proper spacing for candles */}
-        <div className="mb-20 flex justify-center" style={{ minHeight: '550px', display: 'flex', alignItems: 'flex-end' }}>
+        <div className="mb-8 flex justify-center" style={{ minHeight: '400px', display: 'flex', alignItems: 'flex-end' }}>
           <div className="relative" style={{ perspective: '1000px', width: '520px' }}>
             {/* Wind Effect */}
             {blowEffect && (
