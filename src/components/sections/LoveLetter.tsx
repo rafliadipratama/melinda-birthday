@@ -1,9 +1,9 @@
 const LoveLetter = () => {
   const photos = [
-    { emoji: '📸', rotation: -15, top: '5%', right: '5%' },
-    { emoji: '📷', rotation: 10, top: '20%', right: '15%' },
-    { emoji: '📹', rotation: -8, top: '45%', right: '8%' },
-    { emoji: '🖼️', rotation: 15, top: '65%', right: '18%' },
+    { src: 'photos/p1.jpg', caption: 'Cantik ✨', rotation: -15, top: '5%', right: '5%' },
+    { src: 'photos/p2.jpg', caption: 'My Love 💕', rotation: 10, top: '20%', right: '15%' },
+    { src: 'photos/p3.jpg', caption: 'Senyum ✨', rotation: -8, top: '45%', right: '8%' },
+    { src: 'photos/p4.jpg', caption: 'My Girl 💖', rotation: 15, top: '65%', right: '18%' },
   ]
 
   return (
@@ -145,28 +145,34 @@ const LoveLetter = () => {
               >
                 {/* Polaroid frame */}
                 <div
-                  className="bg-white p-2 shadow-xl relative"
+                  className="bg-white shadow-xl relative overflow-hidden"
                   style={{
                     width: '140px',
                     aspectRatio: '3/4',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                    background: 'linear-gradient(135deg, #FFFAFA 0%, #FFF5EE 100%)'
+                    background: 'linear-gradient(135deg, #FFFAFA 0%, #FFF5EE 100%)',
+                    padding: '8px',
+                    paddingBottom: '30px'
                   }}
                 >
-                  {/* Photo area */}
+                  {/* Photo area with actual image */}
                   <div
-                    className="w-full flex-1 flex items-center justify-center mb-3"
+                    className="w-full flex-1 mb-2 overflow-hidden rounded-sm"
                     style={{
-                      background: 'linear-gradient(135deg, #DDA0DD 0%, #DB7093 100%)',
-                      borderRadius: '4px'
+                      aspectRatio: '4/5',
+                      background: 'linear-gradient(135deg, #DDA0DD 0%, #DB7093 100%)'
                     }}
                   >
-                    <span className="text-4xl">{photo.emoji}</span>
+                    <img
+                      src={photo.src}
+                      alt={photo.caption}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
-                  {/* Polaroid bottom white space */}
-                  <div style={{ height: '35px' }} className="flex items-center justify-center">
-                    <p className="text-xs text-gray-400 italic">Memory</p>
+                  {/* Polaroid bottom white space for caption */}
+                  <div style={{ height: '22px' }} className="flex items-center justify-center">
+                    <p className="text-xs text-gray-500 italic text-center leading-none">{photo.caption}</p>
                   </div>
                 </div>
               </div>
