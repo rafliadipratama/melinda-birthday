@@ -99,11 +99,23 @@ const HeroSection = ({ onExplore }: HeroSectionProps) => {
             ))}
           </motion.div>
 
+          {/* Age milestone badge */}
+          <motion.div
+            variants={titleVariants}
+            className="mb-6 inline-block"
+          >
+            <div className="px-6 py-3 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 shadow-lg">
+              <span className="font-playfair text-2xl sm:text-3xl font-bold text-white">
+                Turning 25! ✨
+              </span>
+            </div>
+          </motion.div>
+
           {/* Main heading */}
           <motion.div variants={titleVariants} className="mb-8">
             <h1 className="font-playfair text-6xl sm:text-7xl lg:text-8xl font-bold italic mb-4">
               <span className="bg-gradient-to-r from-blush via-wine-300 to-wine-200 bg-clip-text text-transparent">
-                Happy Birthday,
+                Happy 25th Birthday,
               </span>
             </h1>
             <h2 className="font-playfair text-5xl sm:text-6xl lg:text-7xl font-bold italic">
@@ -124,7 +136,7 @@ const HeroSection = ({ onExplore }: HeroSectionProps) => {
             variants={titleVariants}
             className="font-cormorant text-2xl sm:text-3xl italic text-wine-200 mb-8 leading-relaxed"
           >
-            A celebration of you, wrapped in luxury, playfulness, and endless love
+            A quarter-century of beauty, grace, and unforgettable moments
           </motion.p>
 
           {/* Description */}
@@ -132,10 +144,14 @@ const HeroSection = ({ onExplore }: HeroSectionProps) => {
             variants={titleVariants}
             className="glass-card px-8 py-6 sm:px-10 sm:py-8 mb-12 max-w-2xl mx-auto wine-glow"
           >
+            <p className="font-lato text-lg text-wine-900 leading-relaxed mb-4">
+              25 years of being the light that brightens every room. 25 years of strength,
+              grace, and a spirit that inspires everyone around you.
+            </p>
             <p className="font-lato text-lg text-wine-900 leading-relaxed">
-              From the moment you light up a room, everything feels like a celebration.
-              Today, we're honoring everything that makes you extraordinary—your warmth,
-              your strength, and that infectious spirit that changes lives.
+              Today we celebrate you—your warmth, your wisdom, your infectious joy,
+              and the incredible person you continue to become. You deserve all the love
+              and happiness in the world. 💕
             </p>
           </motion.div>
 
