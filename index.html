@@ -1924,6 +1924,180 @@
       font-family: 'Cinzel', serif;
     }
 
+    /* ================================================================
+       LETTER PAGE - INTERACTIVE LAYOUT
+    ================================================================ */
+    .letter-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: flex-start;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .letter-card-wrapper {
+      position: relative;
+    }
+
+    .letter-card {
+      background: #fff !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 2.5rem 2rem !important;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.2) !important;
+      position: relative;
+      overflow: visible;
+      /* Scalloped edges using clip-path */
+      clip-path: polygon(
+        0% 5%, 2.5% 2.5%, 5% 5%, 7.5% 2.5%, 10% 5%, 12.5% 2.5%, 15% 5%, 17.5% 2.5%, 20% 5%,
+        22.5% 2.5%, 25% 5%, 27.5% 2.5%, 30% 5%, 32.5% 2.5%, 35% 5%, 37.5% 2.5%, 40% 5%,
+        42.5% 2.5%, 45% 5%, 47.5% 2.5%, 50% 5%, 52.5% 2.5%, 55% 5%, 57.5% 2.5%, 60% 5%,
+        62.5% 2.5%, 65% 5%, 67.5% 2.5%, 70% 5%, 72.5% 2.5%, 75% 5%, 77.5% 2.5%, 80% 5%,
+        82.5% 2.5%, 85% 5%, 87.5% 2.5%, 90% 5%, 92.5% 2.5%, 95% 5%, 97.5% 2.5%, 100% 5%,
+        100% 10%, 97.5% 7.5%, 100% 15%, 97.5% 17.5%, 100% 20%, 97.5% 22.5%, 100% 25%, 97.5% 27.5%, 100% 30%,
+        97.5% 32.5%, 100% 35%, 97.5% 37.5%, 100% 40%, 97.5% 42.5%, 100% 45%, 97.5% 47.5%, 100% 50%,
+        97.5% 52.5%, 100% 55%, 97.5% 57.5%, 100% 60%, 97.5% 62.5%, 100% 65%, 97.5% 67.5%, 100% 70%,
+        97.5% 72.5%, 100% 75%, 97.5% 77.5%, 100% 80%, 97.5% 82.5%, 100% 85%, 97.5% 87.5%, 100% 90%,
+        97.5% 92.5%, 100% 95%,
+        100% 95%, 97.5% 97.5%, 95% 95%, 92.5% 97.5%, 90% 95%, 87.5% 97.5%, 85% 95%, 82.5% 97.5%, 80% 95%,
+        77.5% 97.5%, 75% 95%, 72.5% 97.5%, 70% 95%, 67.5% 97.5%, 65% 95%, 62.5% 97.5%, 60% 95%,
+        57.5% 97.5%, 55% 95%, 52.5% 97.5%, 50% 95%, 47.5% 97.5%, 45% 95%, 42.5% 97.5%, 40% 95%,
+        37.5% 97.5%, 35% 95%, 32.5% 97.5%, 30% 95%, 27.5% 97.5%, 25% 95%, 22.5% 97.5%, 20% 95%,
+        17.5% 97.5%, 15% 95%, 12.5% 97.5%, 10% 95%, 7.5% 97.5%, 5% 95%, 2.5% 97.5%, 0% 95%,
+        0% 90%, 2.5% 92.5%, 0% 85%, 2.5% 82.5%, 0% 80%, 2.5% 77.5%, 0% 75%, 2.5% 72.5%, 0% 70%,
+        2.5% 67.5%, 0% 65%, 2.5% 62.5%, 0% 60%, 2.5% 57.5%, 0% 55%, 2.5% 52.5%, 0% 50%,
+        2.5% 47.5%, 0% 45%, 2.5% 42.5%, 0% 40%, 2.5% 37.5%, 0% 35%, 2.5% 32.5%, 0% 30%,
+        2.5% 27.5%, 0% 25%, 2.5% 22.5%, 0% 20%, 2.5% 17.5%, 0% 15%, 2.5% 12.5%, 0% 10%
+      );
+    }
+
+    .letter-body {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .letter-body p {
+      margin: 0;
+    }
+
+    .letter-edit-hint {
+      font-size: 0.85rem;
+      color: rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: color 0.3s;
+      margin-bottom: 1rem;
+    }
+
+    .letter-edit-hint:hover {
+      color: var(--pink);
+    }
+
+    .letter-sig {
+      text-align: right;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #555;
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Scattered Photos */
+    .letter-photos-scatter {
+      position: relative;
+      height: 500px;
+      perspective: 1000px;
+    }
+
+    .photo-polaroid {
+      position: absolute;
+      width: 120px;
+      height: 130px;
+      background: #fff;
+      padding: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transform: rotate(var(--rotation, 0deg)) translateY(0);
+      transition: all 0.3s ease;
+      animation: photoFloatIn 0.6s ease forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .photo-polaroid:hover {
+      transform: rotate(var(--rotation, 0deg)) translateY(-10px) scale(1.08);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    }
+
+    .photo-polaroid img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-polaroid p {
+      text-align: center;
+      font-size: 0.7rem;
+      margin-top: 4px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Position each polaroid */
+    .photo-polaroid:nth-child(1) { top: 0; left: 0; }
+    .photo-polaroid:nth-child(2) { top: 60px; right: 0; }
+    .photo-polaroid:nth-child(3) { top: 200px; left: 30px; }
+    .photo-polaroid:nth-child(4) { top: 280px; right: 40px; }
+
+    @keyframes photoFloatIn {
+      from {
+        opacity: 0;
+        transform: rotate(var(--rotation, 0deg)) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: rotate(var(--rotation, 0deg)) translateY(0);
+      }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .letter-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+      }
+
+      .letter-card {
+        padding: 2rem 1.5rem !important;
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 97.5% 97.5%, 95% 95%, 92.5% 97.5%, 90% 95%,
+                           87.5% 97.5%, 85% 95%, 82.5% 97.5%, 80% 95%, 77.5% 97.5%, 75% 95%,
+                           72.5% 97.5%, 70% 95%, 67.5% 97.5%, 65% 95%, 62.5% 97.5%, 60% 95%,
+                           57.5% 97.5%, 55% 95%, 52.5% 97.5%, 50% 95%, 47.5% 97.5%, 45% 95%,
+                           42.5% 97.5%, 40% 95%, 37.5% 97.5%, 35% 95%, 32.5% 97.5%, 30% 95%,
+                           27.5% 97.5%, 25% 95%, 22.5% 97.5%, 20% 95%, 17.5% 97.5%, 15% 95%,
+                           12.5% 97.5%, 10% 95%, 7.5% 97.5%, 5% 95%, 2.5% 97.5%, 0% 95%);
+      }
+
+      .letter-body {
+        font-size: 0.9rem;
+      }
+
+      .letter-photos-scatter {
+        height: 400px;
+      }
+
+      .photo-polaroid {
+        width: 100px;
+        height: 110px;
+      }
+
+      .photo-polaroid img {
+        height: 70px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2094,19 +2268,42 @@
     <div class="page-content">
       <!-- LETTER -->
       <section id="letter" class="letter-section section-pad">
-    <h2 class="section-title reveal">Kartu Ucapan Ulang Tahun</h2>
-    <div class="section-divider reveal"></div>
-    <div class="letter-card reveal leopard-border-box">
-      <p class="letter-edit-hint" onclick="toggleLetterEdit()">✏️ Klik untuk edit isi kartu</p>
-      <div class="letter-body" id="letter-body">
-        <p style="text-align:center;font-size:1.3em;margin-bottom:1.5rem;"><strong>🎂 SELAMAT ULANG TAHUN, MELIN! 🎂</strong></p>
-        <p>Hari ini adalah hari spesialmu, dan kami semua ingin merayakan <span class="highlight">kesuksesan</span> yang telah kamu raih selama ini. Dari kecil hingga sekarang berusia 25 tahun, kamu sudah membuktikan bahwa kamu adalah sosok yang <span class="highlight">luar biasa</span>.</p><br/>
-        <p>Terima kasih telah hadir di dunia ini, Jahee! Dunia menjadi lebih berwarna dengan kehadiran, tawa, dan kehangatan darimu. Kamu adalah inspirasi bagi banyak orang, dan kebahagiaan mu adalah kebahagiaan kami.</p><br/>
-        <p>Semoga di tahun yang baru ini, kamu terus tumbuh, belajar, dan mencapai semua impian mu. Semoga kesehatan selalu menyertaimu, dan setiap hari membawa kebahagiaan baru untuk hidupmu.</p><br/>
-        <p style="text-align:center;margin-top:2rem;"><strong>🎉 Banyak cinta & bahagia untukmu! 🎉</strong></p>
-      </div>
-      <p class="letter-sig">— Dari Rafli ❤️</p>
-      </div>
+        <div class="letter-container">
+          <!-- Left: Scalloped Card -->
+          <div class="letter-card-wrapper">
+            <div class="letter-card reveal">
+              <p class="letter-edit-hint" onclick="toggleLetterEdit()">✏️ Klik untuk edit</p>
+              <div class="letter-body" id="letter-body">
+                <p style="text-align:center;font-size:1.1em;margin-bottom:1.2rem;"><strong>🎂 SELAMAT ULANG TAHUN 🎂</strong></p>
+                <p>Hari ini adalah hari spesialmu, dan kami semua ingin merayakan <span class="highlight">kesuksesan</span> yang telah kamu raih selama ini. Dari kecil hingga sekarang berusia 25 tahun, kamu sudah membuktikan bahwa kamu adalah sosok yang <span class="highlight">luar biasa</span>.</p>
+                <p style="margin-top:1rem;">Terima kasih telah hadir di dunia ini, Jahee! Dunia menjadi lebih berwarna dengan kehadiran, tawa, dan kehangatan darimu. Kamu adalah inspirasi bagi banyak orang, dan kebahagiaan mu adalah kebahagiaan kami.</p>
+                <p style="margin-top:1rem;">Semoga di tahun yang baru ini, kamu terus tumbuh, belajar, dan mencapai semua impian mu. Semoga kesehatan selalu menyertaimu, dan setiap hari membawa kebahagiaan baru untuk hidupmu.</p>
+                <p style="text-align:center;margin-top:1.5rem;"><strong>🎉 Banyak cinta & bahagia untukmu! 🎉</strong></p>
+              </div>
+              <p class="letter-sig">— Dari Rafli ❤️</p>
+            </div>
+          </div>
+
+          <!-- Right: Scattered Photos -->
+          <div class="letter-photos-scatter">
+            <div class="photo-polaroid reveal" style="--rotation: -8deg; --delay: 0s;" onclick="openLightbox('photos/p1.jpg')">
+              <img src="photos/p1.jpg" alt="Melinda" loading="lazy">
+              <p>Cantik ✨</p>
+            </div>
+            <div class="photo-polaroid reveal" style="--rotation: 5deg; --delay: 0.1s;" onclick="openLightbox('photos/p2.jpg')">
+              <img src="photos/p2.jpg" alt="Melinda" loading="lazy">
+              <p>My Love 💕</p>
+            </div>
+            <div class="photo-polaroid reveal" style="--rotation: -6deg; --delay: 0.2s;" onclick="openLightbox('photos/p3.jpg')">
+              <img src="photos/p3.jpg" alt="Melinda" loading="lazy">
+              <p>Beautiful ✨</p>
+            </div>
+            <div class="photo-polaroid reveal" style="--rotation: 9deg; --delay: 0.3s;" onclick="openLightbox('photos/p4.jpg')">
+              <img src="photos/p4.jpg" alt="Melinda" loading="lazy">
+              <p>My Girl 💖</p>
+            </div>
+          </div>
+        </div>
       </section>
     </div><!-- /.page-content -->
   </div><!-- /#page-letter -->
