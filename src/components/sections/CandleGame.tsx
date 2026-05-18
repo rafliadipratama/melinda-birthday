@@ -65,77 +65,124 @@ const CandleGame = () => {
                   key={candle.id}
                   onClick={() => handleCandleClick(candle.id)}
                   disabled={!candle.lit}
-                  className="relative flex flex-col items-center focus:outline-none disabled:cursor-default cursor-pointer group"
+                  className="relative flex flex-col items-center focus:outline-none disabled:cursor-default cursor-pointer group transition-transform hover:scale-110"
                   style={{ perspective: '1000px' }}
                 >
-                  {/* Candle stick */}
+                  {/* Candle holder - metallic base */}
                   <div
-                    className="w-3 h-32 rounded-full transition-all duration-300 group-hover:scale-110 relative"
+                    className="absolute -bottom-2"
                     style={{
-                      background: 'linear-gradient(90deg, #FFFACD 0%, #FFE4B5 50%, #FFE4B5 100%)',
-                      boxShadow: candle.lit ? '0 0 20px rgba(255, 200, 100, 0.6)' : '0 2px 8px rgba(0,0,0,0.3)',
-                      transformOrigin: 'bottom'
+                      width: '28px',
+                      height: '8px',
+                      background: 'linear-gradient(180deg, #FFD700 0%, #DAA520 100%)',
+                      borderRadius: '50%',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.3)',
+                      zIndex: -1
                     }}
                   ></div>
+
+                  {/* Candle stick - main wax body */}
+                  <div
+                    className="relative"
+                    style={{
+                      width: '14px',
+                      height: '120px',
+                      background: 'linear-gradient(90deg, #FFFACD 0%, #F5DEB3 35%, #FFE4B5 70%, #F5DEB3 100%)',
+                      borderRadius: '50% 50% 40% 40%',
+                      boxShadow: candle.lit
+                        ? '0 0 25px rgba(255, 200, 0, 0.5), -2px 4px 15px rgba(0,0,0,0.4)'
+                        : '-2px 4px 15px rgba(0,0,0,0.4)',
+                      transformOrigin: 'bottom center'
+                    }}
+                  >
+                    {/* Candle wick tip */}
+                    <div
+                      className="absolute left-1/2 -translate-x-1/2 -top-2"
+                      style={{
+                        width: '3px',
+                        height: '6px',
+                        background: '#4A4A4A',
+                        borderRadius: '50%',
+                        boxShadow: '0 0 8px rgba(0,0,0,0.6)'
+                      }}
+                    ></div>
+                  </div>
 
                   {/* Flame */}
                   {candle.lit && (
                     <>
                       {/* Main flame */}
                       <div
-                        className="absolute top-0"
+                        className="absolute"
                         style={{
-                          width: '20px',
-                          height: '40px',
-                          background: 'linear-gradient(180deg, #FFD700 0%, #FFA500 40%, #FF6347 100%)',
+                          width: '18px',
+                          height: '45px',
+                          top: '-35px',
+                          left: '50%',
+                          background: 'linear-gradient(180deg, #FFFF00 0%, #FFD700 20%, #FFA500 50%, #FF6347 100%)',
                           borderRadius: '50% 50% 50% 0',
-                          boxShadow: '0 0 30px rgba(255, 165, 0, 0.9), 0 0 60px rgba(255, 100, 0, 0.6)',
+                          boxShadow: '0 0 35px rgba(255, 200, 0, 0.95), 0 0 70px rgba(255, 100, 0, 0.7)',
                           animation: 'flameFlicker 0.2s infinite',
-                          filter: 'drop-shadow(0 0 15px rgba(255, 200, 0, 0.8))',
-                          transform: blowEffect ? 'scaleY(0.3) rotate(45deg)' : 'scaleY(1) rotate(0deg)',
+                          filter: 'drop-shadow(0 0 15px rgba(255, 200, 0, 0.9))',
+                          opacity: candle.lit ? 1 : 0,
+                          transform: blowEffect
+                            ? 'translateX(-50%) scaleY(0.2) rotate(-45deg)'
+                            : 'translateX(-50%) scaleY(1) rotate(0deg)',
                           transformOrigin: 'bottom',
                           transition: 'transform 0.1s ease-out'
                         }}
                       ></div>
 
-                      {/* Inner glow */}
+                      {/* Inner bright core */}
                       <div
-                        className="absolute top-2"
+                        className="absolute"
                         style={{
-                          width: '10px',
-                          height: '20px',
-                          background: 'linear-gradient(180deg, #FFFF00 0%, #FFD700 100%)',
+                          width: '9px',
+                          height: '25px',
+                          top: '-20px',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          background: 'linear-gradient(180deg, #FFFF99 0%, #FFFF00 50%, #FFD700 100%)',
                           borderRadius: '50% 50% 50% 0',
-                          opacity: 0.8,
-                          filter: 'blur(3px)',
-                          animation: 'flameFlicker 0.15s infinite'
+                          opacity: 0.9,
+                          filter: 'blur(2px)',
+                          animation: 'flameFlicker 0.15s infinite',
+                          zIndex: -1
                         }}
                       ></div>
 
-                      {/* Tip glow */}
+                      {/* Glow halo */}
                       <div
-                        className="absolute top-0"
+                        className="absolute"
                         style={{
-                          width: '20px',
-                          height: '15px',
-                          background: 'radial-gradient(ellipse, rgba(255,255,0,0.5) 0%, transparent 70%)',
+                          width: '50px',
+                          height: '50px',
+                          top: '-25px',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          background: 'radial-gradient(circle, rgba(255,200,0,0.4) 0%, transparent 70%)',
                           borderRadius: '50%',
-                          filter: 'blur(5px)'
+                          filter: 'blur(8px)',
+                          pointerEvents: 'none'
                         }}
                       ></div>
                     </>
                   )}
 
-                  {/* Blown out state */}
+                  {/* Blown out state - smoke wisps */}
                   {!candle.lit && candle.blown && (
                     <div
-                      className="absolute top-0"
+                      className="absolute"
                       style={{
-                        width: '20px',
+                        width: '16px',
                         height: '8px',
-                        background: 'rgba(100, 100, 100, 0.5)',
+                        top: '-12px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        background: 'rgba(80, 80, 80, 0.4)',
                         borderRadius: '50%',
-                        opacity: 0.6
+                        filter: 'blur(4px)',
+                        animation: 'smoke 2s ease-out forwards'
                       }}
                     ></div>
                   )}
@@ -143,7 +190,7 @@ const CandleGame = () => {
                   {/* Hover hint */}
                   {candle.lit && (
                     <div
-                      className="absolute -bottom-8 px-2 py-1 rounded bg-pink-600/80 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -bottom-10 px-2 py-1 rounded bg-pink-600/80 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity"
                       style={{ pointerEvents: 'none' }}
                     >
                       Klik!
@@ -288,6 +335,17 @@ const CandleGame = () => {
             100% {
               opacity: 0;
               transform: translateX(30px);
+            }
+          }
+
+          @keyframes smoke {
+            0% {
+              opacity: 0.6;
+              transform: translateX(-50%) translateY(0);
+            }
+            100% {
+              opacity: 0;
+              transform: translateX(-50%) translateY(-30px);
             }
           }
         `}</style>
