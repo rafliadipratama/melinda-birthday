@@ -910,6 +910,7 @@ function renderIcon(name) {
 }
 
 function replaceEmojisWithIcons() {
+  // Optimized version: only replace in specific elements
   const emojiMap = {
     '💌': 'envelope',
     '🎁': 'gift',
@@ -920,29 +921,19 @@ function replaceEmojisWithIcons() {
     '📸': 'camera',
   };
 
-  const walker = document.createTreeWalker(
-    document.body,
-    NodeFilter.SHOW_TEXT,
-    null,
-    false
-  );
+  // Target specific classes instead of entire body
+  const targets = document.querySelectorAll('.page-title, .section-title, h2, h1, p');
 
-  const nodesToReplace = [];
-  let node;
-  while (node = walker.nextNode()) {
-    if (Object.keys(emojiMap).some(emoji => node.textContent.includes(emoji))) {
-      nodesToReplace.push(node);
+  targets.forEach(element => {
+    if (element.textContent) {
+      let html = element.innerHTML;
+      Object.entries(emojiMap).forEach(([emoji, icon]) => {
+        // Only replace emoji not within tags
+        const regex = new RegExp(emoji.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+        html = html.replace(regex, renderIcon(icon));
+      });
+      element.innerHTML = html;
     }
-  }
-
-  nodesToReplace.forEach(node => {
-    let html = node.textContent;
-    Object.entries(emojiMap).forEach(([emoji, icon]) => {
-      html = html.replace(new RegExp(emoji, 'g'), renderIcon(icon));
-    });
-    const span = document.createElement('span');
-    span.innerHTML = html;
-    node.parentNode.replaceChild(span, node);
   });
 }
 
