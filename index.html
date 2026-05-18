@@ -27,6 +27,15 @@
   />
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons SVG Icon Classes -->
+  <style>
+    .icon { display: inline-block; vertical-align: -0.25em; }
+    .icon svg { width: 1.25rem; height: 1.25rem; }
+    .icon-sm svg { width: 1rem; height: 1rem; }
+    .icon-lg svg { width: 1.5rem; height: 1.5rem; }
+    .icon-xl svg { width: 2rem; height: 2rem; }
+    .icon-2xl svg { width: 3rem; height: 3rem; }
+  </style>
   <script>
     tailwind.config = {
       theme: {
@@ -827,6 +836,63 @@
 ================================================================ -->
 <script>
 /* ══════════════════════════════════════════════
+   HEROICONS SVG HELPER
+══════════════════════════════════════════════ */
+const heroicons = {
+  heart: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C5.153 16.07 1 12.362 1 8.5 1 5.42 3.042 3 5.5 3c1.74 0 3.41.932 4.5 2.372C11.09 3.932 12.75 3 14.5 3 16.958 3 19 5.42 19 8.5c0 3.862-4.153 7.57-8.335 11.593l-.023.012-.007.004-.022.013a.75.75 0 01-.704 0l-.022-.013Z"/></svg>',
+  envelope: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 4.5a3 3 0 013-3h15a3 3 0 013 3v15a3 3 0 01-3 3h-15a3 3 0 01-3-3v-15Zm4.6 4.99L12 9.624l6.9-4.134A3 3 0 0016.5 3h-9a3 3 0 00-2.4 1.456Z"/></svg>',
+  sparkles: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75ZM12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75Zm4.243.75a.75.75 0 011.061 0l1.591 1.591a.75.75 0 11-1.061 1.061L15.243 4.061a.75.75 0 010-1.061Zm-6.486 6.486a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 11-1.061-1.061l1.591-1.591a.75.75 0 011.061 0Zm0 5.425a.75.75 0 010 1.061L4.757 18.97a.75.75 0 01-1.061-1.061l1.591-1.591a.75.75 0 011.061 0Zm-6.486-6.486a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V7.5a.75.75 0 01.75-.75ZM3 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3.75A.75.75 0 013 12Zm2.25 2.25a.75.75 0 01-1.5 0v2.25a.75.75 0 011.5 0v-2.25Z" clip-rule="evenodd"/></svg>',
+  gift: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.375.75C6.063.75 3.375 3.438 3.375 6.75V19.5a2.625 2.625 0 002.625 2.625h12a2.625 2.625 0 002.625-2.625V6.75c0-3.312-2.688-6-6-6zM12 11.25a.75.75 0 100 1.5.75.75 0 000-1.5zM7.5 3.375a1.875 1.875 0 100 3.75 1.875 1.875 0 000-3.75zm9 0a1.875 1.875 0 100 3.75 1.875 1.875 0 000-3.75z"/></svg>',
+  cake: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11 1a1 1 0 011 1v1h3V2a1 1 0 112 0v1h3a2 2 0 012 2v1a1 1 0 11-2 0V5h-3v14h6a2 2 0 012 2v1a1 1 0 11-2 0v-1h-3v1a1 1 0 11-2 0v-1h-3v1a1 1 0 11-2 0v-1H6v1a1 1 0 11-2 0v-1a2 2 0 012-2h6V5H7v1a1 1 0 11-2 0V5a2 2 0 012-2h3V2a1 1 0 011-1z"/></svg>',
+  musicalNote: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.667 15.874a2.25 2.25 0 001.083-4.26c.679-.645 1.783-1.443 2.527-1.748 1.007-.514 2.15.696 1.35 1.702-1.147 1.413-2.567 2.558-3.287 3.007a2.247 2.247 0 01-1.673.3zm0 0c-.235.235-.44.47-.624.705-1.237 1.555-2.273 2.848-4.043 3.524-2.172.866-4.826-.478-5.294-2.89a4.5 4.5 0 112.635-5.838c.153.09.299.197.434.322l.39.392c1.02 1.026 1.678 2.153.823 3.518-.507.823-.274 1.955.648 2.473.923.517 2.054.284 2.561-.54.694-1.126.072-2.354-.95-3.382L6.717 10c-.444-.448-1.025-.717-1.646-.717a2.5 2.5 0 00-2.5 2.5 2.5 2.5 0 005 0v-.003z"/></svg>',
+  microphone: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.25 4.5a3.75 3.75 0 117.5 0v.006a3 3 0 106 0v-.006a9 9 0 10-18 0v.006a3 3 0 106 0V4.5Z"/></svg>',
+  clock: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd"/></svg>',
+  star: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.541c.25 1.104-.895 1.95-1.904 1.388L12 18.414l-4.683 2.467c-1.009.56-2.154-.284-1.904-1.388l1.256-5.541-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg>',
+  camera: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3.75 3.75 0 100 7.5A3.75 3.75 0 0012 9Z"/><path fill-rule="evenodd" d="M9.344 3A6.75 6.75 0 0016 9.344V21a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 21V9.344A6.75 6.75 0 019.344 3zm0 1.5a5.25 5.25 0 100 10.5 5.25 5.25 0 000-10.5Z" clip-rule="evenodd"/></svg>'
+};
+
+function renderIcon(name) {
+  return `<span class="icon">${heroicons[name] || ''}</span>`;
+}
+
+function replaceEmojisWithIcons() {
+  const emojiMap = {
+    '💌': 'envelope',
+    '🎁': 'gift',
+    '🎂': 'cake',
+    '🎤': 'microphone',
+    '🎵': 'musicalNote',
+    '⏳': 'clock',
+    '📸': 'camera',
+  };
+
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    null,
+    false
+  );
+
+  const nodesToReplace = [];
+  let node;
+  while (node = walker.nextNode()) {
+    if (Object.keys(emojiMap).some(emoji => node.textContent.includes(emoji))) {
+      nodesToReplace.push(node);
+    }
+  }
+
+  nodesToReplace.forEach(node => {
+    let html = node.textContent;
+    Object.entries(emojiMap).forEach(([emoji, icon]) => {
+      html = html.replace(new RegExp(emoji, 'g'), renderIcon(icon));
+    });
+    const span = document.createElement('span');
+    span.innerHTML = html;
+    node.parentNode.replaceChild(span, node);
+  });
+}
+
+/* ══════════════════════════════════════════════
    FALLING PETALS ANIMATION
 ══════════════════════════════════════════════ */
 function generatePetals() {
@@ -860,8 +926,11 @@ function generatePetals() {
   }
 }
 
-// Generate petals on page load
-document.addEventListener('DOMContentLoaded', generatePetals);
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  replaceEmojisWithIcons();
+  generatePetals();
+});
 
 /* ══════════════════════════════════════════════
    MINI GAME
@@ -1074,8 +1143,9 @@ function goPage(pageName) {
     /* scroll to top of page */
     targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  /* regenerate petals when changing pages */
+  /* regenerate petals and icons when changing pages */
   generatePetals();
+  replaceEmojisWithIcons();
 }
 
 /* ══════════════════════════════════════════════
