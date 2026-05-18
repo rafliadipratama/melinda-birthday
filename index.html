@@ -2577,6 +2577,208 @@
       letter-spacing: 1px;
     }
 
+    /* ================================================================
+       CANDLE PAGE - ENHANCED STYLING
+    ================================================================ */
+    .candle-section h2 {
+      text-align: center;
+    }
+
+    .candle-section > p {
+      text-align: center;
+      margin-bottom: 2rem !important;
+    }
+
+    .candle-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .cake-outer {
+      background: linear-gradient(135deg, rgba(255,20,147,.1), rgba(255,215,0,.08));
+      border: 2px solid rgba(255,20,147,.3);
+      border-radius: 30px;
+      padding: 4rem 3rem;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .cake-outer:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255,20,147,.6);
+      box-shadow: 0 20px 50px rgba(255,20,147,.3);
+    }
+
+    .candle-hud {
+      background: linear-gradient(135deg, rgba(255,20,147,.12), rgba(255,215,0,.08));
+      border: 1.5px solid rgba(255,20,147,.35);
+      border-radius: 20px;
+      padding: 2rem;
+      min-width: 300px;
+      text-align: center;
+      transition: all 0.4s ease;
+      display: none;
+    }
+
+    .candle-hud.active {
+      display: block;
+      animation: hudReveal 0.5s ease;
+    }
+
+    @keyframes hudReveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .candle-counter {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 1.5rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .mic-bar-wrap {
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .mic-bar-fill {
+      background: linear-gradient(90deg, var(--pink), var(--gold));
+      height: 100%;
+      width: 0%;
+      transition: width 0.1s ease;
+      border-radius: 10px;
+    }
+
+    .mic-tip {
+      display: block;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+
+    .candle-win {
+      background: linear-gradient(135deg, rgba(255,215,0,.15), rgba(255,20,147,.15));
+      border: 2px solid rgba(255,215,0,.5);
+      border-radius: 25px;
+      padding: 3rem 2rem;
+      text-align: center;
+      display: none;
+      min-width: 350px;
+      animation: winReveal 0.6s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .candle-win.show {
+      display: block;
+    }
+
+    @keyframes winReveal {
+      from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-10deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .cw-main {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--pink), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .cw-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ================================================================
+       HERO PAGE - ENHANCED STYLING
+    ================================================================ */
+    .hero-inner {
+      text-align: center;
+      animation: heroSlideIn 1s ease both;
+    }
+
+    @keyframes heroSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-tag {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      color: var(--pink);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFB6C1, #FF1493, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .hero-name {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: #fff;
+      margin-bottom: 2rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+    }
+
+    .btn-scroll {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, rgba(255,20,147,.2), rgba(255,215,0,.1));
+      border: 2px solid rgba(255,20,147,.5);
+      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      margin-top: 2rem;
+      cursor: pointer;
+    }
+
+    .btn-scroll:hover {
+      background: linear-gradient(135deg, rgba(255,20,147,.35), rgba(255,215,0,.2));
+      border-color: rgba(255,20,147,.8);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255,20,147,.3);
+    }
+
   </style>
 </head>
 <body>
@@ -3039,10 +3241,11 @@
     <h2 class="section-title reveal">Tiup Lilinnya, Jahee! 🎂</h2>
     <div class="section-divider reveal"></div>
     <p class="reveal" style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:1.6rem;">
-      Tekan tombol lalu tiup mikrofon kamu — matikan semua lilinnya! 🎤
+      Pilih mode bermain & matikan semua lilinnya! 🎤👆
     </p>
 
-    <div class="cake-outer reveal">
+    <div class="candle-content">
+      <div class="cake-outer reveal">
       <!-- Candles -->
       <div class="candles-row" id="candles-row">
         <div class="candle" id="cv0"><div class="flame"></div><div class="c-smoke"></div></div>
@@ -3074,10 +3277,11 @@
       <button class="btn-candle reveal" id="btn-candle-click" onclick="startCandleGame('click')">👆 Klik Lilin</button>
     </div>
 
-    <div class="candle-win" id="candle-win">
-      <p class="cw-main">🎉 Selamat Ulang Tahun! 🎉</p>
-      <p class="cw-sub">Semoga semua 5 harapanmu terkabul, Jahee 💖</p>
+      <div class="candle-win" id="candle-win">
+        <p class="cw-main">🎉 Selamat Ulang Tahun! 🎉</p>
+        <p class="cw-sub">Semoga semua 5 harapanmu terkabul, Jahee 💖</p>
       </div>
+    </div><!-- /.candle-content -->
       </section>
     </div><!-- /.page-content -->
   </div><!-- /#page-candle -->
