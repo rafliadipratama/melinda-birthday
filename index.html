@@ -211,210 +211,197 @@
 <body class="bg-black text-white font-poppins overflow-x-clip">
 
 <!-- Loading Screen -->
-<div id="loader">
-  <div class="leopard-bar" style="position:absolute;top:0;left:0;right:0;"></div>
-  <span class="loader-heart">💖</span>
-  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-  <p class="loader-txt">Memuat pesan cinta...</p>
-  <div class="leopard-bar" style="position:absolute;bottom:0;left:0;right:0;"></div>
+<div id="loader" class="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center gap-4 transition-all duration-800">
+  <div class="leopard-bar absolute top-0 left-0 right-0"></div>
+  <span class="loader-heart text-4xl">💖</span>
+  <div class="loader-bar-wrap w-52 h-1 bg-white/10 rounded"><div class="loader-bar"></div></div>
+  <p class="loader-txt text-xs text-white/35 tracking-widest">Memuat pesan cinta...</p>
+  <div class="leopard-bar absolute bottom-0 left-0 right-0"></div>
 </div>
 
 <!-- Toast -->
-<div id="toast"></div>
+<div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-black/90 backdrop-blur border border-pink-500/30 rounded-full px-6 py-2 text-white text-sm z-[4000] pointer-events-none opacity-0 transition-opacity duration-300 whitespace-nowrap"></div>
 
 <!-- Back to Top -->
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Kembali ke atas">↑</button>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Kembali ke atas" class="fixed bottom-7 left-7 w-11 h-11 rounded-full bg-pink-500/10 backdrop-blur border border-pink-500/30 text-pink-500 text-sm hidden items-center justify-center transition-all z-[500] hover:bg-pink-500/25 hover:-translate-y-1"></button>
 
 <!-- Share Button -->
-<button id="share-btn" class="visible" onclick="shareLink()" title="Salin link">🔗</button>
+<button id="share-btn" onclick="shareLink()" title="Salin link" class="fixed bottom-20 right-7 w-11 h-11 rounded-full bg-yellow-500/10 backdrop-blur border border-yellow-500/30 text-sm hidden items-center justify-center transition-all z-[500] hover:bg-yellow-500/20 hover:-translate-y-1"></button>
 
-<!-- ================================================================
-     MINI GAME OVERLAY
-================================================================ -->
-<div id="game-overlay">
-
+<!-- MINI GAME OVERLAY -->
+<div id="game-overlay" class="fixed inset-0 z-[2000] bg-gradient-to-b from-[rgba(42,0,13,0.97)] to-[rgba(10,0,5,0.97)] flex flex-col items-center justify-center transition-all duration-900">
   <!-- Leopard bars top/bottom -->
-  <div class="leopard-bar" style="position:absolute;top:0;left:0;right:0;z-index:1;"></div>
-  <div class="leopard-bar" style="position:absolute;bottom:0;left:0;right:0;z-index:1;"></div>
+  <div class="leopard-bar absolute top-0 left-0 right-0 z-[1]"></div>
+  <div class="leopard-bar absolute bottom-0 left-0 right-0 z-[1]"></div>
 
-  <!-- ── Phase 1: Intro ── -->
-  <div id="phase-intro" class="gphase active">
-    <span class="lock-icon">🔒</span>
-    <h2 class="intro-title">Hei, Melinda! 💌</h2>
-    <p class="intro-sub">
+  <!-- Phase 1: Intro -->
+  <div id="phase-intro" class="gphase active w-full max-w-screen overflow-hidden box-border py-8 px-6">
+    <span class="lock-icon block text-5xl mb-5 animate-lockShake">🔒</span>
+    <h2 class="intro-title font-cinzel text-3xl sm:text-4xl bg-gradient-to-r from-pink-400 to-yellow-400 bg-clip-text text-transparent mb-2 break-words w-full px-2">Hei, Melinda! 💌</h2>
+    <p class="intro-sub text-white/65 text-base font-light mb-8 max-w-sm mx-auto leading-relaxed break-words">
       Ada pesan cinta spesial yang terkunci untukmu...<br/>
       Kamu harus menyelesaikan tantangan dulu sebelum bisa membacanya!
     </p>
-    <div class="hint-box">
-      Tangkap <strong>20 hati 💕</strong> yang terbang di layar untuk membuka pesannya!
+    <div class="hint-box block px-5 py-3 rounded-full bg-pink-500/7 border border-pink-500/40 text-white text-sm mx-auto mb-8 max-w-md break-words">
+      Tangkap <strong class="text-pink-500">20 hati 💕</strong> yang terbang di layar untuk membuka pesannya!
     </div>
-    <button class="btn-game" onclick="startGame()">Mulai Tantangan! 💖</button>
+    <button class="btn-game inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-hot-pink to-dark-red border border-pink-500/35 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 hover:scale-105" onclick="startGame()">Mulai Tantangan! 💖</button>
   </div>
 
-  <!-- ── Phase 2: Game ── -->
-  <div id="phase-game" class="gphase">
+  <!-- Phase 2: Game -->
+  <div id="phase-game" class="gphase fixed inset-0 flex-col">
     <!-- HUD -->
-    <div id="game-hud">
-      <span id="hud-label">Tangkap Hati 💕</span>
-      <span id="hud-count">0 / 20</span>
-      <div id="hud-bar-wrap"><div id="hud-fill"></div></div>
-      <span id="hud-tip">Klik semua hati yang muncul!</span>
+    <div id="game-hud" class="fixed top-0 left-0 right-0 z-[2010] pt-8 px-6 pb-4 bg-gradient-to-b from-black/95 to-transparent flex flex-col items-center gap-2 pointer-events-none">
+      <span id="hud-label" class="font-cinzel text-xl text-pink-500">Tangkap Hati 💕</span>
+      <span id="hud-count" class="font-playfair text-2xl text-white transition-transform">0 / 20</span>
+      <div id="hud-bar-wrap" class="w-64 sm:w-72 h-3 bg-white/10 rounded-full border border-pink-500/30 overflow-hidden"><div id="hud-fill" class="h-full bg-gradient-to-r from-hot-pink to-yellow-400 rounded-full transition-all duration-350"></div></div>
+      <span id="hud-tip" class="text-xs text-white/35 font-light">Klik semua hati yang muncul!</span>
     </div>
     <!-- Arena where hearts bounce -->
-    <div id="arena"></div>
+    <div id="arena" class="fixed inset-0 top-[115px]"></div>
     <!-- Speed alert overlay -->
-    <div id="speed-alert">💨 Makin cepat!</div>
+    <div id="speed-alert" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[2050] font-cinzel text-3xl text-pink-500 drop-shadow-lg opacity-0 pointer-events-none transition-opacity duration-300">💨 Makin cepat!</div>
   </div>
 
-  <!-- ── Phase 3: Win ── -->
-  <div id="phase-win" class="gphase">
-    <span class="unlock-icon">🔓</span>
-    <h2 class="win-title">Yeay, kamu berhasil! 🎉</h2>
-    <p class="win-sub">
+  <!-- Phase 3: Win -->
+  <div id="phase-win" class="gphase text-center py-8 px-6 overflow-hidden w-full max-w-screen">
+    <span class="unlock-icon block text-5xl mb-4">🔓</span>
+    <h2 class="win-title font-cinzel text-3xl sm:text-4xl bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent mb-3">Yeay, kamu berhasil! 🎉</h2>
+    <p class="win-sub text-white/65 font-light mb-8 max-w-sm mx-auto leading-relaxed">
       Kamu sudah menangkap semua hati!<br/>
       Sekarang buka pesannya... 💌
     </p>
-    <button class="btn-game" onclick="revealSite()">Buka Pesan Cinta 💌</button>
+    <button class="btn-game inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-hot-pink to-dark-red border border-pink-500/35 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 hover:scale-105" onclick="revealSite()">Buka Pesan Cinta 💌</button>
   </div>
-
 </div>
 
-<!-- ================================================================
-     MAIN SITE (hidden until game complete)
-================================================================ -->
-<div id="main-site" style="opacity:0;transition:opacity 1s ease;pointer-events:none;">
-
+<!-- MAIN SITE (hidden until game complete) -->
+<div id="main-site" class="opacity-0 transition-opacity duration-1000 pointer-events-none">
   <!-- Fireworks canvas -->
-  <canvas id="fw-canvas"></canvas>
+  <canvas id="fw-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
   <!-- Floating hearts -->
-  <div id="hearts-wrap"></div>
+  <div id="hearts-wrap" class="fixed inset-0 pointer-events-none z-[1] overflow-hidden"></div>
 
-  <!-- ════════════════════════════════════════════════════════════
-       MENU PAGE (HOME)
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-menu" class="page active">
-    <div class="menu-container">
-      <h1 class="menu-title">🎂 Selamat Ulang Tahun 🎂</h1>
-      <p class="menu-subtitle">Melinda Az Zahra Hamid — Pilih section yang ingin kamu lihat:</p>
+  <!-- MENU PAGE (HOME) -->
+  <div id="page-menu" class="page active flex flex-col min-h-screen w-full max-w-full justify-center items-center">
+    <div class="menu-container px-8 py-16 max-w-2xl mx-auto text-center">
+      <h1 class="menu-title text-4xl sm:text-5xl font-cinzel mb-4 bg-gradient-to-r from-pink-300 via-pink-500 to-yellow-400 bg-clip-text text-transparent">🎂 Selamat Ulang Tahun 🎂</h1>
+      <p class="menu-subtitle text-white/60 mb-10 text-lg">Melinda Az Zahra Hamid — Pilih section yang ingin kamu lihat:</p>
 
-      <div class="menu-grid">
-        <div class="menu-card" onclick="goPage('letter')">
-          <div class="menu-icon">💌</div>
-          <div class="menu-label">Surat Cinta</div>
+      <div class="menu-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('letter')">
+          <div class="menu-icon text-4xl">💌</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Surat Cinta</div>
         </div>
-        <div class="menu-card" onclick="goPage('bouquet')">
-          <div class="menu-icon">🌹</div>
-          <div class="menu-label">Buket Bunga</div>
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('bouquet')">
+          <div class="menu-icon text-4xl">🌹</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Buket Bunga</div>
         </div>
-        <div class="menu-card" onclick="goPage('photos')">
-          <div class="menu-icon">📸</div>
-          <div class="menu-label">Foto-Foto</div>
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('photos')">
+          <div class="menu-icon text-4xl">📸</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Foto-Foto</div>
         </div>
-        <div class="menu-card" onclick="goPage('candle')">
-          <div class="menu-icon">🎂</div>
-          <div class="menu-label">Tiup Lilin</div>
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('candle')">
+          <div class="menu-icon text-4xl">🎂</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Tiup Lilin</div>
         </div>
-        <div class="menu-card" onclick="goPage('wishes')">
-          <div class="menu-icon">🎉</div>
-          <div class="menu-label">Doa & Harapan</div>
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('wishes')">
+          <div class="menu-icon text-4xl">🎉</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Doa & Harapan</div>
         </div>
-        <div class="menu-card" onclick="goPage('dunianya')">
-          <div class="menu-icon">🌸</div>
-          <div class="menu-label">Dunianya Melin</div>
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('dunianya')">
+          <div class="menu-icon text-4xl">🌸</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Dunianya Melin</div>
         </div>
-        <div class="menu-card" onclick="goPage('surprise')">
-          <div class="menu-icon">🎁</div>
-          <div class="menu-label">Ada Kejutan!</div>
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('surprise')">
+          <div class="menu-icon text-4xl">🎁</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Ada Kejutan!</div>
         </div>
-        <div class="menu-card" onclick="goPage('countdown')">
-          <div class="menu-icon">⏳</div>
-          <div class="menu-label">Hitung Mundur</div>
+        <div class="menu-card bg-gradient-to-br from-pink-500/10 to-yellow-500/5 border border-pink-500/30 rounded-2xl p-6 cursor-pointer transition-all hover:scale-105 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-yellow-500/10 hover:border-pink-500/60 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center gap-3" onclick="goPage('countdown')">
+          <div class="menu-icon text-4xl">⏳</div>
+          <div class="menu-label font-cinzel font-semibold text-white">Hitung Mundur</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════════════════════════
-       HERO PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-hero" class="page">
+  <!-- HERO PAGE -->
+  <div id="page-hero" class="page flex flex-col min-h-screen w-full max-w-full">
     <!-- HERO -->
-    <section class="hero">
-    <div class="sparkle" style="width:6px;height:6px;top:15%;left:12%;animation-delay:0s;animation-duration:2.5s;"></div>
-    <div class="sparkle" style="width:4px;height:4px;top:25%;left:85%;animation-delay:0.8s;animation-duration:3s;background:var(--gold);"></div>
-    <div class="sparkle" style="width:5px;height:5px;top:70%;left:8%;animation-delay:1.5s;animation-duration:2s;background:var(--gold);"></div>
-    <div class="sparkle" style="width:6px;height:6px;top:80%;left:90%;animation-delay:0.3s;animation-duration:3.5s;"></div>
-    <div class="sparkle" style="width:4px;height:4px;top:50%;left:95%;animation-delay:2s;animation-duration:2.2s;"></div>
-    <div class="sparkle" style="width:5px;height:5px;top:40%;left:5%;animation-delay:1s;animation-duration:2.8s;background:var(--gold);"></div>
+    <section class="hero relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[rgba(42,0,13,0.88)] to-[rgba(10,0,5,0.84)] z-[2] overflow-hidden">
+      <div class="sparkle absolute w-1.5 h-1.5 rounded-full bg-pink-500" style="top:15%;left:12%;animation-delay:0s;animation-duration:2.5s;"></div>
+      <div class="sparkle absolute w-1 h-1 rounded-full bg-yellow-400" style="top:25%;left:85%;animation-delay:0.8s;animation-duration:3s;"></div>
+      <div class="sparkle absolute w-1.25 h-1.25 rounded-full bg-yellow-400" style="top:70%;left:8%;animation-delay:1.5s;animation-duration:2s;"></div>
+      <div class="sparkle absolute w-1.5 h-1.5 rounded-full bg-pink-500" style="top:80%;left:90%;animation-delay:0.3s;animation-duration:3.5s;"></div>
+      <div class="sparkle absolute w-1 h-1 rounded-full bg-pink-500" style="top:50%;left:95%;animation-delay:2s;animation-duration:2.2s;"></div>
+      <div class="sparkle absolute w-1.25 h-1.25 rounded-full bg-yellow-400" style="top:40%;left:5%;animation-delay:1s;animation-duration:2.8s;"></div>
 
-    <div class="leopard-bar" style="position:absolute;top:0;left:0;right:0;"></div>
+      <div class="leopard-bar absolute top-0 left-0 right-0"></div>
 
-    <div class="hero-inner">
-      <p class="hero-tag">✦ Hari Spesialmu ✦</p>
-      <h1>Selamat Ulang Tahun</h1>
-      <p class="hero-name">Melinda Az Zahra Hamid</p>
-      <span class="hero-emoji">🎂</span>
-      <p class="hero-sub">
-        Hari ini langit tersenyum lebih cerah, karena ada seseorang yang luar biasa lahir ke dunia ini —
-        dan orang itu adalah kamu, sayangku. 🌹
-      </p>
-      <a href="#letter" class="btn-scroll">💌 Baca Surat Cintaku</a>
-    </div>
+      <div class="hero-inner relative z-[3] text-center px-6 py-8 max-w-2xl">
+        <p class="hero-tag inline-block text-sm tracking-widest text-yellow-400 mb-6 font-light">✦ Hari Spesialmu ✦</p>
+        <h1 class="font-cinzel text-5xl sm:text-7xl font-bold leading-tight bg-gradient-to-r from-pink-300 via-pink-500 to-yellow-400 bg-clip-text text-transparent mb-1 animate-fadeSlideDown">Selamat Ulang Tahun</h1>
+        <p class="hero-name font-playfair text-3xl sm:text-4xl italic text-white drop-shadow-lg mb-6 animate-fadeSlideDown" style="animation-delay:0.2s;">Melinda Az Zahra Hamid</p>
+        <span class="hero-emoji block text-5xl sm:text-7xl my-4 animate-heroBounce">🎂</span>
+        <p class="hero-sub text-base sm:text-lg text-white/70 font-light max-w-xl mx-auto mb-8 leading-relaxed animate-fadeSlideDown" style="animation-delay:0.4s;">
+          Hari ini langit tersenyum lebih cerah, karena ada seseorang yang luar biasa lahir ke dunia ini —
+          dan orang itu adalah kamu, sayangku. 🌹
+        </p>
+        <a href="#letter" class="btn-scroll inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-hot-pink to-dark-red border border-pink-500/35 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 hover:scale-105 animate-fadeSlideDown" style="animation-delay:0.6s;">💌 Baca Surat Cintaku</a>
+      </div>
 
-    <div class="leopard-bar" style="position:absolute;bottom:0;left:0;right:0;"></div>
+      <div class="leopard-bar absolute bottom-0 left-0 right-0"></div>
     </section>
-  </div><!-- /#page-hero -->
+  </div>
 
-  <!-- ════════════════════════════════════════════════════════════
-       LETTER PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-letter" class="page">
-    <div class="page-header">
-      <span class="page-title">💌 Surat Cinta</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
+  <!-- LETTER PAGE -->
+  <div id="page-letter" class="page flex flex-col min-h-screen w-full max-w-full">
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">💌 Surat Cinta</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
+    <div class="page-content flex-1 overflow-y-auto overflow-x-clip">
       <!-- LETTER -->
-      <section id="letter" class="letter-section section-pad">
-        <div class="letter-container">
+      <section id="letter" class="letter-section bg-gradient-to-b from-black to-[rgba(22,0,8,1)] px-6 py-16 flex flex-col items-center">
+        <div class="letter-container grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-3xl mx-auto">
           <!-- Left: Scalloped Card -->
           <div class="letter-card-wrapper">
-            <div class="letter-card reveal">
-              <p class="letter-edit-hint" onclick="toggleLetterEdit()">✏️ Klik untuk edit</p>
-              <div class="letter-body" id="letter-body">
-                <p style="text-align:center;font-size:1.1em;margin-bottom:1.2rem;"><strong>🎂 SELAMAT ULANG TAHUN 🎂</strong></p>
-                <p>Hari ini adalah hari spesialmu, dan kami semua ingin merayakan <span class="highlight">kesuksesan</span> yang telah kamu raih selama ini. Dari kecil hingga sekarang berusia 25 tahun, kamu sudah membuktikan bahwa kamu adalah sosok yang <span class="highlight">luar biasa</span>.</p>
-                <p style="margin-top:1rem;">Terima kasih telah hadir di dunia ini, Jahee! Dunia menjadi lebih berwarna dengan kehadiran, tawa, dan kehangatan darimu. Kamu adalah inspirasi bagi banyak orang, dan kebahagiaan mu adalah kebahagiaan kami.</p>
-                <p style="margin-top:1rem;">Semoga di tahun yang baru ini, kamu terus tumbuh, belajar, dan mencapai semua impian mu. Semoga kesehatan selalu menyertaimu, dan setiap hari membawa kebahagiaan baru untuk hidupmu.</p>
-                <p style="text-align:center;margin-top:1.5rem;"><strong>🎉 Banyak cinta & bahagia untukmu! 🎉</strong></p>
+            <div class="letter-card reveal bg-white rounded-2xl p-8 shadow-2xl relative overflow-visible max-w-md mx-auto lg:mx-0">
+              <p class="letter-edit-hint text-xs text-black/50 cursor-pointer transition-colors hover:text-pink-500 mb-4" onclick="toggleLetterEdit()">✏️ Klik untuk edit</p>
+              <div class="letter-body text-base leading-relaxed text-gray-800 font-light" id="letter-body">
+                <p class="text-center font-bold text-lg mb-4"><strong>🎂 SELAMAT ULANG TAHUN 🎂</strong></p>
+                <p>Hari ini adalah hari spesialmu, dan kami semua ingin merayakan <span class="highlight text-pink-600 font-semibold">kesuksesan</span> yang telah kamu raih selama ini. Dari kecil hingga sekarang berusia 25 tahun, kamu sudah membuktikan bahwa kamu adalah sosok yang <span class="highlight text-pink-600 font-semibold">luar biasa</span>.</p>
+                <p class="mt-4">Terima kasih telah hadir di dunia ini, Jahee! Dunia menjadi lebih berwarna dengan kehadiran, tawa, dan kehangatan darimu. Kamu adalah inspirasi bagi banyak orang, dan kebahagiaan mu adalah kebahagiaan kami.</p>
+                <p class="mt-4">Semoga di tahun yang baru ini, kamu terus tumbuh, belajar, dan mencapai semua impian mu. Semoga kesehatan selalu menyertaimu, dan setiap hari membawa kebahagiaan baru untuk hidupmu.</p>
+                <p class="text-center font-bold mt-6"><strong>🎉 Banyak cinta & bahagia untukmu! 🎉</strong></p>
               </div>
-              <p class="letter-sig">— Dari Rafli ❤️</p>
+              <p class="letter-sig text-right mt-6 font-cinzel text-base text-gray-700 tracking-wider">— Dari Rafli ❤️</p>
             </div>
           </div>
 
           <!-- Right: Scattered Photos -->
-          <div class="letter-photos-scatter">
-            <div class="photo-polaroid reveal" style="--rotation: -8deg; --delay: 0s;" onclick="openLightbox('photos/p1.jpg')">
-              <img src="photos/p1.jpg" alt="Melinda" loading="lazy">
-              <p>Cantik ✨</p>
+          <div class="letter-photos-scatter relative h-96 lg:h-auto">
+            <div class="photo-polaroid reveal absolute bg-white p-2 shadow-lg cursor-pointer transition-all hover:shadow-2xl hover:-translate-y-2 hover:scale-110" style="--rotation: -8deg; --delay: 0s; width:120px; height:130px; top:0; left:0;" onclick="openLightbox('photos/p1.jpg')">
+              <img src="photos/p1.jpg" alt="Melinda" loading="lazy" class="w-full h-20 object-cover block">
+              <p class="text-center text-xs mt-1 text-gray-700 font-semibold">Cantik ✨</p>
             </div>
-            <div class="photo-polaroid reveal" style="--rotation: 5deg; --delay: 0.1s;" onclick="openLightbox('photos/p2.jpg')">
-              <img src="photos/p2.jpg" alt="Melinda" loading="lazy">
-              <p>My Love 💕</p>
+            <div class="photo-polaroid reveal absolute bg-white p-2 shadow-lg cursor-pointer transition-all hover:shadow-2xl hover:-translate-y-2 hover:scale-110" style="--rotation: 5deg; --delay: 0.1s; width:120px; height:130px; top:60px; right:0;" onclick="openLightbox('photos/p2.jpg')">
+              <img src="photos/p2.jpg" alt="Melinda" loading="lazy" class="w-full h-20 object-cover block">
+              <p class="text-center text-xs mt-1 text-gray-700 font-semibold">My Love 💕</p>
             </div>
-            <div class="photo-polaroid reveal" style="--rotation: -6deg; --delay: 0.2s;" onclick="openLightbox('photos/p3.jpg')">
-              <img src="photos/p3.jpg" alt="Melinda" loading="lazy">
-              <p>Beautiful ✨</p>
+            <div class="photo-polaroid reveal absolute bg-white p-2 shadow-lg cursor-pointer transition-all hover:shadow-2xl hover:-translate-y-2 hover:scale-110" style="--rotation: -6deg; --delay: 0.2s; width:120px; height:130px; top:200px; left:30px;" onclick="openLightbox('photos/p3.jpg')">
+              <img src="photos/p3.jpg" alt="Melinda" loading="lazy" class="w-full h-20 object-cover block">
+              <p class="text-center text-xs mt-1 text-gray-700 font-semibold">Beautiful ✨</p>
             </div>
-            <div class="photo-polaroid reveal" style="--rotation: 9deg; --delay: 0.3s;" onclick="openLightbox('photos/p4.jpg')">
-              <img src="photos/p4.jpg" alt="Melinda" loading="lazy">
-              <p>My Girl 💖</p>
+            <div class="photo-polaroid reveal absolute bg-white p-2 shadow-lg cursor-pointer transition-all hover:shadow-2xl hover:-translate-y-2 hover:scale-110" style="--rotation: 9deg; --delay: 0.3s; width:120px; height:130px; top:280px; right:40px;" onclick="openLightbox('photos/p4.jpg')">
+              <img src="photos/p4.jpg" alt="Melinda" loading="lazy" class="w-full h-20 object-cover block">
+              <p class="text-center text-xs mt-1 text-gray-700 font-semibold">My Girl 💖</p>
             </div>
           </div>
         </div>
       </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-letter -->
+    </div>
+  </div>
 
   <!-- ════════════════════════════════════════════════════════════
        WISHES PAGE
