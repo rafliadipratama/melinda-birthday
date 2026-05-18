@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import HeroSection from './components/sections/HeroSection'
 import MiniGame from './components/MiniGame'
 import MenuHub from './components/MenuHub'
+import MusicPlayer from './components/MusicPlayer'
 
 // Lazy load other sections
 const GiftGallery = lazy(() => import('./components/sections/GiftGallery'))
@@ -39,50 +40,58 @@ function App() {
   // Render hero + menu
   if (currentPage === 'hero') {
     return (
-      <AnimatePresence mode="wait">
-        <motion.div
-          key="hero"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          className="w-full overflow-x-hidden bg-black"
-        >
-          <HeroSection onExplore={() => handleSelectSection('menu')} />
-          <Suspense fallback={null}>
-            <Footer />
-          </Suspense>
-        </motion.div>
-      </AnimatePresence>
+      <>
+        <MusicPlayer />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key="hero"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.5 }}
+            className="w-full overflow-x-hidden bg-black"
+          >
+            <HeroSection onExplore={() => handleSelectSection('menu')} />
+            <Suspense fallback={null}>
+              <Footer />
+            </Suspense>
+          </motion.div>
+        </AnimatePresence>
+      </>
     )
   }
 
   // Render menu page
   if (currentPage === 'menu') {
     return (
-      <AnimatePresence mode="wait">
-        <motion.div
-          key="menu"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          className="w-full overflow-x-hidden bg-black"
-        >
-          <MenuHub onSelectSection={handleSelectSection} />
-          <Suspense fallback={null}>
-            <Footer />
-          </Suspense>
-        </motion.div>
-      </AnimatePresence>
+      <>
+        <MusicPlayer />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key="menu"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.5 }}
+            className="w-full overflow-x-hidden bg-black"
+          >
+            <MenuHub onSelectSection={handleSelectSection} />
+            <Suspense fallback={null}>
+              <Footer />
+            </Suspense>
+          </motion.div>
+        </AnimatePresence>
+      </>
     )
   }
 
   // Render selected section with back button
   return (
-    <div className="w-full overflow-x-hidden bg-black">
-      {/* Back to Menu Button */}
-      <button
+    <>
+      <MusicPlayer />
+      <div className="w-full overflow-x-hidden bg-black">
+        {/* Back to Menu Button */}
+        <button
         onClick={handleBackToMenu}
         className="fixed top-6 left-6 z-40 px-4 py-2 bg-pink-600/80 hover:bg-pink-600 text-white rounded-full text-sm transition-all hover:scale-110 backdrop-blur-md"
       >
@@ -151,7 +160,8 @@ function App() {
           </Suspense>
         </motion.div>
       </AnimatePresence>
-    </div>
+      </div>
+    </>
   )
 }
 

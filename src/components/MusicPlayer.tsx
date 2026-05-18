@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const MusicPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [volume, setVolume] = useState(50)
+  const [isMuted, setIsMuted] = useState(false)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -11,13 +11,19 @@ const MusicPlayer = () => {
 
     const handlePlay = () => setIsPlaying(true)
     const handlePause = () => setIsPlaying(false)
+    const handleEnded = () => {
+      setIsPlaying(false)
+      if (audio) audio.currentTime = 0
+    }
 
     audio.addEventListener('play', handlePlay)
     audio.addEventListener('pause', handlePause)
+    audio.addEventListener('ended', handleEnded)
 
     return () => {
       audio.removeEventListener('play', handlePlay)
       audio.removeEventListener('pause', handlePause)
+      audio.removeEventListener('ended', handleEnded)
     }
   }, [])
 
@@ -31,11 +37,10 @@ const MusicPlayer = () => {
     }
   }
 
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseInt(e.target.value)
-    setVolume(newVolume)
+  const toggleMute = () => {
     if (audioRef.current) {
-      audioRef.current.volume = newVolume / 100
+      audioRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
     }
   }
 
@@ -45,45 +50,84 @@ const MusicPlayer = () => {
         ref={audioRef}
         src="/happy-birthday.mp3"
         loop
-        preload="metadata"
+        crossOrigin="anonymous"
       />
 
       {/* Floating Music Player Button */}
-      <button
-        onClick={togglePlay}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-r from-pink-600 to-red-700 text-white text-2xl shadow-lg hover:shadow-pink-600/50 transition-all hover:scale-110 active:scale-95 flex items-center justify-center touch-manipulation"
+      <div
+        className="fixed bottom-8 right-8 z-50"
         style={{
-          boxShadow: isPlaying ? '0 0 30px rgba(255,0,127,0.6)' : '0 4px 24px rgba(255,0,127,0.45)',
-          animation: isPlaying ? 'pulse 2s ease-in-out infinite' : 'none'
+          perspective: '1000px'
         }}
-        title={isPlaying ? 'Pause music' : 'Play music'}
       >
-        {isPlaying ? '🎵' : '🔇'}
-      </button>
+        <div className="relative">
+          {/* Glow effect when playing */}
+          {isPlaying && (
+            <div
+              className="absolute inset-0 animate-pulse rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(255,20,147,0.4) 0%, transparent 70%)',
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+              }}
+            ></div>
+          )}
 
-      {/* Volume Control (appears on hover near button) */}
-      <div className="fixed bottom-20 right-6 z-40 opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/70 backdrop-blur-md rounded-2xl p-4 border border-pink-500/30">
-        <div className="flex flex-col items-center gap-3">
-          <p className="text-white text-xs font-semibold">Volume</p>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={volume}
-            onChange={handleVolumeChange}
-            className="w-20 h-2 bg-pink-600 rounded-lg appearance-none cursor-pointer accent-pink-500"
-          />
-          <p className="text-white text-xs">{volume}%</p>
+          {/* Main button */}
+          <button
+            onClick={togglePlay}
+            className="relative w-16 h-16 rounded-full shadow-lg transition-all hover:scale-110 active:scale-95 flex items-center justify-center group"
+            style={{
+              background: isPlaying
+                ? 'linear-gradient(135deg, #FF1493 0%, #FF69B4 100%)'
+                : 'linear-gradient(135deg, #6B4C9A 0%, #8B5FBF 100%)',
+              boxShadow: isPlaying
+                ? '0 8px 30px rgba(255,20,147,0.5)'
+                : '0 8px 20px rgba(0,0,0,0.3)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            <span className="text-2xl">
+              {isPlaying ? '🎵' : '🎶'}
+            </span>
+
+            {/* Mute indicator */}
+            {isMuted && (
+              <div
+                className="absolute top-0 right-0 w-5 h-5 rounded-full flex items-center justify-center"
+                style={{
+                  background: 'rgba(255,20,147,0.9)',
+                  fontSize: '10px'
+                }}
+              >
+                🔇
+              </div>
+            )}
+          </button>
+
+          {/* Tooltip */}
+          <div
+            className="absolute bottom-20 right-0 bg-gray-800 text-white text-xs px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none"
+            style={{ marginRight: '8px' }}
+          >
+            {isPlaying ? 'Pause' : 'Play'} 🎵
+          </div>
         </div>
       </div>
 
-      {/* Music Status Indicator */}
+      {/* Mute button - smaller, positioned above */}
       {isPlaying && (
-        <div className="fixed bottom-24 right-6 z-40">
-          <div className="text-white text-xs bg-pink-600/80 px-3 py-1 rounded-full backdrop-blur-md">
-            🎶 Playing...
-          </div>
-        </div>
+        <button
+          onClick={toggleMute}
+          className="fixed bottom-32 right-8 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+          style={{
+            background: isMuted
+              ? 'linear-gradient(135deg, #FF6347 0%, #FF7F50 100%)'
+              : 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+          }}
+        >
+          <span className="text-lg">{isMuted ? '🔇' : '🔊'}</span>
+        </button>
       )}
     </>
   )
