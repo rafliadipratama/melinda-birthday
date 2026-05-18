@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react'
 interface GamePhase {
   intro: boolean
   game: boolean
-  levelup: boolean
   win: boolean
 }
 
@@ -16,38 +15,15 @@ interface Heart {
   rotation: number
 }
 
-interface LevelConfig {
-  level: number
-  targetHearts: number
-  speedMultiplier: number
-  spawnRate: number
-}
-
 const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
-  const [phase, setPhase] = useState<GamePhase>({ intro: true, game: false, levelup: false, win: false })
-  const [currentLevel, setCurrentLevel] = useState(1)
+  const [phase, setPhase] = useState<GamePhase>({ intro: true, game: false, win: false })
   const [score, setScore] = useState(0)
   const [hearts, setHearts] = useState<Heart[]>([])
   const [gameActive, setGameActive] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const heartIdRef = useRef(0)
-
-  // Level configurations
-  const getLevelConfig = (level: number): LevelConfig => {
-    const configs: { [key: number]: Omit<LevelConfig, 'level'> } = {
-      1: { targetHearts: isMobile ? 15 : 20, speedMultiplier: 1, spawnRate: 500 },
-      2: { targetHearts: isMobile ? 20 : 25, speedMultiplier: 1.3, spawnRate: 400 },
-      3: { targetHearts: isMobile ? 25 : 30, speedMultiplier: 1.6, spawnRate: 300 },
-      4: { targetHearts: isMobile ? 30 : 35, speedMultiplier: 1.9, spawnRate: 250 },
-      5: { targetHearts: isMobile ? 35 : 40, speedMultiplier: 2.2, spawnRate: 200 }
-    }
-    const config = configs[level] || configs[5]
-    return { level, ...config }
-  }
-
-  const levelConfig = getLevelConfig(currentLevel)
-  const targetScore = levelConfig.targetHearts
+  const targetScore = isMobile ? 20 : 25
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -57,7 +33,7 @@ const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
   }, [])
 
   const startGame = () => {
-    setPhase({ intro: false, game: true, levelup: false, win: false })
+    setPhase({ intro: false, game: true, win: false })
     setScore(0)
     setHearts([])
     setGameActive(true)
@@ -73,6 +49,7 @@ const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
   useEffect(() => {
     if (!gameActive) return
 
+    const spawnRate = isMobile ? 600 : 500
     const interval = setInterval(() => {
       const containerWidth = containerRef.current?.clientWidth || 400
       const containerHeight = containerRef.current?.clientHeight || 600
@@ -81,15 +58,15 @@ const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
         id: heartIdRef.current++,
         x: Math.random() * (containerWidth - 50),
         y: Math.random() * (containerHeight - 100) + 50,
-        vx: (Math.random() - 0.5) * 3 * levelConfig.speedMultiplier,
-        vy: (Math.random() - 0.5) * 3 * levelConfig.speedMultiplier,
+        vx: (Math.random() - 0.5) * 3,
+        vy: (Math.random() - 0.5) * 3,
         rotation: Math.random() * 360
       }
       setHearts(prev => [...prev, newHeart])
-    }, levelConfig.spawnRate)
+    }, Math.max(400, spawnRate - score * 15))
 
     return () => clearInterval(interval)
-  }, [gameActive, currentLevel, isMobile, levelConfig])
+  }, [gameActive, score, isMobile])
 
   // Animate hearts bouncing around
   useEffect(() => {
@@ -150,8 +127,7 @@ const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
           </p>
           <div className="bg-gradient-to-r from-pink-600/20 to-red-600/20 border border-pink-500/40 rounded-full px-4 sm:px-6 py-3 sm:py-4 mb-6 sm:mb-8">
             <p className="text-sm sm:text-base text-white">
-              Ada <strong className="text-pink-300">5 Level</strong> tantangan! 🎯<br />
-              Mulai dari <strong className="text-pink-300">Level 1: {targetScore} hati 💕</strong>
+              Kumpulkan <strong className="text-pink-300">{targetScore} hati 💕</strong> untuk membuka pesan cintaku!
             </p>
           </div>
           <button
@@ -174,10 +150,6 @@ const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
         <div className="w-full h-screen flex flex-col relative overflow-hidden">
           {/* HUD */}
           <div className="absolute top-0 left-0 right-0 z-40 pt-4 sm:pt-8 px-4 sm:px-0 text-center pointer-events-none">
-            <div className="mb-3 sm:mb-4">
-              <p className="font-cinzel text-yellow-400 text-base sm:text-xl">Level {currentLevel}</p>
-              <p className="text-pink-300 text-xs sm:text-sm">⭐ Difficulty: {currentLevel > 1 ? '⭐'.repeat(currentLevel) : '⭐'}</p>
-            </div>
             <p className="font-cinzel text-pink-500 text-lg sm:text-2xl mb-1 sm:mb-2">Tangkap Hati 💕</p>
             <p className="font-playfair text-white text-2xl sm:text-3xl mb-2 sm:mb-4">{score} / {targetScore}</p>
             <div className="max-w-xs mx-auto h-2 sm:h-3 bg-white/10 rounded-full overflow-hidden border border-pink-500/30">
@@ -208,11 +180,7 @@ const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
                     setScore(newScore)
                     if (newScore >= targetScore) {
                       setGameActive(false)
-                      if (currentLevel < 5) {
-                        setPhase({ intro: false, game: false, levelup: true, win: false })
-                      } else {
-                        setPhase({ intro: false, game: false, levelup: false, win: true })
-                      }
+                      setPhase({ intro: false, game: false, win: true })
                     }
                   }}
                   className="absolute cursor-pointer transition-all drop-shadow-lg touch-manipulation group"
@@ -256,45 +224,6 @@ const MiniGame = ({ onGameComplete }: { onGameComplete: () => void }) => {
               </p>
             </div>
           )}
-        </div>
-      )}
-
-      {/* Level Up Phase */}
-      {phase.levelup && (
-        <div className="text-center px-4 sm:px-6 py-8 max-w-sm sm:max-w-md animate-in fade-in zoom-in">
-          <div className="text-5xl sm:text-6xl mb-4 sm:mb-6 animate-bounce">⭐</div>
-          <h2 className="font-cinzel text-3xl sm:text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">
-            Level {currentLevel} Selesai! 🎉
-          </h2>
-          <p className="text-pink-300 text-lg sm:text-xl mb-4">Luar biasa!</p>
-          <p className="text-white/65 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
-            Kamu berhasil menangkap semua hati!<br />
-            Sekarang siap untuk level berikutnya yang lebih sulit?
-          </p>
-          <div className="bg-gradient-to-r from-yellow-600/20 to-pink-600/20 border border-yellow-500/40 rounded-full px-4 sm:px-6 py-3 sm:py-4 mb-6 sm:mb-8">
-            <p className="text-sm sm:text-base text-white">
-              <strong className="text-yellow-300">Level {currentLevel + 1}</strong> memerlukan <strong className="text-pink-300">{getLevelConfig(currentLevel + 1).targetHearts} hati</strong> 🔥
-            </p>
-          </div>
-          <button
-            onClick={() => {
-              setCurrentLevel(currentLevel + 1)
-              setScore(0)
-              setHearts([])
-              setPhase({ intro: false, game: true, levelup: false, win: false })
-              setGameActive(true)
-              heartIdRef.current = 0
-            }}
-            className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-pink-600 text-white font-bold rounded-full text-base sm:text-lg hover:scale-110 active:scale-95 transition-all shadow-lg hover:shadow-2xl hover:shadow-yellow-500/70 touch-manipulation"
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,20,147,0.5)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)'
-            }}
-          >
-            Lanjut Level {currentLevel + 1}! 💪
-          </button>
         </div>
       )}
 
