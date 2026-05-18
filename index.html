@@ -863,13 +863,6 @@ function generatePetals() {
 // Generate petals on page load
 document.addEventListener('DOMContentLoaded', generatePetals);
 
-// Regenerate petals when changing pages
-const originalGoPage = window.goPage || (() => {});
-window.goPage = function(page) {
-  generatePetals();
-  return originalGoPage.apply(this, arguments);
-};
-
 /* ══════════════════════════════════════════════
    MINI GAME
 ══════════════════════════════════════════════ */
@@ -1081,6 +1074,8 @@ function goPage(pageName) {
     /* scroll to top of page */
     targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  /* regenerate petals when changing pages */
+  generatePetals();
 }
 
 /* ══════════════════════════════════════════════
