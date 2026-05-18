@@ -2098,6 +2098,223 @@
       }
     }
 
+    /* ================================================================
+       WISHES PAGE - SCATTERED FLOATING LAYOUT
+    ================================================================ */
+    .wishes-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .wishes-subtitle {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      margin-top: 0.8rem;
+    }
+
+    .wishes-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 100%;
+      position: relative;
+    }
+
+    .wish-card {
+      background: linear-gradient(135deg, rgba(255,20,147,.12), rgba(255,215,0,.08));
+      border: 1.5px solid rgba(255,20,147,.35);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(.34,1.56,.64,1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 280px;
+      justify-content: center;
+    }
+
+    .wish-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(255,20,147,.15) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .wish-card:hover {
+      transform: translateY(-12px) scale(1.05);
+      border-color: rgba(255,20,147,.6);
+      background: linear-gradient(135deg, rgba(255,20,147,.2), rgba(255,215,0,.12));
+      box-shadow: 0 20px 50px rgba(255,20,147,.25);
+    }
+
+    .wish-card:hover::before {
+      opacity: 1;
+    }
+
+    .wish-card:hover .wish-icon {
+      animation: iconBounce 0.6s ease;
+    }
+
+    @keyframes iconBounce {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.2) rotate(10deg); }
+    }
+
+    .wish-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      transition: all 0.3s;
+    }
+
+    .wish-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .wish-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 0.8rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .wish-text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Scattered positioning for desktop */
+    @media (min-width: 1200px) {
+      .wishes-container {
+        display: block;
+        position: relative;
+        height: 900px;
+        padding: 2rem;
+      }
+
+      .wish-card {
+        position: absolute;
+        width: 320px;
+        margin: 0;
+      }
+
+      .wish-1 { top: 50px; left: 2%; }
+      .wish-2 { top: 150px; right: 3%; width: 300px; }
+      .wish-3 { top: 450px; left: 8%; }
+      .wish-4 { top: 400px; right: 5%; }
+      .wish-5 { top: 700px; left: 45%; transform: translateX(-50%); }
+      .wish-6 { bottom: 80px; right: 10%; }
+    }
+
+    /* ================================================================
+       PHOTOS PAGE - CREATIVE MASONRY GALLERY
+    ================================================================ */
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .gallery-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .gallery-masonry {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      grid-auto-rows: 150px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(.34,1.56,.64,1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,20,147,.8), rgba(255,215,0,.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.08) rotate(2deg);
+      box-shadow: 0 15px 40px rgba(255,20,147,.3);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* Masonry sizes */
+    .gi-1 { grid-column: span 2; grid-row: span 2; }
+    .gi-2 { grid-row: span 2; }
+    .gi-3 { grid-column: span 2; }
+    .gi-5 { grid-column: span 2; grid-row: span 2; }
+    .gi-6 { grid-row: span 2; }
+    .gi-8 { grid-column: span 2; }
+
+    @media (max-width: 900px) {
+      .gallery-masonry {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        grid-auto-rows: 120px;
+        padding: 1rem;
+      }
+
+      .gi-1 { grid-column: span 1; grid-row: span 1; }
+      .gi-2 { grid-row: span 1; }
+      .gi-3 { grid-column: span 1; }
+      .gi-5 { grid-column: span 1; grid-row: span 1; }
+      .gi-6 { grid-row: span 1; }
+      .gi-8 { grid-column: span 1; }
+    }
+
   </style>
 </head>
 <body>
@@ -2319,16 +2536,18 @@
     <div class="page-content">
       <!-- WISHES -->
       <section class="wishes-section section-pad">
-    <h2 class="section-title reveal">Doa & Harapan Untukmu</h2>
-    <div class="section-divider reveal"></div>
-    <div class="wishes-grid">
-      <div class="wish-card reveal"><span class="wish-icon">💪</span><p class="wish-title">Kesehatan</p><p class="wish-text">Semoga kamu selalu diberikan kesehatan yang prima dan energi untuk menjalani setiap hari.</p></div>
-      <div class="wish-card reveal" style="transition-delay:.1s"><span class="wish-icon">✨</span><p class="wish-title">Kebahagiaan</p><p class="wish-text">Semoga hidupmu penuh dengan tawa, kebahagiaan, dan momen-momen indah yang tak terlupakan.</p></div>
-      <div class="wish-card reveal" style="transition-delay:.2s"><span class="wish-icon">🌟</span><p class="wish-title">Kesuksesan</p><p class="wish-text">Semoga semua cita-cita dan impianmu tercapai satu persatu, sesuai waktu yang tepat.</p></div>
-      <div class="wish-card reveal" style="transition-delay:.3s"><span class="wish-icon">💝</span><p class="wish-title">Cinta</p><p class="wish-text">Semoga cinta kita tumbuh semakin kuat dan indah, melewati semua suka dan duka bersama.</p></div>
-      <div class="wish-card reveal" style="transition-delay:.4s"><span class="wish-icon">🍀</span><p class="wish-title">Keberuntungan</p><p class="wish-text">Semoga selalu ada kemudahan di setiap langkahmu dan keberuntungan selalu berpihak padamu.</p></div>
-      <div class="wish-card reveal" style="transition-delay:.5s"><span class="wish-icon">🌺</span><p class="wish-title">Kedamaian</p><p class="wish-text">Semoga hatimu selalu tenang, damai, dan dipenuhi rasa syukur di setiap harinya.</p></div>
-      </div>
+        <div class="wishes-header">
+          <h2 class="section-title reveal">Doa & Harapan Untukmu 🌟</h2>
+          <p class="wishes-subtitle reveal">6 hal yang saya inginkan untuk kamu di tahun ini</p>
+        </div>
+        <div class="wishes-container">
+          <div class="wish-card reveal wish-1"><span class="wish-icon">💪</span><div class="wish-content"><p class="wish-title">Kesehatan</p><p class="wish-text">Semoga kamu selalu diberikan kesehatan yang prima dan energi untuk menjalani setiap hari.</p></div></div>
+          <div class="wish-card reveal wish-2"><span class="wish-icon">✨</span><div class="wish-content"><p class="wish-title">Kebahagiaan</p><p class="wish-text">Semoga hidupmu penuh dengan tawa, kebahagiaan, dan momen-momen indah yang tak terlupakan.</p></div></div>
+          <div class="wish-card reveal wish-3"><span class="wish-icon">🌟</span><div class="wish-content"><p class="wish-title">Kesuksesan</p><p class="wish-text">Semoga semua cita-cita dan impianmu tercapai satu persatu, sesuai waktu yang tepat.</p></div></div>
+          <div class="wish-card reveal wish-4"><span class="wish-icon">💝</span><div class="wish-content"><p class="wish-title">Cinta</p><p class="wish-text">Semoga cinta kita tumbuh semakin kuat dan indah, melewati semua suka dan duka bersama.</p></div></div>
+          <div class="wish-card reveal wish-5"><span class="wish-icon">🍀</span><div class="wish-content"><p class="wish-title">Keberuntungan</p><p class="wish-text">Semoga selalu ada kemudahan di setiap langkahmu dan keberuntungan selalu berpihak padamu.</p></div></div>
+          <div class="wish-card reveal wish-6"><span class="wish-icon">🌺</span><div class="wish-content"><p class="wish-title">Kedamaian</p><p class="wish-text">Semoga hatimu selalu tenang, damai, dan dipenuhi rasa syukur di setiap harinya.</p></div></div>
+        </div>
       </section>
     </div><!-- /.page-content -->
   </div><!-- /#page-wishes -->
@@ -2343,51 +2562,50 @@
     </div>
     <div class="page-content">
       <div class="leopard-bar" style="height:35px;position:relative;z-index:2;"></div>
-      <!-- GALLERY — Polaroid Album -->
+      <!-- GALLERY — Creative Masonry Wall -->
       <section class="gallery-section section-pad">
-    <h2 class="section-title reveal">Foto-Foto Cantiknya 📸</h2>
-    <div class="section-divider reveal"></div>
-    <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:0.82rem;margin-bottom:2rem;" class="reveal">
-      Klik foto untuk memperbesar 💕
-    </p>
-    <div class="collage-grid">
-      <div class="ci ci-1 reveal" style="transition-delay:.0s" onclick="openLightbox('photos/p1.jpg')">
-        <img src="photos/p1.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">Cantiknya Melin 🌹</span>
-      </div>
-      <div class="ci ci-2 reveal" style="transition-delay:.07s" onclick="openLightbox('photos/p2.jpg')">
-        <img src="photos/p2.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">My Love 💕</span>
-      </div>
-      <div class="ci ci-3 reveal" style="transition-delay:.14s" onclick="openLightbox('photos/p3.jpg')">
-        <img src="photos/p3.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">Senyumnya ✨</span>
-      </div>
-      <div class="ci ci-4 reveal" style="transition-delay:.21s" onclick="openLightbox('photos/p4.jpg')">
-        <img src="photos/p4.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">My Fav Girl 💖</span>
-      </div>
-      <div class="ci ci-5 reveal" style="transition-delay:.28s" onclick="openLightbox('photos/p5.jpg')">
-        <img src="photos/p5.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">Melin ❤️</span>
-      </div>
-      <div class="ci ci-6 reveal" style="transition-delay:.35s" onclick="openLightbox('photos/p6.jpg')">
-        <img src="photos/p6.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">Indah Banget 🌸</span>
-      </div>
-      <div class="ci ci-7 reveal" style="transition-delay:.42s" onclick="openLightbox('photos/p7.jpg')">
-        <img src="photos/p7.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">She's Perfect 💝</span>
-      </div>
-      <div class="ci ci-8 reveal" style="transition-delay:.49s" onclick="openLightbox('photos/p8.jpg')">
-        <img src="photos/p8.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">Happy Birthday! 🎂</span>
-      </div>
-      <div class="ci ci-9 reveal" style="transition-delay:.56s" onclick="openLightbox('photos/p9.jpg')">
-        <img src="photos/p9.jpg" alt="Melinda" loading="lazy">
-        <span class="ci-cap">My Everything 🥰</span>
-      </div>
-      </div>
+        <div class="gallery-header">
+          <h2 class="section-title reveal">Foto-Foto Cantiknya 📸</h2>
+          <p class="gallery-subtitle reveal">Klik foto untuk memperbesar 💕</p>
+        </div>
+        <div class="gallery-masonry">
+          <div class="gallery-item reveal gi-1" onclick="openLightbox('photos/p1.jpg')">
+            <img src="photos/p1.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>Cantik ✨</span></div>
+          </div>
+          <div class="gallery-item reveal gi-2" onclick="openLightbox('photos/p2.jpg')">
+            <img src="photos/p2.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>My Love 💕</span></div>
+          </div>
+          <div class="gallery-item reveal gi-3" onclick="openLightbox('photos/p3.jpg')">
+            <img src="photos/p3.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>Senyum ✨</span></div>
+          </div>
+          <div class="gallery-item reveal gi-4" onclick="openLightbox('photos/p4.jpg')">
+            <img src="photos/p4.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>My Girl 💖</span></div>
+          </div>
+          <div class="gallery-item reveal gi-5" onclick="openLightbox('photos/p5.jpg')">
+            <img src="photos/p5.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>Melin ❤️</span></div>
+          </div>
+          <div class="gallery-item reveal gi-6" onclick="openLightbox('photos/p6.jpg')">
+            <img src="photos/p6.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>Indah 🌸</span></div>
+          </div>
+          <div class="gallery-item reveal gi-7" onclick="openLightbox('photos/p7.jpg')">
+            <img src="photos/p7.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>Perfect 💝</span></div>
+          </div>
+          <div class="gallery-item reveal gi-8" onclick="openLightbox('photos/p8.jpg')">
+            <img src="photos/p8.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>Birthday! 🎂</span></div>
+          </div>
+          <div class="gallery-item reveal gi-9" onclick="openLightbox('photos/p9.jpg')">
+            <img src="photos/p9.jpg" alt="Melinda" loading="lazy">
+            <div class="gallery-overlay"><span>Everything 🥰</span></div>
+          </div>
+        </div>
       </section>
     </div><!-- /.page-content -->
   </div><!-- /#page-photos -->
