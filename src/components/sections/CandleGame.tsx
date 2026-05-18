@@ -59,7 +59,7 @@ const CandleGame = () => {
             )}
 
             {/* Candles Container */}
-            <div className="absolute -top-48 left-0 right-0 flex gap-10 justify-center px-8 h-40">
+            <div className="absolute left-0 right-0 flex gap-10 justify-center px-8 h-40" style={{ top: '-8px' }}>
               {candles.map((candle) => (
                 <button
                   key={candle.id}
