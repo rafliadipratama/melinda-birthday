@@ -549,7 +549,7 @@
        SECTIONS
     ================================================================ */
     section { position: relative; z-index: 2; }
-    .section-pad { padding: 5rem 1.5rem; }
+    .section-pad { padding: 5rem 1.5rem; width: 100%; box-sizing: border-box; }
     .section-title {
       font-family: 'Cinzel', serif;
       font-size: clamp(1.3rem, 3.8vw, 2.4rem);
@@ -571,7 +571,7 @@
     /* Letter */
     .letter-section { background: linear-gradient(180deg, var(--black) 0%, #160008 100%); }
     .letter-card {
-      max-width: 680px;
+      max-width: min(680px, calc(100vw - 2rem));
       margin: 0 auto;
       border-radius: 20px;
       padding: 3rem 2.5rem;
@@ -579,6 +579,8 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,20,147,0.1);
       position: relative;
       overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
     }
     .letter-card::before {
       content: '"';
@@ -1176,32 +1178,31 @@
 
     /* Tablet */
     @media (max-width: 768px) {
-      .section-pad            { padding: 3.5rem 1.2rem; }
-      .wishes-grid            { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .gallery-grid           { grid-template-columns: repeat(2, 1fr); }
-      .countdown-grid         { gap: 0.8rem; }
+      .section-pad            { padding: 3.5rem 1rem !important; }
+      .wishes-grid            { grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: calc(100vw - 2rem); padding: 0 1rem; }
+      .letter-card            { max-width: calc(100vw - 2rem); padding: 2rem 1.2rem; }
+      .countdown-grid         { gap: 0.8rem; max-width: calc(100vw - 2rem); }
       .cdown-box              { min-width: 75px; padding: 1rem 0.7rem; }
       .cdown-num              { font-size: 2rem; }
-      .letter-card            { padding: 2rem 1.5rem; }
     }
 
     /* Mobile */
     @media (max-width: 480px) {
       /* Game intro */
-      #phase-intro            { padding: 1.5rem 1.2rem; }
+      #phase-intro            { padding: 1.5rem 1rem; }
       .lock-icon,
       .unlock-icon            { font-size: 3.5rem; margin-bottom: 0.8rem; }
       .intro-title            { font-size: 1.4rem; }
       .intro-sub              { font-size: 0.88rem; margin-bottom: 1.2rem; }
-      .hint-box               { font-size: 0.82rem; padding: 0.65rem 1rem; margin-bottom: 1.4rem; }
-      .btn-game               { padding: 0.75rem 1.8rem; font-size: 0.92rem; min-height: 44px; }
+      .hint-box               { font-size: 0.82rem; padding: 0.65rem 0.9rem; margin-bottom: 1.4rem; }
+      .btn-game               { padding: 0.75rem 1.6rem; font-size: 0.92rem; min-height: 44px; }
       .win-sub                { font-size: 0.88rem; }
 
       /* Game arena */
       #arena                  { top: 115px; min-height: 280px; }
 
       /* HUD */
-      #game-hud               { padding: 1.8rem 1rem 0.7rem; gap: 0.25rem; }
+      #game-hud               { padding: 1.8rem 0.8rem 0.7rem; gap: 0.25rem; }
       #hud-label              { font-size: 0.95rem; }
       #hud-count              { font-size: 1.2rem; }
       #hud-tip                { font-size: 0.68rem; }
@@ -1209,26 +1210,26 @@
       .gheart                 { font-size: 2rem; min-width: 40px; min-height: 40px; }
 
       /* Hero */
-      .hero-inner             { padding: 1.5rem 1rem; }
+      .hero-inner             { padding: 1.5rem 0.9rem; }
       .hero-tag               { font-size: 0.72rem; letter-spacing: 2px; margin-bottom: 1rem; }
       .hero-sub               { font-size: 0.88rem; margin-bottom: 1.5rem; }
-      .btn-scroll             { padding: 0.7rem 1.6rem; font-size: 0.9rem; }
+      .btn-scroll             { padding: 0.7rem 1.4rem; font-size: 0.9rem; }
 
       /* Sections */
-      .section-pad            { padding: 2.8rem 1rem; }
+      .section-pad            { padding: 2.8rem 0.9rem !important; }
       .section-divider        { margin-bottom: 2rem; }
 
       /* Letter */
-      .letter-card            { padding: 1.5rem 1rem; border-radius: 14px; }
+      .letter-card            { max-width: calc(100vw - 1.8rem); padding: 1.5rem 0.9rem; border-radius: 14px; }
       .letter-body            { font-size: 0.92rem; line-height: 1.75; }
       .letter-sig             { font-size: 1.3rem; }
 
       /* Wishes — single column on small phones */
-      .wishes-grid            { grid-template-columns: 1fr; }
-      .wish-card              { padding: 1.4rem 1.2rem; }
+      .wishes-grid            { grid-template-columns: 1fr; max-width: calc(100vw - 1.8rem); margin: 0 auto; }
+      .wish-card              { padding: 1.4rem 1rem; }
 
-      /* Gallery — 2 col */
-      .gallery-grid           { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+      /* Collage */
+      .collage-grid           { max-width: calc(100vw - 1.8rem); gap: 6px; padding: 0.3rem; margin: 0 auto; }
 
       /* Surprise */
       .heart-btn              { width: 96px; height: 96px; font-size: 2.4rem; }
@@ -1236,7 +1237,7 @@
       .surprise-msg p         { font-size: 0.92rem; }
 
       /* Countdown */
-      .countdown-grid         { gap: 0.5rem; }
+      .countdown-grid         { gap: 0.5rem; max-width: calc(100vw - 1.8rem); margin: 0 auto; }
       .cdown-box              { min-width: 58px; padding: 0.8rem 0.5rem; border-radius: 10px; }
       .cdown-num              { font-size: 1.5rem; }
       .cdown-label            { font-size: 0.6rem; letter-spacing: 0; }
@@ -1253,32 +1254,32 @@
     /* Ultra small (old phones, very narrow) */
     @media (max-width: 320px) {
       body                    { font-size: 13px; }
-      .section-pad            { padding: 2rem 0.8rem; }
+      .section-pad            { padding: 2rem 0.7rem !important; }
       .section-title          { font-size: 1.2rem; }
-      #phase-intro            { padding: 1.2rem 0.8rem; }
+      #phase-intro            { padding: 1.2rem 0.7rem; }
       .lock-icon, .unlock-icon { font-size: 3rem; }
       .intro-sub              { font-size: 0.8rem; }
-      .hint-box               { font-size: 0.75rem; padding: 0.5rem 0.8rem; }
-      .btn-game               { padding: 0.6rem 1.4rem; font-size: 0.85rem; }
-      .hero-inner             { padding: 1rem 0.8rem; }
+      .hint-box               { font-size: 0.75rem; padding: 0.5rem 0.7rem; }
+      .btn-game               { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+      .hero-inner             { padding: 1rem 0.7rem; }
       .hero-name              { font-size: 1.8rem; }
       .hero-sub               { font-size: 0.8rem; }
-      .btn-scroll             { padding: 0.6rem 1.4rem; font-size: 0.8rem; }
-      .letter-card            { padding: 1.2rem 0.8rem; border-radius: 12px; }
+      .btn-scroll             { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+      .letter-card            { max-width: calc(100vw - 1.4rem); padding: 1.2rem 0.7rem; border-radius: 12px; }
       .letter-body            { font-size: 0.85rem; line-height: 1.6; }
       .letter-body p:first-child { text-align: center; font-size: 1rem; }
-      .cake-outer             { width: 100%; max-width: 200px; margin: 1.2rem auto; }
+      .cake-outer             { width: 100%; max-width: 200px; margin: 1.2rem auto; padding: 0 0.5rem; }
       .candles-row            { gap: 10px; }
       .cake-text              { font-size: 0.45rem; }
-      .collage-grid           { gap: 5px; padding: 0.3rem; }
-      .ci                     { padding: 4px; }
-      .ci-cap                 { font-size: 0.5rem; padding: 1rem 0.3rem 0.3rem; }
-      .btn-candle             { padding: 0.7rem 1.6rem; font-size: 0.85rem; }
-      .loves-grid             { gap: 0.8rem; }
-      .love-card              { padding: 1.2rem 0.8rem 1rem; }
+      .collage-grid           { gap: 5px; padding: 0.2rem; max-width: calc(100vw - 0.4rem); }
+      .ci                     { padding: 3px; }
+      .ci-cap                 { font-size: 0.5rem; padding: 0.8rem 0.2rem 0.2rem; }
+      .btn-candle             { padding: 0.7rem 1.4rem; font-size: 0.85rem; }
+      .loves-grid             { gap: 0.6rem; max-width: calc(100vw - 1.4rem); padding: 0 0.7rem; }
+      .love-card              { padding: 1rem 0.6rem 0.8rem; }
       .love-icon              { font-size: 2.2rem; }
-      .love-name              { font-size: 0.85rem; }
-      .love-desc              { font-size: 0.75rem; }
+      .love-name              { font-size: 0.8rem; }
+      .love-desc              { font-size: 0.7rem; }
       .heart-btn              { width: 80px; height: 80px; font-size: 2rem; }
       .cdown-box              { min-width: 45px; padding: 0.6rem 0.4rem; font-size: 0.7rem; }
       .cdown-num              { font-size: 1.1rem; }
