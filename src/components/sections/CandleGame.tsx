@@ -153,14 +153,59 @@ const CandleGame = () => {
               ))}
             </div>
 
-            {/* Cake Base - Large Bottom Layer */}
+            {/* Cake Top Layer - Smallest */}
             <div
               className="relative mx-auto"
+              style={{
+                width: '260px',
+                height: '80px',
+                borderRadius: '0 0 20px 20px',
+                background: 'linear-gradient(135deg, #CD853F 0%, #8B4513 50%, #6B3410 100%)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset -3px -3px 10px rgba(0,0,0,0.3)',
+                position: 'relative'
+              }}>
+
+              <div
+                className="absolute top-0 left-0 right-0"
+                style={{
+                  height: '16px',
+                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
+                  borderRadius: '20px 20px 0 0'
+                }}
+              ></div>
+            </div>
+
+            {/* Cake Middle Layer */}
+            <div
+              className="relative mx-auto -mt-4"
+              style={{
+                width: '340px',
+                height: '100px',
+                borderRadius: '0 0 30px 30px',
+                background: 'linear-gradient(135deg, #D2691E 0%, #8B4513 50%, #654321 100%)',
+                boxShadow: '0 15px 40px rgba(0,0,0,0.6), inset -4px -4px 15px rgba(0,0,0,0.4)',
+                position: 'relative'
+              }}>
+
+              <div
+                className="absolute top-0 left-0 right-0"
+                style={{
+                  height: '20px',
+                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
+                  borderRadius: '30px 30px 0 0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,0.3)'
+                }}
+              ></div>
+            </div>
+
+            {/* Cake Base - Largest Bottom Layer */}
+            <div
+              className="relative mx-auto -mt-4"
               style={{
                 width: '420px',
                 height: '140px',
                 borderRadius: '0 0 40px 40px',
-                background: 'linear-gradient(135deg, #D2691E 0%, #8B4513 50%, #654321 100%)',
+                background: 'linear-gradient(135deg, #A0522D 0%, #8B4513 50%, #654321 100%)',
                 boxShadow: '0 20px 60px rgba(0,0,0,0.7), inset -5px -5px 20px rgba(0,0,0,0.5)',
                 position: 'relative'
               }}>
@@ -182,51 +227,6 @@ const CandleGame = () => {
                   <span key={i} className="text-lg">{item}</span>
                 ))}
               </div>
-            </div>
-
-            {/* Cake Middle Layer */}
-            <div
-              className="relative mx-auto -mt-4"
-              style={{
-                width: '340px',
-                height: '100px',
-                borderRadius: '0 0 30px 30px',
-                background: 'linear-gradient(135deg, #CD853F 0%, #8B4513 50%, #5C2E0F 100%)',
-                boxShadow: '0 15px 40px rgba(0,0,0,0.6), inset -4px -4px 15px rgba(0,0,0,0.4)',
-                position: 'relative'
-              }}>
-
-              <div
-                className="absolute top-0 left-0 right-0"
-                style={{
-                  height: '20px',
-                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
-                  borderRadius: '30px 30px 0 0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,0.3)'
-                }}
-              ></div>
-            </div>
-
-            {/* Cake Top Layer */}
-            <div
-              className="relative mx-auto -mt-3"
-              style={{
-                width: '260px',
-                height: '80px',
-                borderRadius: '0 0 20px 20px',
-                background: 'linear-gradient(135deg, #DAA520 0%, #8B4513 50%, #5C2E0F 100%)',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset -3px -3px 10px rgba(0,0,0,0.3)',
-                position: 'relative'
-              }}>
-
-              <div
-                className="absolute top-0 left-0 right-0"
-                style={{
-                  height: '16px',
-                  background: 'linear-gradient(180deg, #FFB6D9 0%, #FF69B4 100%)',
-                  borderRadius: '20px 20px 0 0'
-                }}
-              ></div>
             </div>
 
           </div>
