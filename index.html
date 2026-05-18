@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Happy Birthday Melinda Az Zahra Hamid 💖</title>
   <meta name="description" content="Ada pesan cinta spesial untukmu, Melin. Selesaikan tantangannya dulu ya! 💌" />
 
@@ -587,6 +587,214 @@
     .letter-sig { margin-top: 2rem; font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold); text-align: right; letter-spacing: 0.05em; }
 
     /* ── Loves Section ── */
+    /* ============================================================
+       CANDLE GAME
+    ============================================================ */
+    .candle-section { background: linear-gradient(180deg, #0f0006 0%, #160008 100%); text-align: center; }
+
+    .cake-outer {
+      display: flex; flex-direction: column; align-items: center;
+      width: clamp(220px, 70vw, 300px);
+      margin: 1.8rem auto 1.4rem;
+    }
+
+    .candles-row {
+      display: flex; justify-content: center;
+      gap: clamp(14px, 4vw, 22px);
+      padding-bottom: 2px; position: relative; z-index: 2;
+    }
+
+    .candle {
+      position: relative;
+      width: clamp(10px, 3vw, 14px);
+      height: clamp(44px, 12vw, 60px);
+      border-radius: 3px 3px 2px 2px;
+      background: linear-gradient(to right, #ffcdd2 0%, #ef9a9a 30%, #e53935 55%, #ef9a9a 80%, #ffcdd2 100%);
+      box-shadow: 1px 0 3px rgba(0,0,0,0.35), inset 1px 0 3px rgba(255,255,255,0.2);
+    }
+    .candle::before {
+      content: '';
+      position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+      width: 2px; height: 8px;
+      background: linear-gradient(to top, #555, #222);
+      border-radius: 1px;
+    }
+    .candle::after {
+      content: '';
+      position: absolute; top: 2px; left: 3px;
+      width: 3px; height: 14px;
+      background: rgba(255,255,255,0.35);
+      border-radius: 0 0 3px 3px;
+    }
+
+    .flame {
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%; transform: translateX(-50%);
+      width: clamp(12px, 3.5vw, 17px);
+      height: clamp(20px, 5.5vw, 28px);
+      border-radius: 50% 50% 35% 35%;
+      background: radial-gradient(ellipse at 55% 65%,
+        #fff 0%, #FFE066 18%, #FF9800 48%, #C0392B 80%, transparent 100%);
+      filter: blur(0.4px);
+      animation: cFlicker 0.35s ease-in-out infinite alternate;
+      transform-origin: center bottom;
+      transition: opacity 0.55s, transform 0.55s;
+    }
+    .flame::after {
+      content: '';
+      position: absolute; inset: -7px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255,150,0,0.55) 0%, transparent 70%);
+      animation: cGlow 0.35s ease-in-out infinite alternate;
+    }
+    @keyframes cFlicker {
+      from { transform: translateX(-50%) rotate(-5deg) scaleY(0.95); }
+      to   { transform: translateX(-50%) rotate(5deg)  scaleY(1.12); }
+    }
+    @keyframes cGlow {
+      from { transform: scale(0.85); opacity: 0.7; }
+      to   { transform: scale(1.15); opacity: 1; }
+    }
+
+    .c-smoke {
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%; transform: translateX(-50%);
+      width: 8px; pointer-events: none; opacity: 0;
+    }
+    .candle.out .flame  { opacity: 0; transform: translateX(-50%) scale(0.2); }
+    .candle.out .c-smoke { animation: smokeUp 1.4s ease-out forwards; }
+    @keyframes smokeUp {
+      0%   { opacity: 0.7; transform: translateX(-50%) translateY(0) scale(0.8); }
+      100% { opacity: 0;   transform: translateX(-50%) translateY(-40px) scale(2.5); }
+    }
+    .c-smoke::before, .c-smoke::after {
+      content: ''; position: absolute; border-radius: 50%;
+      background: rgba(210,210,210,0.6);
+    }
+    .c-smoke::before { width: 7px; height: 7px; top: 14px; left: 0; }
+    .c-smoke::after  { width: 5px; height: 5px; top: 4px;  left: 1px; }
+
+    /* Cake tiers */
+    .cake-body { width: 100%; }
+
+    .cake-top-t {
+      position: relative; height: clamp(44px, 13vw, 60px);
+      background: linear-gradient(135deg, #FF94C2 0%, #FF1493 50%, #C2185B 100%);
+      border-radius: 6px 6px 0 0; overflow: visible;
+    }
+    /* white icing on top */
+    .cake-top-t::before {
+      content: '';
+      position: absolute; top: -4px; left: -2px; right: -2px;
+      height: 14px;
+      background: #fff;
+      border-radius: 6px 6px 40% 40% / 6px 6px 14px 14px;
+      box-shadow: 0 2px 5px rgba(255,20,147,0.15);
+    }
+    /* polka dots */
+    .cake-top-t::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle 4px at 18% 55%, rgba(255,255,255,0.35) 100%, transparent),
+        radial-gradient(circle 3px at 40% 70%, rgba(255,255,255,0.25) 100%, transparent),
+        radial-gradient(circle 4px at 62% 50%, rgba(255,255,255,0.35) 100%, transparent),
+        radial-gradient(circle 3px at 80% 68%, rgba(255,255,255,0.25) 100%, transparent);
+    }
+
+    .cake-text {
+      position: absolute; bottom: 6px; left: 0; right: 0;
+      text-align: center; font-family: 'Cinzel', serif;
+      font-size: clamp(0.5rem, 2vw, 0.7rem);
+      color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+      pointer-events: none;
+    }
+
+    .cake-sep {
+      height: 7px;
+      background: linear-gradient(to bottom, #FFE066, #DAA520);
+    }
+
+    .cake-bot-t {
+      height: clamp(58px, 18vw, 80px);
+      background: linear-gradient(135deg, #C2185B 0%, #880E4F 55%, #4A0015 100%);
+      position: relative; overflow: hidden;
+    }
+    .cake-bot-t::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle 5px at 12% 35%, rgba(255,20,147,0.3) 100%, transparent),
+        radial-gradient(circle 4px at 35% 65%, rgba(255,20,147,0.22) 100%, transparent),
+        radial-gradient(circle 5px at 58% 30%, rgba(255,20,147,0.3) 100%, transparent),
+        radial-gradient(circle 4px at 78% 70%, rgba(255,20,147,0.22) 100%, transparent),
+        radial-gradient(circle 5px at 92% 40%, rgba(255,20,147,0.3) 100%, transparent);
+    }
+
+    .cake-plate {
+      height: 13px;
+      background: linear-gradient(to bottom, #e8e8e8, #bdbdbd);
+      border-radius: 0 0 50% 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    }
+
+    /* HUD + mic bar */
+    .candle-hud {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; margin-bottom: 1.4rem;
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .candle-hud.active { opacity: 1; }
+    .candle-counter {
+      font-family: 'Cinzel', serif; font-size: 1.1rem;
+      color: var(--pink); letter-spacing: 0.1em;
+    }
+    .mic-bar-wrap {
+      width: 200px; height: 8px;
+      background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;
+    }
+    .mic-bar-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(to right, #FF1493, #FFD700);
+      border-radius: 4px; transition: width 0.08s linear;
+    }
+    .mic-tip {
+      font-size: 0.78rem; color: rgba(255,255,255,0.45);
+      font-style: italic;
+    }
+
+    /* Start button */
+    .btn-candle {
+      background: linear-gradient(135deg, var(--pink), var(--red));
+      color: #fff; border: none; border-radius: 50px;
+      padding: 0.85rem 2.2rem;
+      font-family: 'Cinzel', serif; font-size: 0.95rem; letter-spacing: 0.06em;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,20,147,0.4);
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.4s;
+      touch-action: manipulation;
+    }
+    .btn-candle:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,20,147,0.5); }
+    .btn-candle:active { transform: scale(0.97); }
+    .btn-candle.hidden { opacity: 0; pointer-events: none; height: 0; padding: 0; margin: 0; overflow: hidden; }
+
+    /* Win state */
+    .candle-win { display: none; }
+    .candle-win.show { display: block; animation: cwPop 0.55s cubic-bezier(.34,1.56,.64,1) forwards; }
+    @keyframes cwPop { from { opacity:0; transform:scale(0.75); } to { opacity:1; transform:scale(1); } }
+    .candle-win .cw-main {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 5vw, 1.9rem);
+      color: var(--gold); letter-spacing: 0.06em;
+      text-shadow: 0 0 24px rgba(255,215,0,0.65);
+      margin-bottom: 0.6rem;
+    }
+    .candle-win .cw-sub { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
+
+    /* ============================================================ */
+
     .loves-section { background: linear-gradient(180deg, #160008 0%, #0f0006 100%); }
 
     .loves-grid {
@@ -709,100 +917,78 @@
     .wish-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--pink); margin-bottom: 0.5rem; }
     .wish-text { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.6; font-weight: 300; }
 
-    /* Gallery — Polaroid Album */
+    /* Gallery — Collage Mosaic */
     .gallery-section { background: linear-gradient(180deg, #0f0006 0%, var(--black) 100%); }
 
-    .polaroid-grid {
+    .collage-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
-      max-width: 860px;
+      grid-auto-rows: clamp(120px, 16vw, 185px);
+      gap: 10px;
+      max-width: 880px;
       margin: 0 auto;
-      padding: 1rem 0.5rem 2rem;
+      padding: 0.5rem 0.5rem 2rem;
     }
 
-    .polaroid-wrap {
+    .ci {
       position: relative;
-      cursor: pointer;
-    }
-    /* alternating tilts */
-    .polaroid-wrap:nth-child(odd)  { transform: rotate(-2.5deg); }
-    .polaroid-wrap:nth-child(even) { transform: rotate(2deg); }
-    .polaroid-wrap:nth-child(3n)   { transform: rotate(-1.2deg); }
-    .polaroid-wrap { transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s; }
-    .polaroid-wrap:hover { transform: rotate(0deg) scale(1.06) translateY(-6px) !important; z-index: 10; }
-
-    .polaroid {
       background: #fff;
-      padding: 10px 10px 42px;
-      box-shadow: 0 6px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
-      border-radius: 3px;
-      position: relative;
+      padding: 7px;
+      box-shadow: 0 5px 22px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.35);
+      border-radius: 2px;
       overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s, z-index 0s;
     }
-
-    /* Leopard accent strip on polaroid bottom */
-    .polaroid::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 8px;
-      background-color: var(--leopard-base);
-      background-image:
-        radial-gradient(ellipse 4px 3px at  8px 4px, var(--leopard-spot) 100%, transparent),
-        radial-gradient(ellipse 3px 4px at 16px 2px, var(--leopard-spot) 100%, transparent),
-        radial-gradient(ellipse 4px 3px at 28px 5px, var(--leopard-spot) 100%, transparent),
-        radial-gradient(ellipse 3px 4px at 40px 1px, var(--leopard-spot) 100%, transparent),
-        radial-gradient(ellipse 4px 3px at 52px 4px, var(--leopard-spot) 100%, transparent);
-      background-size: 60px 8px;
-    }
-
-    .polaroid-img-wrap {
-      width: 100%;
-      aspect-ratio: 1;
-      background: linear-gradient(145deg, #f5e6f0, #ffe0ee);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .polaroid-img-wrap img {
+    .ci img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.45s ease;
     }
-    .polaroid-wrap:hover .polaroid-img-wrap img { transform: scale(1.05); }
+    .ci:hover img { transform: scale(1.08); }
 
-    .polaroid-placeholder {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.4rem;
-      color: rgba(180,80,120,0.5);
-      transition: color 0.2s;
-    }
-    .polaroid-wrap:hover .polaroid-placeholder { color: var(--pink); }
-    .polaroid-placeholder .plus-icon { font-size: 2rem; line-height: 1; }
-    .polaroid-placeholder p { font-size: 0.72rem; font-weight: 400; text-align: center; font-family: 'Poppins', sans-serif; }
-
-    .polaroid-caption {
+    /* Caption fade-in on hover */
+    .ci-cap {
       position: absolute;
-      bottom: 10px; left: 10px; right: 10px;
-      text-align: center;
+      bottom: 7px; left: 7px; right: 7px;
+      padding: 1.8rem 0.5rem 0.5rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.78), transparent);
+      color: #fff;
       font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      color: #5a2040;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity 0.3s, transform 0.3s;
       pointer-events: none;
     }
+    .ci:hover .ci-cap { opacity: 1; transform: translateY(0); }
+    .ci:hover { transform: scale(1.04) translateY(-5px) rotate(0deg) !important; z-index: 10; box-shadow: 0 14px 45px rgba(0,0,0,0.7), 0 0 0 2px rgba(255,20,147,0.45); }
 
-    .polaroid-file {
-      position: absolute; inset: 0;
-      opacity: 0;
-      cursor: pointer;
-      z-index: 5;
+    /* Individual tilts */
+    .ci-1 { grid-column: 1/3; grid-row: 1/3; transform: rotate(-0.8deg); }
+    .ci-2 { transform: rotate(2.5deg); }
+    .ci-3 { transform: rotate(-2.3deg); }
+    .ci-4 { transform: rotate(1.8deg); }
+    .ci-5 { transform: rotate(-1.6deg); }
+    .ci-6 { transform: rotate(2.8deg); }
+    .ci-7 { transform: rotate(-2.2deg); }
+    .ci-8 { transform: rotate(1.3deg); }
+    .ci-9 { transform: rotate(-1.7deg); }
+
+    /* Pink glow on featured photo */
+    .ci-1 { box-shadow: 0 8px 35px rgba(0,0,0,0.65), 0 0 0 2px rgba(255,20,147,0.2); }
+
+    /* Mobile: 2 cols, featured wide only */
+    @media (max-width: 600px) {
+      .collage-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: clamp(110px, 38vw, 160px);
+        gap: 7px;
+      }
+      .ci-1 { grid-column: 1/3; grid-row: 1/2; transform: rotate(-0.5deg); }
     }
 
     /* Lightbox */
@@ -836,15 +1022,7 @@
     }
     #lightbox-close:hover { opacity: 1; transform: scale(1.2); }
 
-    /* Gallery responsive */
-    @media (max-width: 640px) {
-      .polaroid-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .polaroid { padding: 7px 7px 36px; }
-      .polaroid-caption { font-size: 0.82rem; bottom: 8px; left: 7px; right: 7px; }
-    }
-    @media (max-width: 360px) {
-      .polaroid-grid { gap: 0.7rem; }
-    }
+    /* Gallery responsive handled in .collage-grid block above */
 
     /* Surprise */
     .surprise-section { background: var(--black); text-align: center; }
@@ -927,14 +1105,13 @@
       margin: 1rem auto 0;
     }
 
-    .bouquet-emoji {
-      font-size: clamp(6rem, 18vw, 11rem);
-      display: block;
-      animation: bouquetFloat 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 30px rgba(255,20,147,0.4)) drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-      cursor: default;
-      line-height: 1;
+    .bouquet-3d {
+      display: inline-block;
+      animation: bouquetFloat 4s ease-in-out infinite;
+      filter: drop-shadow(0 10px 28px rgba(0,0,0,0.55));
+      cursor: pointer;
     }
+    .bouquet-3d:active { transform: scale(0.97); }
     @keyframes bouquetFloat {
       0%,100% { transform: translateY(0) rotate(-2deg); }
       50%      { transform: translateY(-14px) rotate(2deg); }
@@ -1063,8 +1240,34 @@
     }
 
     /* Touch: remove 300ms tap delay on buttons */
-    .btn-game, .btn-scroll, .heart-btn, .gheart {
+    .btn-game, .btn-scroll, .heart-btn, .gheart, .bouquet-3d, .polaroid {
       touch-action: manipulation;
+    }
+
+    /* iPhone safe-area (notch + home bar) */
+    @supports (padding: env(safe-area-inset-bottom)) {
+      body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+      #music-btn { bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+      #share-btn { bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+      #back-top  { bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+      #game-over { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+    }
+
+    /* iPhone 12/13/14 Pro (390px) specific tweaks */
+    @media (max-width: 390px) {
+      .hero-name   { font-size: clamp(2.2rem, 10vw, 3rem); }
+      .section-title { font-size: clamp(1.3rem, 6vw, 2rem); }
+      .polaroid-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .loves-grid  { grid-template-columns: repeat(2, 1fr); }
+      .bouquet-3d svg { width: 220px; height: 294px; }
+      .cdown-box   { min-width: 52px; padding: 0.75rem 0.45rem; }
+    }
+
+    /* iPhone SE (375px and below) */
+    @media (max-width: 375px) {
+      .section-pad { padding: 2.5rem 0.9rem; }
+      .hero-inner  { padding: 1.2rem 0.9rem; }
+      .bouquet-3d svg { width: 200px; height: 267px; }
     }
 
     /* ================================================================
@@ -1696,62 +1899,44 @@
     <h2 class="section-title reveal">Foto-Foto Cantiknya 📸</h2>
     <div class="section-divider reveal"></div>
     <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:0.82rem;margin-bottom:2rem;" class="reveal">
-      Klik untuk menambahkan foto dia 💕 · Klik foto yang sudah ada untuk memperbesar
+      Klik foto untuk memperbesar 💕
     </p>
-    <div class="polaroid-grid">
-      <div class="polaroid-wrap reveal" style="transition-delay:.0s">
-        <div class="polaroid">
-          <div class="polaroid-img-wrap" id="slot0">
-            <div class="polaroid-placeholder"><span class="plus-icon">📷</span><p>Foto dia</p></div>
-          </div>
-          <span class="polaroid-caption">Cantiknya Dia 🌹</span>
-          <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,0)" />
-        </div>
+    <div class="collage-grid">
+      <div class="ci ci-1 reveal" style="transition-delay:.0s" onclick="openLightbox('photos/p1.jpg')">
+        <img src="photos/p1.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">Cantiknya Melin 🌹</span>
       </div>
-      <div class="polaroid-wrap reveal" style="transition-delay:.1s">
-        <div class="polaroid">
-          <div class="polaroid-img-wrap" id="slot1">
-            <div class="polaroid-placeholder"><span class="plus-icon">🤳</span><p>Selfie dia</p></div>
-          </div>
-          <span class="polaroid-caption">Selfie Cantik 💕</span>
-          <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,1)" />
-        </div>
+      <div class="ci ci-2 reveal" style="transition-delay:.07s" onclick="openLightbox('photos/p2.jpg')">
+        <img src="photos/p2.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">My Love 💕</span>
       </div>
-      <div class="polaroid-wrap reveal" style="transition-delay:.2s">
-        <div class="polaroid">
-          <div class="polaroid-img-wrap" id="slot2">
-            <div class="polaroid-placeholder"><span class="plus-icon">🌅</span><p>Foto dia</p></div>
-          </div>
-          <span class="polaroid-caption">Momen Spesial ✨</span>
-          <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,2)" />
-        </div>
+      <div class="ci ci-3 reveal" style="transition-delay:.14s" onclick="openLightbox('photos/p3.jpg')">
+        <img src="photos/p3.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">Senyumnya ✨</span>
       </div>
-      <div class="polaroid-wrap reveal" style="transition-delay:.3s">
-        <div class="polaroid">
-          <div class="polaroid-img-wrap" id="slot3">
-            <div class="polaroid-placeholder"><span class="plus-icon">🥰</span><p>Foto dia</p></div>
-          </div>
-          <span class="polaroid-caption">My Favourite Girl 💖</span>
-          <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,3)" />
-        </div>
+      <div class="ci ci-4 reveal" style="transition-delay:.21s" onclick="openLightbox('photos/p4.jpg')">
+        <img src="photos/p4.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">My Fav Girl 💖</span>
       </div>
-      <div class="polaroid-wrap reveal" style="transition-delay:.4s">
-        <div class="polaroid">
-          <div class="polaroid-img-wrap" id="slot4">
-            <div class="polaroid-placeholder"><span class="plus-icon">🌺</span><p>Foto dia</p></div>
-          </div>
-          <span class="polaroid-caption">Senyumnya Indah 🍀</span>
-          <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,4)" />
-        </div>
+      <div class="ci ci-5 reveal" style="transition-delay:.28s" onclick="openLightbox('photos/p5.jpg')">
+        <img src="photos/p5.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">Melin ❤️</span>
       </div>
-      <div class="polaroid-wrap reveal" style="transition-delay:.5s">
-        <div class="polaroid">
-          <div class="polaroid-img-wrap" id="slot5">
-            <div class="polaroid-placeholder"><span class="plus-icon">💑</span><p>Foto dia</p></div>
-          </div>
-          <span class="polaroid-caption">Forever & Always 💝</span>
-          <input class="polaroid-file" type="file" accept="image/*" onchange="loadPolaroid(this,5)" />
-        </div>
+      <div class="ci ci-6 reveal" style="transition-delay:.35s" onclick="openLightbox('photos/p6.jpg')">
+        <img src="photos/p6.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">Indah Banget 🌸</span>
+      </div>
+      <div class="ci ci-7 reveal" style="transition-delay:.42s" onclick="openLightbox('photos/p7.jpg')">
+        <img src="photos/p7.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">She's Perfect 💝</span>
+      </div>
+      <div class="ci ci-8 reveal" style="transition-delay:.49s" onclick="openLightbox('photos/p8.jpg')">
+        <img src="photos/p8.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">Happy Birthday! 🎂</span>
+      </div>
+      <div class="ci ci-9 reveal" style="transition-delay:.56s" onclick="openLightbox('photos/p9.jpg')">
+        <img src="photos/p9.jpg" alt="Melinda" loading="lazy">
+        <span class="ci-cap">My Everything 🥰</span>
       </div>
     </div>
   </section>
@@ -1780,10 +1965,181 @@
     <div class="section-divider reveal"></div>
     <div class="bouquet-wrap reveal">
       <div class="bouquet-petals" id="bouquet-petals"></div>
-      <span class="bouquet-emoji" id="bouquet-main">💐</span>
+      <div class="bouquet-3d" id="bouquet-main" title="Klik untuk kejutan 🌸">
+        <svg viewBox="0 0 300 400" width="260" height="347" xmlns="http://www.w3.org/2000/svg" aria-label="Buket bunga untuk Melinda">
+          <defs>
+            <!-- Pink rose gradients -->
+            <radialGradient id="po" cx="42%" cy="28%" r="65%"><stop offset="0%" stop-color="#FF94C2"/><stop offset="55%" stop-color="#C2185B"/><stop offset="100%" stop-color="#7B0030"/></radialGradient>
+            <radialGradient id="pm" cx="42%" cy="28%" r="65%"><stop offset="0%" stop-color="#FFB6D4"/><stop offset="50%" stop-color="#E91E8C"/><stop offset="100%" stop-color="#941248"/></radialGradient>
+            <radialGradient id="pi" cx="40%" cy="25%" r="65%"><stop offset="0%" stop-color="#FFD0E8"/><stop offset="45%" stop-color="#FF4499"/><stop offset="100%" stop-color="#AA1555"/></radialGradient>
+            <radialGradient id="pc" cx="38%" cy="32%" r="70%"><stop offset="0%" stop-color="#FFE4F0"/><stop offset="100%" stop-color="#FF1493"/></radialGradient>
+            <!-- Red rose gradients -->
+            <radialGradient id="ro" cx="42%" cy="28%" r="65%"><stop offset="0%" stop-color="#EF5350"/><stop offset="55%" stop-color="#9B1B2A"/><stop offset="100%" stop-color="#50000D"/></radialGradient>
+            <radialGradient id="rm" cx="42%" cy="28%" r="65%"><stop offset="0%" stop-color="#FF7070"/><stop offset="50%" stop-color="#B71C1C"/><stop offset="100%" stop-color="#640016"/></radialGradient>
+            <radialGradient id="ri" cx="40%" cy="25%" r="65%"><stop offset="0%" stop-color="#FF9090"/><stop offset="45%" stop-color="#C62828"/><stop offset="100%" stop-color="#780018"/></radialGradient>
+            <radialGradient id="rc" cx="38%" cy="32%" r="70%"><stop offset="0%" stop-color="#FFAAAA"/><stop offset="100%" stop-color="#EF2222"/></radialGradient>
+            <!-- Light pink / blush rose -->
+            <radialGradient id="lo" cx="42%" cy="28%" r="65%"><stop offset="0%" stop-color="#FFF0F5"/><stop offset="55%" stop-color="#F8BBD9"/><stop offset="100%" stop-color="#D48FAB"/></radialGradient>
+            <radialGradient id="lm" cx="42%" cy="28%" r="65%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="50%" stop-color="#FCE4EC"/><stop offset="100%" stop-color="#F48FB1"/></radialGradient>
+            <radialGradient id="li" cx="40%" cy="25%" r="65%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#F8BBD9"/></radialGradient>
+            <radialGradient id="lc" cx="38%" cy="32%" r="70%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#FCE4EC"/></radialGradient>
+            <!-- Stem -->
+            <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1B5E20"/><stop offset="40%" stop-color="#43A047"/><stop offset="100%" stop-color="#1B5E20"/></linearGradient>
+            <!-- Leaf -->
+            <radialGradient id="lg" cx="30%" cy="50%" r="70%"><stop offset="0%" stop-color="#66BB6A"/><stop offset="100%" stop-color="#1B5E20"/></radialGradient>
+            <!-- Wrap -->
+            <linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FCE4EC"/><stop offset="35%" stop-color="#F48FB1"/><stop offset="100%" stop-color="#AD1457"/></linearGradient>
+            <!-- Ribbon -->
+            <linearGradient id="rbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FFE066"/><stop offset="100%" stop-color="#B8860B"/></linearGradient>
+            <!-- Filters -->
+            <filter id="fs" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="1" dy="4" stdDeviation="4" flood-color="rgba(0,0,0,0.55)"/></filter>
+            <filter id="fsm" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="rgba(0,0,0,0.4)"/></filter>
+            <filter id="fgp" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur stdDeviation="7" result="b"/><feFlood flood-color="#FF1493" flood-opacity="0.35" result="c"/><feComposite in="c" in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+
+          <!-- STEMS -->
+          <g stroke="url(#sg)" stroke-width="3.5" fill="none" stroke-linecap="round">
+            <path d="M 148,243 C 125,225 95,200 72,162"/>
+            <path d="M 152,243 C 173,225 205,195 228,157"/>
+            <path d="M 150,243 C 150,228 150,185 150,120"/>
+            <path d="M 148,243 C 135,235 115,218 98,200"/>
+            <path d="M 152,243 C 165,235 183,218 200,193"/>
+            <path d="M 150,243 C 150,238 150,218 150,175"/>
+          </g>
+          <!-- Leaves -->
+          <g fill="url(#lg)" opacity="0.92">
+            <ellipse cx="110" cy="213" rx="15" ry="7" transform="rotate(-42 110 213)"/>
+            <ellipse cx="188" cy="208" rx="15" ry="7" transform="rotate(42 188 208)"/>
+            <ellipse cx="162" cy="182" rx="13" ry="6" transform="rotate(22 162 182)"/>
+            <ellipse cx="136" cy="178" rx="12" ry="5.5" transform="rotate(-22 136 178)"/>
+          </g>
+
+          <!-- BACK ROW — smaller, darker -->
+          <!-- Back-left: red rose -->
+          <g transform="translate(72,155) scale(0.62)" filter="url(#fsm)">
+            <ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(0)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(72)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(144)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(216)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(288)"/>
+            <ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(36)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(108)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(180)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(252)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(324)"/>
+            <ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(0)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(72)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(144)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(216)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(288)"/>
+            <circle r="7" fill="url(#rc)"/>
+          </g>
+          <!-- Back-right: red rose -->
+          <g transform="translate(228,150) scale(0.62)" filter="url(#fsm)">
+            <ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(18)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(90)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(162)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(234)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(306)"/>
+            <ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(54)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(126)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(198)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(270)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(342)"/>
+            <ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(18)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(90)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(162)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(234)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(306)"/>
+            <circle r="7" fill="url(#rc)"/>
+          </g>
+          <!-- Back-center: pink rose -->
+          <g transform="translate(150,112) scale(0.68)" filter="url(#fsm)">
+            <ellipse fill="url(#po)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(0)"/><ellipse fill="url(#po)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(72)"/><ellipse fill="url(#po)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(144)"/><ellipse fill="url(#po)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(216)"/><ellipse fill="url(#po)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(288)"/>
+            <ellipse fill="url(#pm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(36)"/><ellipse fill="url(#pm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(108)"/><ellipse fill="url(#pm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(180)"/><ellipse fill="url(#pm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(252)"/><ellipse fill="url(#pm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(324)"/>
+            <ellipse fill="url(#pi)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(0)"/><ellipse fill="url(#pi)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(72)"/><ellipse fill="url(#pi)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(144)"/><ellipse fill="url(#pi)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(216)"/><ellipse fill="url(#pi)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(288)"/>
+            <circle r="7" fill="url(#pc)"/>
+          </g>
+
+          <!-- MIDDLE ROW -->
+          <!-- Mid-left: blush rose -->
+          <g transform="translate(98,192) scale(0.8)" filter="url(#fs)">
+            <ellipse fill="url(#lo)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(10)"/><ellipse fill="url(#lo)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(82)"/><ellipse fill="url(#lo)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(154)"/><ellipse fill="url(#lo)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(226)"/><ellipse fill="url(#lo)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(298)"/>
+            <ellipse fill="url(#lm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(46)"/><ellipse fill="url(#lm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(118)"/><ellipse fill="url(#lm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(190)"/><ellipse fill="url(#lm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(262)"/><ellipse fill="url(#lm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(334)"/>
+            <ellipse fill="url(#li)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(10)"/><ellipse fill="url(#li)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(82)"/><ellipse fill="url(#li)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(154)"/><ellipse fill="url(#li)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(226)"/><ellipse fill="url(#li)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(298)"/>
+            <circle r="7" fill="url(#lc)"/>
+          </g>
+          <!-- Mid-right: red rose -->
+          <g transform="translate(201,185) scale(0.8)" filter="url(#fs)">
+            <ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(-10)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(62)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(134)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(206)"/><ellipse fill="url(#ro)" rx="19" ry="30" cx="0" cy="-23" transform="rotate(278)"/>
+            <ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(26)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(98)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(170)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(242)"/><ellipse fill="url(#rm)" rx="14" ry="23" cx="0" cy="-17" transform="rotate(314)"/>
+            <ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(-10)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(62)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(134)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(206)"/><ellipse fill="url(#ri)" rx="10" ry="16" cx="0" cy="-12" transform="rotate(278)"/>
+            <circle r="7" fill="url(#rc)"/>
+          </g>
+
+          <!-- FRONT CENTER — largest, glowing pink -->
+          <g transform="translate(150,162) scale(1.0)" filter="url(#fgp)">
+            <ellipse fill="url(#po)" rx="22" ry="34" cx="0" cy="-26" transform="rotate(0)"/><ellipse fill="url(#po)" rx="22" ry="34" cx="0" cy="-26" transform="rotate(72)"/><ellipse fill="url(#po)" rx="22" ry="34" cx="0" cy="-26" transform="rotate(144)"/><ellipse fill="url(#po)" rx="22" ry="34" cx="0" cy="-26" transform="rotate(216)"/><ellipse fill="url(#po)" rx="22" ry="34" cx="0" cy="-26" transform="rotate(288)"/>
+            <ellipse fill="url(#pm)" rx="16" ry="26" cx="0" cy="-19" transform="rotate(36)"/><ellipse fill="url(#pm)" rx="16" ry="26" cx="0" cy="-19" transform="rotate(108)"/><ellipse fill="url(#pm)" rx="16" ry="26" cx="0" cy="-19" transform="rotate(180)"/><ellipse fill="url(#pm)" rx="16" ry="26" cx="0" cy="-19" transform="rotate(252)"/><ellipse fill="url(#pm)" rx="16" ry="26" cx="0" cy="-19" transform="rotate(324)"/>
+            <ellipse fill="url(#pi)" rx="11" ry="19" cx="0" cy="-14" transform="rotate(0)"/><ellipse fill="url(#pi)" rx="11" ry="19" cx="0" cy="-14" transform="rotate(72)"/><ellipse fill="url(#pi)" rx="11" ry="19" cx="0" cy="-14" transform="rotate(144)"/><ellipse fill="url(#pi)" rx="11" ry="19" cx="0" cy="-14" transform="rotate(216)"/><ellipse fill="url(#pi)" rx="11" ry="19" cx="0" cy="-14" transform="rotate(288)"/>
+            <circle r="9" fill="url(#pc)"/>
+          </g>
+
+          <!-- Baby's breath (small dots) -->
+          <g fill="rgba(255,255,255,0.88)" stroke="rgba(255,220,235,0.5)" stroke-width="0.5">
+            <circle cx="52" cy="172" r="3.5"/><circle cx="60" cy="160" r="2.5"/><circle cx="45" cy="164" r="2"/>
+            <circle cx="247" cy="167" r="3.5"/><circle cx="240" cy="155" r="2.5"/><circle cx="254" cy="160" r="2"/>
+            <circle cx="133" cy="90" r="3"/><circle cx="164" cy="93" r="2.5"/><circle cx="157" cy="83" r="2"/>
+            <circle cx="122" cy="178" r="2.5"/><circle cx="175" cy="172" r="2.5"/>
+          </g>
+
+          <!-- WRAPPING PAPER -->
+          <path d="M 52,243 L 248,243 L 196,393 L 104,393 Z" fill="url(#wg)" filter="url(#fs)"/>
+          <!-- Fold highlights / shadows -->
+          <path d="M 52,243 L 104,393 L 116,393 L 64,243 Z" fill="rgba(255,255,255,0.2)"/>
+          <path d="M 248,243 L 196,393 L 183,393 L 235,243 Z" fill="rgba(0,0,0,0.18)"/>
+          <path d="M 150,243 L 150,393" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+          <!-- Crinkle top edge -->
+          <path d="M 52,243 Q 100,249 150,245 Q 200,241 248,243" stroke="rgba(255,255,255,0.28)" stroke-width="1.2" fill="none"/>
+          <!-- Ribbon band -->
+          <rect x="52" y="256" width="196" height="15" fill="url(#rbg)" rx="2.5" opacity="0.92"/>
+          <rect x="52" y="256" width="196" height="5" fill="rgba(255,255,255,0.32)" rx="2.5"/>
+          <!-- Bow left loop -->
+          <ellipse cx="136" cy="252" rx="23" ry="14" fill="url(#rbg)" transform="rotate(-22 136 252)" opacity="0.95"/>
+          <ellipse cx="136" cy="252" rx="19" ry="10" fill="rgba(0,0,0,0.15)" transform="rotate(-22 136 252)"/>
+          <!-- Bow right loop -->
+          <ellipse cx="164" cy="252" rx="23" ry="14" fill="url(#rbg)" transform="rotate(22 164 252)" opacity="0.95"/>
+          <ellipse cx="164" cy="252" rx="19" ry="10" fill="rgba(0,0,0,0.15)" transform="rotate(22 164 252)"/>
+          <!-- Knot -->
+          <ellipse cx="150" cy="254" rx="10" ry="9" fill="#D4A017"/>
+          <ellipse cx="150" cy="253" rx="7" ry="6" fill="#FFD700"/>
+          <!-- Ribbon tails -->
+          <path d="M 144,262 Q 130,282 135,300" stroke="url(#rbg)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M 156,262 Q 170,282 165,300" stroke="url(#rbg)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
     <p class="bouquet-msg reveal">Ini buket bunga virtualku untukmu, Jahee 🌸</p>
     <p class="bouquet-sub reveal">Karena kamu berhak mendapatkan bunga setiap harinya 🌺</p>
+  </section>
+
+  <!-- CANDLE GAME -->
+  <section class="candle-section section-pad" id="candle-section">
+    <h2 class="section-title reveal">Tiup Lilinnya, Jahee! 🎂</h2>
+    <div class="section-divider reveal"></div>
+    <p class="reveal" style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:1.6rem;">
+      Tekan tombol lalu tiup mikrofon kamu — matikan semua lilinnya! 🎤
+    </p>
+
+    <div class="cake-outer reveal">
+      <!-- Candles -->
+      <div class="candles-row" id="candles-row">
+        <div class="candle" id="cv0"><div class="flame"></div><div class="c-smoke"></div></div>
+        <div class="candle" id="cv1"><div class="flame"></div><div class="c-smoke"></div></div>
+        <div class="candle" id="cv2"><div class="flame"></div><div class="c-smoke"></div></div>
+        <div class="candle" id="cv3"><div class="flame"></div><div class="c-smoke"></div></div>
+        <div class="candle" id="cv4"><div class="flame"></div><div class="c-smoke"></div></div>
+      </div>
+      <!-- Cake body -->
+      <div class="cake-body">
+        <div class="cake-top-t">
+          <span class="cake-text">HAPPY 25th ✨</span>
+        </div>
+        <div class="cake-sep"></div>
+        <div class="cake-bot-t"></div>
+        <div class="cake-plate"></div>
+      </div>
+    </div>
+
+    <!-- Mic HUD -->
+    <div class="candle-hud" id="candle-hud">
+      <div class="candle-counter" id="candle-counter">🕯️ × 5</div>
+      <div class="mic-bar-wrap"><div class="mic-bar-fill" id="mic-bar"></div></div>
+      <span class="mic-tip">Tiup! 💨</span>
+    </div>
+
+    <button class="btn-candle reveal" id="btn-candle" onclick="startCandleGame()">🎤 Mulai Tiup!</button>
+
+    <div class="candle-win" id="candle-win">
+      <p class="cw-main">🎉 Selamat Ulang Tahun! 🎉</p>
+      <p class="cw-sub">Semoga semua 5 harapanmu terkabul, Jahee 💖</p>
+    </div>
   </section>
 
   <!-- DUNIANYA MELIN -->
@@ -2266,6 +2622,88 @@ function initBouquet() {
       setTimeout(launchFirework, i * 150);
     }
   });
+}
+
+/* ══════════════════════════════════════════════
+   CANDLE GAME
+══════════════════════════════════════════════ */
+let _cAudio = null, _cAnalyser = null, _cStream = null;
+let _cLeft = 5, _cRaf = null, _cLastBlow = 0;
+
+async function startCandleGame() {
+  const btn = document.getElementById('btn-candle');
+  if (!navigator.mediaDevices?.getUserMedia) {
+    alert('Browser kamu tidak support mikrofon 😢\nCoba tap setiap lilin langsung ya!');
+    enableManualBlow(); return;
+  }
+  try {
+    btn.textContent = '🎤 Memulai...';
+    btn.disabled = true;
+    _cStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+    _cAudio  = new (window.AudioContext || window.webkitAudioContext)();
+    const src = _cAudio.createMediaStreamSource(_cStream);
+    _cAnalyser = _cAudio.createAnalyser();
+    _cAnalyser.fftSize = 512;
+    _cAnalyser.smoothingTimeConstant = 0.25;
+    src.connect(_cAnalyser);
+
+    btn.classList.add('hidden');
+    document.getElementById('candle-hud').classList.add('active');
+
+    const buf = new Uint8Array(_cAnalyser.frequencyBinCount);
+    function tick() {
+      if (_cLeft <= 0) { _stopCandle(); return; }
+      _cAnalyser.getByteFrequencyData(buf);
+      const vol = buf.slice(0, 80).reduce((a, b) => a + b, 0) / 80;
+      document.getElementById('mic-bar').style.width = Math.min(100, vol * 2.2) + '%';
+      const now = Date.now();
+      if (vol > 32 && now - _cLastBlow > 550) {
+        _cLastBlow = now;
+        _blowCandle();
+      }
+      _cRaf = requestAnimationFrame(tick);
+    }
+    tick();
+  } catch(e) {
+    btn.textContent = '🎤 Mulai Tiup!';
+    btn.disabled = false;
+    alert('Izinkan akses mikrofon dulu ya, Jahee! 🎤\nKalau tidak bisa, tap setiap lilin langsung.');
+    enableManualBlow();
+  }
+}
+
+function enableManualBlow() {
+  document.querySelectorAll('.candle').forEach(c => {
+    c.style.cursor = 'pointer';
+    c.addEventListener('click', () => { if (!c.classList.contains('out')) _blowCandle(); });
+  });
+  document.getElementById('btn-candle').classList.add('hidden');
+}
+
+function _blowCandle() {
+  const lit = document.querySelectorAll('.candle:not(.out)');
+  if (!lit.length) return;
+  lit[0].classList.add('out');
+  _cLeft--;
+  try { navigator.vibrate?.(50); } catch(_) {}
+  document.getElementById('candle-counter').textContent = '🕯️ × ' + _cLeft;
+  if (_cLeft === 0) {
+    setTimeout(() => {
+      document.getElementById('candle-hud').classList.remove('active');
+      document.getElementById('candle-win').classList.add('show');
+      for (let i = 0; i < 8; i++) setTimeout(launchFirework, i * 180);
+      try { navigator.vibrate?.([100,50,100,50,200]); } catch(_) {}
+      _stopCandle();
+    }, 700);
+  }
+}
+
+function _stopCandle() {
+  if (_cRaf) { cancelAnimationFrame(_cRaf); _cRaf = null; }
+  if (_cStream) { _cStream.getTracks().forEach(t => t.stop()); _cStream = null; }
+  if (_cAudio)  { _cAudio.close(); _cAudio = null; }
+  const bar = document.getElementById('mic-bar');
+  if (bar) bar.style.width = '0%';
 }
 
 /* ══════════════════════════════════════════════
