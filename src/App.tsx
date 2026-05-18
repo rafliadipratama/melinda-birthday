@@ -85,20 +85,12 @@ function App() {
     )
   }
 
-  // Render selected section with back button
+  // Render selected section
   return (
     <>
       <MusicPlayer />
       <div className="w-full overflow-x-hidden bg-black">
-        {/* Back to Menu Button */}
-        <button
-        onClick={handleBackToMenu}
-        className="fixed top-6 left-6 z-40 px-4 py-2 bg-pink-600/80 hover:bg-pink-600 text-white rounded-full text-sm transition-all hover:scale-110 backdrop-blur-md"
-      >
-        ← Kembali ke Menu
-      </button>
-
-      {/* Render selected page with animation */}
+        {/* Render selected page with animation */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentPage}
