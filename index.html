@@ -15,8 +15,8 @@
     :root {
       --pink:      #FF1493;
       --hot-pink:  #FF007F;
-      --red:       #C0392B;
-      --dark-red:  #8B0000;
+      --red:       #722F37;
+      --dark-red:  #4A001E;
       --black:     #0a0005;
       --dark:      #160010;
       --leopard-base: #c8841e;
@@ -915,6 +915,230 @@
     .btn-game, .btn-scroll, .heart-btn, .gheart {
       touch-action: manipulation;
     }
+
+    /* ================================================================
+       MODERN UI OVERRIDES
+    ================================================================ */
+
+    /* ── Hero tag → pill badge ── */
+    .hero-tag {
+      background: rgba(255,215,0,0.08);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 50px;
+      padding: 0.35rem 1.1rem;
+      backdrop-filter: blur(8px);
+      letter-spacing: 3px;
+    }
+
+    /* ── Section divider → thin gradient line ── */
+    .section-divider {
+      width: 180px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--pink), var(--gold), transparent);
+      box-shadow: 0 0 12px rgba(255,20,147,0.5);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Section title glow ── */
+    .section-title {
+      text-shadow: 0 0 40px rgba(255,20,147,0.25);
+    }
+
+    /* ── Buttons ── */
+    .btn-scroll, .btn-game {
+      background: linear-gradient(135deg, var(--hot-pink) 0%, var(--dark-red) 100%);
+      border: 1px solid rgba(255,20,147,0.35);
+      box-shadow: 0 4px 24px rgba(255,0,127,0.4),
+                  inset 0 1px 0 rgba(255,255,255,0.12);
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(8px);
+    }
+    .btn-scroll:hover, .btn-game:hover {
+      box-shadow: 0 6px 36px rgba(255,0,127,0.65),
+                  inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    /* ── Wish cards → glassmorphism ── */
+    .wish-card {
+      background: rgba(255,20,147,0.04) !important;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,20,147,0.12) !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45),
+                  inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .wish-card:hover {
+      background: rgba(255,20,147,0.08) !important;
+      border-color: rgba(255,20,147,0.3) !important;
+      box-shadow: 0 12px 48px rgba(255,20,147,0.2),
+                  inset 0 1px 0 rgba(255,255,255,0.06) !important;
+    }
+
+    /* ── Letter card → modern dark glass ── */
+    .letter-card {
+      background: rgba(18,0,9,0.95) !important;
+      border: 1px solid rgba(255,20,147,0.14);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.55),
+                  0 0 0 1px rgba(255,215,0,0.04),
+                  inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    /* ── Countdown boxes → glass ── */
+    .cdown-box {
+      background: rgba(255,20,147,0.05) !important;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,20,147,0.15) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35),
+                  inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    /* ── Surprise message → glass ── */
+    .surprise-msg {
+      background: rgba(18,0,9,0.82) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,20,147,0.18) !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    /* ── Heart button ── */
+    .heart-btn {
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(255,0,127,0.5),
+                  inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+
+    /* ── Polaroid → elevated shadow ── */
+    .polaroid {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7),
+                  0 4px 12px rgba(0,0,0,0.5),
+                  inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    /* ── Photo slot → glass ── */
+    .photo-slot {
+      background: rgba(255,20,147,0.03) !important;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,20,147,0.14) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .photo-slot:hover {
+      border-color: rgba(255,20,147,0.4) !important;
+      box-shadow: 0 8px 32px rgba(255,20,147,0.2);
+    }
+
+    /* ── Game cards ── */
+    .hint-box {
+      background: rgba(255,20,147,0.07);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,20,147,0.22);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    /* ── HUD progress bar ── */
+    #hud-bar-wrap {
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,20,147,0.2);
+    }
+    #hud-fill {
+      border-radius: 20px;
+      box-shadow: 0 0 14px rgba(255,0,127,0.7),
+                  0 0 28px rgba(255,215,0,0.3);
+    }
+
+    /* ── Bouquet msg glow ── */
+    .bouquet-msg {
+      text-shadow: 0 0 30px rgba(255,20,147,0.5);
+    }
+
+    /* ── Name glow ── */
+    .hero-name {
+      text-shadow: 0 0 40px rgba(255,20,147,0.6),
+                   0 0 80px rgba(255,20,147,0.2) !important;
+    }
+
+    /* ── Polaroid caption ── */
+    .polaroid-caption {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #6a3050;
+    }
+
+    /* ── Footer border ── */
+    footer {
+      border-top: 1px solid transparent !important;
+      background: linear-gradient(rgba(10,0,5,.92), rgba(10,0,5,.92)) padding-box,
+                  linear-gradient(90deg, transparent, rgba(255,20,147,.3), rgba(255,215,0,.2), transparent) border-box !important;
+    }
+
+    /* ================================================================
+       CUTE / PLAYFUL TOUCHES
+    ================================================================ */
+
+    /* Wish cards — cute bounce on hover */
+    .wish-card {
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s, background 0.3s, border-color 0.3s !important;
+    }
+    .wish-card:hover { transform: translateY(-8px) scale(1.03) !important; }
+
+    /* Wish icons — wiggle on hover */
+    .wish-card:hover .wish-icon {
+      display: inline-block;
+      animation: iconWiggle 0.5s ease;
+    }
+    @keyframes iconWiggle {
+      0%,100% { transform: rotate(0); }
+      25%      { transform: rotate(-12deg) scale(1.2); }
+      75%      { transform: rotate(12deg) scale(1.2); }
+    }
+
+    /* Hero emoji — bigger bounce */
+    .hero-emoji { animation: heroBounce 1.2s ease-in-out infinite alternate, fadeSlideDown 1s ease both !important; }
+    @keyframes heroBounce {
+      from { transform: translateY(0) rotate(-3deg) scale(1); }
+      to   { transform: translateY(-16px) rotate(3deg) scale(1.05); }
+    }
+
+    /* Polaroid — cute pop on hover */
+    .polaroid-wrap:hover { transform: rotate(0deg) scale(1.07) translateY(-8px) !important; }
+
+    /* Lock icon — cute size */
+    .lock-icon, .unlock-icon { font-size: 4.5rem !important; }
+
+    /* Sparkle dots on game overlay */
+    #phase-intro::before, #phase-intro::after {
+      content: '✨';
+      position: absolute;
+      font-size: 1.5rem;
+      animation: sparkle 2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    #phase-intro::before { top: 8%; left: 8%; animation-delay: 0s; }
+    #phase-intro::after  { top: 8%; right: 8%; animation-delay: 1s; }
+
+    /* Score float — cuter */
+    .score-float {
+      font-size: 1.4rem !important;
+      font-weight: 700;
+    }
+
+    /* Countdown num — subtle glow pulse */
+    .cdown-num {
+      animation: numPulse 2s ease-in-out infinite;
+    }
+    @keyframes numPulse {
+      0%,100% { text-shadow: 0 0 10px rgba(255,20,147,0.4); }
+      50%      { text-shadow: 0 0 25px rgba(255,20,147,0.8), 0 0 50px rgba(255,20,147,0.3); }
+    }
+
+    /* Reveal — springy pop-in */
+    .reveal { opacity: 0; transform: translateY(30px) scale(0.97); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(.34,1.3,.64,1) !important; }
+    .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
     /* ================================================================
        LEOPARD FULL BACKGROUND
