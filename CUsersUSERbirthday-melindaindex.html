@@ -1774,11 +1774,34 @@
        LEOPARD FULL BACKGROUND
     ================================================================ */
     body {
-      background-color: #f5c0c0;
-      background-image: url('leopard-pink.jpg');
-      background-size: cover;
+      background-color: #0f0006;
+      background-image:
+        /* ── Cluster A ── */
+        radial-gradient(ellipse 13px 8px  at  20px  18px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at  40px  13px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at  17px  34px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at  38px  36px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at  28px  25px, rgba( 55,25,0,.4) 70%, transparent),
+        /* ── Cluster B ── */
+        radial-gradient(ellipse 13px 8px  at  80px  63px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at 100px  58px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at  78px  79px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at  99px  81px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at  89px  70px, rgba( 55,25,0,.4) 70%, transparent),
+        /* ── Cluster C ── */
+        radial-gradient(ellipse 13px 8px  at 136px  13px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at 156px   8px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at 134px  29px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at 155px  31px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at 145px  20px, rgba( 55,25,0,.4) 70%, transparent),
+        /* ── Cluster D ── */
+        radial-gradient(ellipse 13px 8px  at  50px  88px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at  70px  83px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at  48px 104px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at  69px 106px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at  59px  96px, rgba( 55,25,0,.4) 70%, transparent);
+      background-size: 170px 120px;
       background-attachment: fixed;
-      background-position: center;
     }
 
     /* Sections semi-transparent → leopard background tembus */
@@ -1818,113 +1841,6 @@
       background: radial-gradient(ellipse at top,
         rgba(42,0,13,.97) 0%, rgba(10,0,5,.97) 70%) !important;
     }
-
-    /* ================================================================
-       MULTI-PAGE SYSTEM
-    ================================================================ */
-    .page {
-      display: none;
-      flex-direction: column;
-      min-height: 100vh;
-      width: 100%;
-      max-width: 100%;
-    }
-    .page.active {
-      display: flex;
-    }
-    .page-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      background: linear-gradient(180deg, rgba(22,0,16,.95) 0%, rgba(15,0,6,.92) 100%);
-      border-bottom: 1px solid rgba(255,20,147,.2);
-    }
-    .page-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--pink);
-      font-family: 'Cinzel', serif;
-    }
-    .page-back-btn {
-      background: rgba(255,20,147,.15);
-      color: var(--pink);
-      border: 1px solid rgba(255,20,147,.3);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-    .page-back-btn:hover {
-      background: rgba(255,20,147,.25);
-      border-color: rgba(255,20,147,.5);
-    }
-    .page-content {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: clip;
-    }
-
-    /* Menu page styling */
-    #page-menu {
-      justify-content: center;
-      align-items: center;
-    }
-    .menu-container {
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .menu-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-family: 'Cinzel', serif;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #FFB6C1, #FF1493, #FFD700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .menu-subtitle {
-      color: rgba(255,255,255,.6);
-      margin-bottom: 2.5rem;
-      font-size: 1.1rem;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .menu-card {
-      background: linear-gradient(135deg, rgba(255,20,147,.1), rgba(255,215,0,.05));
-      border: 1px solid rgba(255,20,147,.3);
-      border-radius: 15px;
-      padding: 1.5rem;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(.34,1.56,.64,1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .menu-card:hover {
-      background: linear-gradient(135deg, rgba(255,20,147,.2), rgba(255,215,0,.1));
-      border-color: rgba(255,20,147,.6);
-      transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 10px 30px rgba(255,20,147,.3);
-    }
-    .menu-icon {
-      font-size: 3rem;
-    }
-    .menu-label {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      font-family: 'Cinzel', serif;
-    }
-
   </style>
 </head>
 <body>
@@ -2008,57 +1924,8 @@
   <!-- Floating hearts -->
   <div id="hearts-wrap"></div>
 
-  <!-- ════════════════════════════════════════════════════════════
-       MENU PAGE (HOME)
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-menu" class="page active">
-    <div class="menu-container">
-      <h1 class="menu-title">🎂 Selamat Ulang Tahun 🎂</h1>
-      <p class="menu-subtitle">Melinda Az Zahra Hamid — Pilih section yang ingin kamu lihat:</p>
-
-      <div class="menu-grid">
-        <div class="menu-card" onclick="goPage('letter')">
-          <div class="menu-icon">💌</div>
-          <div class="menu-label">Surat Cinta</div>
-        </div>
-        <div class="menu-card" onclick="goPage('bouquet')">
-          <div class="menu-icon">🌹</div>
-          <div class="menu-label">Buket Bunga</div>
-        </div>
-        <div class="menu-card" onclick="goPage('photos')">
-          <div class="menu-icon">📸</div>
-          <div class="menu-label">Foto-Foto</div>
-        </div>
-        <div class="menu-card" onclick="goPage('candle')">
-          <div class="menu-icon">🎂</div>
-          <div class="menu-label">Tiup Lilin</div>
-        </div>
-        <div class="menu-card" onclick="goPage('wishes')">
-          <div class="menu-icon">🎉</div>
-          <div class="menu-label">Doa & Harapan</div>
-        </div>
-        <div class="menu-card" onclick="goPage('dunianya')">
-          <div class="menu-icon">🌸</div>
-          <div class="menu-label">Dunianya Melin</div>
-        </div>
-        <div class="menu-card" onclick="goPage('surprise')">
-          <div class="menu-icon">🎁</div>
-          <div class="menu-label">Ada Kejutan!</div>
-        </div>
-        <div class="menu-card" onclick="goPage('countdown')">
-          <div class="menu-icon">⏳</div>
-          <div class="menu-label">Hitung Mundur</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════════════════
-       HERO PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-hero" class="page">
-    <!-- HERO -->
-    <section class="hero">
+  <!-- HERO -->
+  <section class="hero">
     <div class="sparkle" style="width:6px;height:6px;top:15%;left:12%;animation-delay:0s;animation-duration:2.5s;"></div>
     <div class="sparkle" style="width:4px;height:4px;top:25%;left:85%;animation-delay:0.8s;animation-duration:3s;background:var(--gold);"></div>
     <div class="sparkle" style="width:5px;height:5px;top:70%;left:8%;animation-delay:1.5s;animation-duration:2s;background:var(--gold);"></div>
@@ -2081,20 +1948,10 @@
     </div>
 
     <div class="leopard-bar" style="position:absolute;bottom:0;left:0;right:0;"></div>
-    </section>
-  </div><!-- /#page-hero -->
+  </section>
 
-  <!-- ════════════════════════════════════════════════════════════
-       LETTER PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-letter" class="page">
-    <div class="page-header">
-      <span class="page-title">💌 Surat Cinta</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
-    </div>
-    <div class="page-content">
-      <!-- LETTER -->
-      <section id="letter" class="letter-section section-pad">
+  <!-- LETTER -->
+  <section id="letter" class="letter-section section-pad">
     <h2 class="section-title reveal">Kartu Ucapan Ulang Tahun</h2>
     <div class="section-divider reveal"></div>
     <div class="letter-card reveal leopard-border-box">
@@ -2107,22 +1964,11 @@
         <p style="text-align:center;margin-top:2rem;"><strong>🎉 Banyak cinta & bahagia untukmu! 🎉</strong></p>
       </div>
       <p class="letter-sig">— Dari Rafli ❤️</p>
-      </div>
-      </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-letter -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       WISHES PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-wishes" class="page">
-    <div class="page-header">
-      <span class="page-title">🎉 Doa & Harapan</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
-      <!-- WISHES -->
-      <section class="wishes-section section-pad">
+  </section>
+
+  <!-- WISHES -->
+  <section class="wishes-section section-pad">
     <h2 class="section-title reveal">Doa & Harapan Untukmu</h2>
     <div class="section-divider reveal"></div>
     <div class="wishes-grid">
@@ -2132,23 +1978,13 @@
       <div class="wish-card reveal" style="transition-delay:.3s"><span class="wish-icon">💝</span><p class="wish-title">Cinta</p><p class="wish-text">Semoga cinta kita tumbuh semakin kuat dan indah, melewati semua suka dan duka bersama.</p></div>
       <div class="wish-card reveal" style="transition-delay:.4s"><span class="wish-icon">🍀</span><p class="wish-title">Keberuntungan</p><p class="wish-text">Semoga selalu ada kemudahan di setiap langkahmu dan keberuntungan selalu berpihak padamu.</p></div>
       <div class="wish-card reveal" style="transition-delay:.5s"><span class="wish-icon">🌺</span><p class="wish-title">Kedamaian</p><p class="wish-text">Semoga hatimu selalu tenang, damai, dan dipenuhi rasa syukur di setiap harinya.</p></div>
-      </div>
-      </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-wishes -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       PHOTOS PAGE (GALLERY)
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-photos" class="page">
-    <div class="page-header">
-      <span class="page-title">📸 Foto-Foto Cantiknya</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
-      <div class="leopard-bar" style="height:35px;position:relative;z-index:2;"></div>
-      <!-- GALLERY — Polaroid Album -->
-      <section class="gallery-section section-pad">
+  </section>
+
+  <div class="leopard-bar" style="height:35px;position:relative;z-index:2;"></div>
+
+  <!-- GALLERY — Polaroid Album -->
+  <section class="gallery-section section-pad">
     <h2 class="section-title reveal">Foto-Foto Cantiknya 📸</h2>
     <div class="section-divider reveal"></div>
     <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:0.82rem;margin-bottom:2rem;" class="reveal">
@@ -2191,22 +2027,29 @@
         <img src="photos/p9.jpg" alt="Melinda" loading="lazy">
         <span class="ci-cap">My Everything 🥰</span>
       </div>
-      </div>
-      </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-photos -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       BOUQUET PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-bouquet" class="page">
-    <div class="page-header">
-      <span class="page-title">🌹 Buket Bunga</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
-      <!-- BOUQUET -->
-      <section class="bouquet-section section-pad">
+  </section>
+
+  <!-- Music Player -->
+  <audio id="bg-music" loop crossorigin="anonymous">
+    <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-piano-265.mp3" type="audio/mpeg" />
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-btn" onclick="toggleMusic()" title="Play / Pause Musik">
+    <span id="music-icon">🎵</span>
+    <div class="music-rings">
+      <span></span><span></span><span></span>
+    </div>
+  </button>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightbox-img" src="" alt="foto" />
+  </div>
+
+  <!-- BOUQUET -->
+  <section class="bouquet-section section-pad">
     <h2 class="section-title reveal">Buket Bunga Untukmu 🌹</h2>
     <div class="section-divider reveal"></div>
     <div class="bouquet-wrap reveal">
@@ -2343,21 +2186,10 @@
     </div>
     <p class="bouquet-msg reveal">Ini buket bunga virtualku untukmu, Jahee 🌸</p>
     <p class="bouquet-sub reveal">Karena kamu berhak mendapatkan bunga setiap harinya 🌺</p>
-      </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-bouquet -->
+  </section>
 
-  <!-- ════════════════════════════════════════════════════════════
-       CANDLE PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-candle" class="page">
-    <div class="page-header">
-      <span class="page-title">🎂 Tiup Lilinnya</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
-    </div>
-    <div class="page-content">
-      <!-- CANDLE GAME -->
-      <section class="candle-section section-pad" id="candle-section">
+  <!-- CANDLE GAME -->
+  <section class="candle-section section-pad" id="candle-section">
     <h2 class="section-title reveal">Tiup Lilinnya, Jahee! 🎂</h2>
     <div class="section-divider reveal"></div>
     <p class="reveal" style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:1.6rem;">
@@ -2391,30 +2223,16 @@
       <span class="mic-tip">Tiup! 💨</span>
     </div>
 
-    <div style="display:flex;gap:1rem;justify-content:center;margin:2rem 0;">
-      <button class="btn-candle reveal" id="btn-candle-mic" onclick="startCandleGame('mic')">🎤 Tiup Mikrofon</button>
-      <button class="btn-candle reveal" id="btn-candle-click" onclick="startCandleGame('click')">👆 Klik Lilin</button>
-    </div>
+    <button class="btn-candle reveal" id="btn-candle" onclick="startCandleGame()">🎤 Mulai Tiup!</button>
 
     <div class="candle-win" id="candle-win">
       <p class="cw-main">🎉 Selamat Ulang Tahun! 🎉</p>
       <p class="cw-sub">Semoga semua 5 harapanmu terkabul, Jahee 💖</p>
-      </div>
-      </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-candle -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       DUNIANYA MELIN PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-dunianya" class="page">
-    <div class="page-header">
-      <span class="page-title">🌸 Dunianya Melin</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
-      <!-- DUNIANYA MELIN -->
-      <section class="loves-section section-pad">
+  </section>
+
+  <!-- DUNIANYA MELIN -->
+  <section class="loves-section section-pad">
     <h2 class="section-title reveal">Dunianya Melin 🌸</h2>
     <div class="section-divider reveal"></div>
     <p class="reveal" style="color:rgba(255,255,255,0.55);margin-bottom:2.5rem;font-size:1rem;">Hal-hal kecil yang bikin kamu jadi kamu 💕</p>
@@ -2455,22 +2273,11 @@
         <span class="love-tag">#film favorit</span>
       </div>
 
-      </div>
-      </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-dunianya -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       SURPRISE PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-surprise" class="page">
-    <div class="page-header">
-      <span class="page-title">🎁 Ada Kejutan!</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
-      <!-- SURPRISE -->
-      <section class="surprise-section section-pad">
+  </section>
+
+  <!-- SURPRISE -->
+  <section class="surprise-section section-pad">
     <h2 class="section-title reveal">Ada Kejutan! 🎁</h2>
     <div class="section-divider reveal"></div>
     <p class="reveal" style="color:rgba(255,255,255,0.6);margin-bottom:1.5rem;">Tekan hati di bawah ini untuk kejutan spesial dariku 💓</p>
@@ -2478,56 +2285,26 @@
     <div class="surprise-msg reveal" id="surprise-msg">
       <p>"Kamu adalah satu-satunya orang yang membuatku ingin menjadi versi terbaik dari diriku sendiri. Terima kasih sudah ada, terima kasih sudah menjadi kamu yang apa adanya. Aku tidak perlu bintang di langit — aku sudah punya kamu. ⭐"</p>
       <p style="margin-top:1.2rem;color:var(--gold);font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.05em;">I LOVE YOU, JAHEE! 💖</p>
-      </div>
-      </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-surprise -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       COUNTDOWN PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-countdown" class="page">
-    <div class="page-header">
-      <span class="page-title">⏳ Hitung Mundur</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
-      <div class="leopard-bar" style="height:35px;position:relative;z-index:2;"></div>
-      <!-- COUNTDOWN -->
-      <section class="countdown-section section-pad">
+  </section>
+
+  <div class="leopard-bar" style="height:35px;position:relative;z-index:2;"></div>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown-section section-pad">
     <h2 class="section-title reveal">Hari Ulang Tahunmu ⏳</h2>
     <div class="section-divider reveal"></div>
     <p class="reveal" style="color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-size:0.9rem;">Waktu terus berlalu, tapi cintaku tidak pernah berkurang</p>
     <div class="countdown-grid reveal" id="countdown"></div>
   </section>
 
-      <!-- FOOTER -->
-      <footer>
-        <span class="big-heart">💝</span>
-        <p>Dibuat dengan cinta yang tak terbatas untuk</p>
-        <p style="color:var(--pink);font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.06em;margin-top:0.3rem;">Melinda Az Zahra Hamid</p>
-        <p style="margin-top:1rem;">Happy Birthday, Sayangku 🎂✨</p>
-      </footer>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-countdown -->
-
-  <!-- Music Player (Global) -->
-  <audio id="bg-music" loop crossorigin="anonymous">
-    <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-piano-265.mp3" type="audio/mpeg" />
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg" />
-  </audio>
-  <button id="music-btn" onclick="toggleMusic()" title="Play / Pause Musik">
-    <span id="music-icon">🎵</span>
-    <div class="music-rings">
-      <span></span><span></span><span></span>
-    </div>
-  </button>
-
-  <!-- Lightbox (Global) -->
-  <div id="lightbox">
-    <button id="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightbox-img" src="" alt="foto" />
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    <span class="big-heart">💝</span>
+    <p>Dibuat dengan cinta yang tak terbatas untuk</p>
+    <p style="color:var(--pink);font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.06em;margin-top:0.3rem;">Melinda Az Zahra Hamid</p>
+    <p style="margin-top:1rem;">Happy Birthday, Sayangku 🎂✨</p>
+  </footer>
 
 </div><!-- /#main-site -->
 
@@ -2704,9 +2481,6 @@ function revealSite() {
   site.style.opacity       = '1';
   site.style.pointerEvents = 'auto';
 
-  /* show menu page */
-  goPage('menu');
-
   /* start fireworks party */
   for (let i = 0; i < 8; i++) setTimeout(launchFirework, i * 300);
   setInterval(() => { launchFirework(); setTimeout(launchFirework, 350); }, 3500);
@@ -2733,19 +2507,6 @@ function revealSite() {
 
   /* show share & back-top */
   document.getElementById('share-btn').classList.add('visible');
-}
-
-function goPage(pageName) {
-  /* hide all pages */
-  document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-
-  /* show target page */
-  const targetPage = document.getElementById('page-' + pageName);
-  if (targetPage) {
-    targetPage.classList.add('active');
-    /* scroll to top of page */
-    targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 }
 
 /* ══════════════════════════════════════════════
@@ -2940,28 +2701,15 @@ function initBouquet() {
 let _cAudio = null, _cAnalyser = null, _cStream = null;
 let _cLeft = 5, _cRaf = null, _cLastBlow = 0;
 
-async function startCandleGame(mode = 'mic') {
-  const micBtn = document.getElementById('btn-candle-mic');
-  const clickBtn = document.getElementById('btn-candle-click');
-
-  if (mode === 'click') {
-    micBtn?.classList.add('hidden');
-    clickBtn?.classList.add('hidden');
-    enableManualBlow();
-    document.getElementById('candle-hud').classList.add('active');
-    return;
-  }
-
+async function startCandleGame() {
+  const btn = document.getElementById('btn-candle');
   if (!navigator.mediaDevices?.getUserMedia) {
-    alert('Browser kamu tidak support mikrofon 😢\nGunakan mode klik ya!');
-    enableManualBlow();
-    document.getElementById('candle-hud').classList.add('active');
-    return;
+    alert('Browser kamu tidak support mikrofon 😢\nCoba tap setiap lilin langsung ya!');
+    enableManualBlow(); return;
   }
-
   try {
-    micBtn.textContent = '🎤 Memulai...';
-    micBtn.disabled = true;
+    btn.textContent = '🎤 Memulai...';
+    btn.disabled = true;
     _cStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
     _cAudio  = new (window.AudioContext || window.webkitAudioContext)();
     const src = _cAudio.createMediaStreamSource(_cStream);
@@ -2970,8 +2718,7 @@ async function startCandleGame(mode = 'mic') {
     _cAnalyser.smoothingTimeConstant = 0.25;
     src.connect(_cAnalyser);
 
-    micBtn.classList.add('hidden');
-    clickBtn?.classList.add('hidden');
+    btn.classList.add('hidden');
     document.getElementById('candle-hud').classList.add('active');
 
     const buf = new Uint8Array(_cAnalyser.frequencyBinCount);
@@ -2989,9 +2736,10 @@ async function startCandleGame(mode = 'mic') {
     }
     tick();
   } catch(e) {
-    micBtn.textContent = '🎤 Tiup Mikrofon';
-    micBtn.disabled = false;
-    alert('Izinkan akses mikrofon dulu ya, Jahee! 🎤');
+    btn.textContent = '🎤 Mulai Tiup!';
+    btn.disabled = false;
+    alert('Izinkan akses mikrofon dulu ya, Jahee! 🎤\nKalau tidak bisa, tap setiap lilin langsung.');
+    enableManualBlow();
   }
 }
 
@@ -3000,8 +2748,7 @@ function enableManualBlow() {
     c.style.cursor = 'pointer';
     c.addEventListener('click', () => { if (!c.classList.contains('out')) _blowCandle(); });
   });
-  document.getElementById('btn-candle-mic')?.classList.add('hidden');
-  document.getElementById('btn-candle-click')?.classList.add('hidden');
+  document.getElementById('btn-candle').classList.add('hidden');
 }
 
 function _blowCandle() {
