@@ -912,6 +912,75 @@
     .btn-game, .btn-scroll, .heart-btn, .gheart {
       touch-action: manipulation;
     }
+
+    /* ================================================================
+       LEOPARD FULL BACKGROUND
+    ================================================================ */
+    body {
+      background-color: #0f0006;
+      background-image:
+        /* ── Cluster A ── */
+        radial-gradient(ellipse 13px 8px  at  20px  18px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at  40px  13px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at  17px  34px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at  38px  36px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at  28px  25px, rgba( 55,25,0,.4) 70%, transparent),
+        /* ── Cluster B ── */
+        radial-gradient(ellipse 13px 8px  at  80px  63px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at 100px  58px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at  78px  79px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at  99px  81px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at  89px  70px, rgba( 55,25,0,.4) 70%, transparent),
+        /* ── Cluster C ── */
+        radial-gradient(ellipse 13px 8px  at 136px  13px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at 156px   8px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at 134px  29px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at 155px  31px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at 145px  20px, rgba( 55,25,0,.4) 70%, transparent),
+        /* ── Cluster D ── */
+        radial-gradient(ellipse 13px 8px  at  50px  88px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  8px 13px at  70px  83px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse 11px  7px at  48px 104px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(ellipse  7px 11px at  69px 106px, rgba(100,55,0,.7) 70%, transparent),
+        radial-gradient(circle   9px      at  59px  96px, rgba( 55,25,0,.4) 70%, transparent);
+      background-size: 170px 120px;
+      background-attachment: fixed;
+    }
+
+    /* Sections semi-transparent → leopard background tembus */
+    .hero {
+      background: radial-gradient(ellipse at top,
+        rgba(42,0,13,.88) 0%, rgba(10,0,5,.84) 70%) !important;
+    }
+    .hero::after {
+      background: radial-gradient(ellipse 80% 50% at 50% 100%,
+        rgba(192,0,43,.22) 0%, transparent 70%) !important;
+    }
+    .letter-section {
+      background: linear-gradient(180deg,
+        rgba(10,0,5,.88) 0%, rgba(22,0,8,.88) 100%) !important;
+    }
+    .wishes-section  { background: rgba(15,0,6,.88) !important; }
+    .gallery-section {
+      background: linear-gradient(180deg,
+        rgba(15,0,6,.88) 0%, rgba(10,0,5,.88) 100%) !important;
+    }
+    .bouquet-section {
+      background: linear-gradient(180deg,
+        rgba(10,0,5,.88) 0%, rgba(15,0,6,.88) 100%) !important;
+    }
+    .surprise-section  { background: rgba(10,0,5,.88) !important; }
+    .countdown-section {
+      background: linear-gradient(135deg,
+        rgba(15,0,6,.88), rgba(22,0,8,.88)) !important;
+    }
+    footer { background: rgba(10,0,5,.92) !important; }
+
+    /* Game overlay tetap solid supaya tidak ganggu gameplay */
+    #game-overlay {
+      background: radial-gradient(ellipse at top,
+        rgba(42,0,13,.97) 0%, rgba(10,0,5,.97) 70%) !important;
+    }
   </style>
 </head>
 <body>
