@@ -403,105 +403,99 @@
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════════════════════════
-       WISHES PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-wishes" class="page">
-    <div class="page-header">
-      <span class="page-title">🎉 Doa & Harapan</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
+  <!-- WISHES PAGE -->
+  <div id="page-wishes" class="page flex flex-col min-h-screen w-full max-w-full">
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">🎉 Doa & Harapan</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
+    <div class="page-content flex-1 overflow-y-auto overflow-x-clip">
       <!-- WISHES -->
-      <section class="wishes-section section-pad">
-        <div class="wishes-header">
-          <h2 class="section-title reveal">Doa & Harapan Untukmu 🌟</h2>
-          <p class="wishes-subtitle reveal">6 hal yang saya inginkan untuk kamu di tahun ini</p>
+      <section class="wishes-section bg-[rgba(15,0,6,0.88)] px-6 py-16 flex flex-col items-center">
+        <div class="wishes-header text-center mb-12">
+          <h2 class="section-title font-cinzel text-3xl sm:text-4xl bg-gradient-to-r from-pink-400 to-yellow-400 bg-clip-text text-transparent mb-2 reveal">Doa & Harapan Untukmu 🌟</h2>
+          <p class="wishes-subtitle text-white/55 text-lg mt-4 reveal">6 hal yang saya inginkan untuk kamu di tahun ini</p>
         </div>
-        <div class="wishes-container">
-          <div class="wish-card reveal wish-1"><span class="wish-icon">💪</span><div class="wish-content"><p class="wish-title">Kesehatan</p><p class="wish-text">Semoga kamu selalu diberikan kesehatan yang prima dan energi untuk menjalani setiap hari.</p></div></div>
-          <div class="wish-card reveal wish-2"><span class="wish-icon">✨</span><div class="wish-content"><p class="wish-title">Kebahagiaan</p><p class="wish-text">Semoga hidupmu penuh dengan tawa, kebahagiaan, dan momen-momen indah yang tak terlupakan.</p></div></div>
-          <div class="wish-card reveal wish-3"><span class="wish-icon">🌟</span><div class="wish-content"><p class="wish-title">Kesuksesan</p><p class="wish-text">Semoga semua cita-cita dan impianmu tercapai satu persatu, sesuai waktu yang tepat.</p></div></div>
-          <div class="wish-card reveal wish-4"><span class="wish-icon">💝</span><div class="wish-content"><p class="wish-title">Cinta</p><p class="wish-text">Semoga cinta kita tumbuh semakin kuat dan indah, melewati semua suka dan duka bersama.</p></div></div>
-          <div class="wish-card reveal wish-5"><span class="wish-icon">🍀</span><div class="wish-content"><p class="wish-title">Keberuntungan</p><p class="wish-text">Semoga selalu ada kemudahan di setiap langkahmu dan keberuntungan selalu berpihak padamu.</p></div></div>
-          <div class="wish-card reveal wish-6"><span class="wish-icon">🌺</span><div class="wish-content"><p class="wish-title">Kedamaian</p><p class="wish-text">Semoga hatimu selalu tenang, damai, dan dipenuhi rasa syukur di setiap harinya.</p></div></div>
+        <div class="wishes-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div class="wish-card reveal bg-gradient-to-b from-[rgba(26,0,13,1)] to-[rgba(16,0,7,1)] border border-pink-500/20 rounded-2xl p-8 text-center hover:-translate-y-2 hover:border-pink-500/60 hover:shadow-2xl transition-all"><span class="wish-icon block text-4xl mb-4">💪</span><div class="wish-content"><p class="wish-title font-playfair font-bold text-pink-500 text-lg mb-2">Kesehatan</p><p class="wish-text text-white/65 text-sm leading-relaxed">Semoga kamu selalu diberikan kesehatan yang prima dan energi untuk menjalani setiap hari.</p></div></div>
+          <div class="wish-card reveal bg-gradient-to-b from-[rgba(26,0,13,1)] to-[rgba(16,0,7,1)] border border-pink-500/20 rounded-2xl p-8 text-center hover:-translate-y-2 hover:border-pink-500/60 hover:shadow-2xl transition-all"><span class="wish-icon block text-4xl mb-4">✨</span><div class="wish-content"><p class="wish-title font-playfair font-bold text-pink-500 text-lg mb-2">Kebahagiaan</p><p class="wish-text text-white/65 text-sm leading-relaxed">Semoga hidupmu penuh dengan tawa, kebahagiaan, dan momen-momen indah yang tak terlupakan.</p></div></div>
+          <div class="wish-card reveal bg-gradient-to-b from-[rgba(26,0,13,1)] to-[rgba(16,0,7,1)] border border-pink-500/20 rounded-2xl p-8 text-center hover:-translate-y-2 hover:border-pink-500/60 hover:shadow-2xl transition-all"><span class="wish-icon block text-4xl mb-4">🌟</span><div class="wish-content"><p class="wish-title font-playfair font-bold text-pink-500 text-lg mb-2">Kesuksesan</p><p class="wish-text text-white/65 text-sm leading-relaxed">Semoga semua cita-cita dan impianmu tercapai satu persatu, sesuai waktu yang tepat.</p></div></div>
+          <div class="wish-card reveal bg-gradient-to-b from-[rgba(26,0,13,1)] to-[rgba(16,0,7,1)] border border-pink-500/20 rounded-2xl p-8 text-center hover:-translate-y-2 hover:border-pink-500/60 hover:shadow-2xl transition-all"><span class="wish-icon block text-4xl mb-4">💝</span><div class="wish-content"><p class="wish-title font-playfair font-bold text-pink-500 text-lg mb-2">Cinta</p><p class="wish-text text-white/65 text-sm leading-relaxed">Semoga cinta kita tumbuh semakin kuat dan indah, melewati semua suka dan duka bersama.</p></div></div>
+          <div class="wish-card reveal bg-gradient-to-b from-[rgba(26,0,13,1)] to-[rgba(16,0,7,1)] border border-pink-500/20 rounded-2xl p-8 text-center hover:-translate-y-2 hover:border-pink-500/60 hover:shadow-2xl transition-all"><span class="wish-icon block text-4xl mb-4">🍀</span><div class="wish-content"><p class="wish-title font-playfair font-bold text-pink-500 text-lg mb-2">Keberuntungan</p><p class="wish-text text-white/65 text-sm leading-relaxed">Semoga selalu ada kemudahan di setiap langkahmu dan keberuntungan selalu berpihak padamu.</p></div></div>
+          <div class="wish-card reveal bg-gradient-to-b from-[rgba(26,0,13,1)] to-[rgba(16,0,7,1)] border border-pink-500/20 rounded-2xl p-8 text-center hover:-translate-y-2 hover:border-pink-500/60 hover:shadow-2xl transition-all"><span class="wish-icon block text-4xl mb-4">🌺</span><div class="wish-content"><p class="wish-title font-playfair font-bold text-pink-500 text-lg mb-2">Kedamaian</p><p class="wish-text text-white/65 text-sm leading-relaxed">Semoga hatimu selalu tenang, damai, dan dipenuhi rasa syukur di setiap harinya.</p></div></div>
         </div>
       </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-wishes -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       PHOTOS PAGE (GALLERY)
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-photos" class="page">
-    <div class="page-header">
-      <span class="page-title">📸 Foto-Foto Cantiknya</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
-      <div class="leopard-bar" style="height:35px;position:relative;z-index:2;"></div>
-      <!-- GALLERY — Creative Masonry Wall -->
-      <section class="gallery-section section-pad">
-        <div class="gallery-header">
-          <h2 class="section-title reveal">Foto-Foto Cantiknya 📸</h2>
-          <p class="gallery-subtitle reveal">Klik foto untuk memperbesar 💕</p>
+  </div>
+
+  <!-- PHOTOS PAGE (GALLERY) -->
+  <div id="page-photos" class="page flex flex-col min-h-screen w-full max-w-full">
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">📸 Foto-Foto Cantiknya</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
+    </div>
+    <div class="page-content flex-1 overflow-y-auto overflow-x-clip">
+      <div class="leopard-bar h-9 relative z-[2]"></div>
+      <!-- GALLERY -->
+      <section class="gallery-section bg-gradient-to-b from-[rgba(15,0,6,0.88)] to-[rgba(10,0,5,0.88)] px-6 py-16 flex flex-col items-center">
+        <div class="gallery-header text-center mb-12">
+          <h2 class="section-title font-cinzel text-3xl sm:text-4xl bg-gradient-to-r from-pink-400 to-yellow-400 bg-clip-text text-transparent mb-2 reveal">Foto-Foto Cantiknya 📸</h2>
+          <p class="gallery-subtitle text-white/60 text-base mt-4 reveal">Klik foto untuk memperbesar 💕</p>
         </div>
-        <div class="gallery-masonry">
-          <div class="gallery-item reveal gi-1" onclick="openLightbox('photos/p1.jpg')">
-            <img src="photos/p1.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>Cantik ✨</span></div>
+        <div class="gallery-masonry grid grid-cols-3 auto-rows-[min(120px,16vw)] gap-2.5 max-w-4xl mx-auto p-1">
+          <div class="gallery-item reveal gi-1 relative bg-white p-1.5 shadow-xl rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 col-span-2 row-span-2 rotate-[-0.8deg]" onclick="openLightbox('photos/p1.jpg')">
+            <img src="photos/p1.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-sm font-cinzel">Cantik ✨</span></div>
           </div>
-          <div class="gallery-item reveal gi-2" onclick="openLightbox('photos/p2.jpg')">
-            <img src="photos/p2.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>My Love 💕</span></div>
+          <div class="gallery-item reveal gi-2 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[2.5deg]" onclick="openLightbox('photos/p2.jpg')">
+            <img src="photos/p2.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">My Love 💕</span></div>
           </div>
-          <div class="gallery-item reveal gi-3" onclick="openLightbox('photos/p3.jpg')">
-            <img src="photos/p3.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>Senyum ✨</span></div>
+          <div class="gallery-item reveal gi-3 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[-2.3deg]" onclick="openLightbox('photos/p3.jpg')">
+            <img src="photos/p3.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">Senyum ✨</span></div>
           </div>
-          <div class="gallery-item reveal gi-4" onclick="openLightbox('photos/p4.jpg')">
-            <img src="photos/p4.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>My Girl 💖</span></div>
+          <div class="gallery-item reveal gi-4 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[1.8deg]" onclick="openLightbox('photos/p4.jpg')">
+            <img src="photos/p4.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">My Girl 💖</span></div>
           </div>
-          <div class="gallery-item reveal gi-5" onclick="openLightbox('photos/p5.jpg')">
-            <img src="photos/p5.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>Melin ❤️</span></div>
+          <div class="gallery-item reveal gi-5 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[-1.6deg]" onclick="openLightbox('photos/p5.jpg')">
+            <img src="photos/p5.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">Melin ❤️</span></div>
           </div>
-          <div class="gallery-item reveal gi-6" onclick="openLightbox('photos/p6.jpg')">
-            <img src="photos/p6.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>Indah 🌸</span></div>
+          <div class="gallery-item reveal gi-6 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[2.8deg]" onclick="openLightbox('photos/p6.jpg')">
+            <img src="photos/p6.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">Indah 🌸</span></div>
           </div>
-          <div class="gallery-item reveal gi-7" onclick="openLightbox('photos/p7.jpg')">
-            <img src="photos/p7.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>Perfect 💝</span></div>
+          <div class="gallery-item reveal gi-7 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[-2.2deg]" onclick="openLightbox('photos/p7.jpg')">
+            <img src="photos/p7.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">Perfect 💝</span></div>
           </div>
-          <div class="gallery-item reveal gi-8" onclick="openLightbox('photos/p8.jpg')">
-            <img src="photos/p8.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>Birthday! 🎂</span></div>
+          <div class="gallery-item reveal gi-8 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[1.3deg]" onclick="openLightbox('photos/p8.jpg')">
+            <img src="photos/p8.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">Birthday! 🎂</span></div>
           </div>
-          <div class="gallery-item reveal gi-9" onclick="openLightbox('photos/p9.jpg')">
-            <img src="photos/p9.jpg" alt="Melinda" loading="lazy">
-            <div class="gallery-overlay"><span>Everything 🥰</span></div>
+          <div class="gallery-item reveal gi-9 relative bg-white p-1.5 shadow-lg rounded-sm overflow-hidden cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:-translate-y-1 hover:z-10 rotate-[-1.7deg]" onclick="openLightbox('photos/p9.jpg')">
+            <img src="photos/p9.jpg" alt="Melinda" loading="lazy" class="w-full h-full object-cover block">
+            <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/78 to-transparent flex items-center justify-center opacity-0 transition-opacity"><span class="text-white text-xs font-cinzel">Everything 🥰</span></div>
           </div>
         </div>
       </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-photos -->
-
-  <!-- ════════════════════════════════════════════════════════════
-       BOUQUET PAGE
-       ════════════════════════════════════════════════════════════ -->
-  <div id="page-bouquet" class="page">
-    <div class="page-header">
-      <span class="page-title">🌹 Buket Bunga</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
     </div>
-    <div class="page-content">
+  </div>
+
+  <!-- BOUQUET PAGE -->
+  <div id="page-bouquet" class="page flex flex-col min-h-screen w-full max-w-full">
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">🌹 Buket Bunga</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
+    </div>
+    <div class="page-content flex-1 overflow-y-auto overflow-x-clip">
       <!-- BOUQUET -->
-      <section class="bouquet-section section-pad">
-        <div class="bouquet-header">
-          <h2 class="section-title reveal">Buket Bunga Untukmu 🌹</h2>
-          <p class="bouquet-msg-header reveal">Karena kamu berhak mendapatkan bunga setiap harinya 🌸</p>
+      <section class="bouquet-section bg-gradient-to-b from-[rgba(10,0,5,0.88)] to-[rgba(15,0,6,0.88)] px-6 py-16 flex flex-col items-center text-center">
+        <div class="bouquet-header mb-8">
+          <h2 class="section-title font-cinzel text-3xl sm:text-4xl bg-gradient-to-r from-pink-400 to-yellow-400 bg-clip-text text-transparent mb-2 reveal">Buket Bunga Untukmu 🌹</h2>
+          <p class="bouquet-msg-header text-white/50 text-base mt-4 reveal">Karena kamu berhak mendapatkan bunga setiap harinya 🌸</p>
         </div>
         <div class="bouquet-wrap reveal">
       <div class="bouquet-petals" id="bouquet-petals"></div>
@@ -635,19 +629,17 @@
         </svg>
       </div>
     </div>
-    <p class="bouquet-msg reveal">Ini buket bunga virtualku untukmu, Jahee 🌸</p>
-    <p class="bouquet-sub reveal">Karena kamu berhak mendapatkan bunga setiap harinya 🌺</p>
+    <p class="bouquet-msg font-cinzel text-lg sm:text-2xl text-pink-500 drop-shadow-lg mt-8 reveal">Ini buket bunga virtualku untukmu, Jahee 🌸</p>
+    <p class="bouquet-sub text-white/50 text-base font-light mt-3 reveal">Karena kamu berhak mendapatkan bunga setiap harinya 🌺</p>
       </section>
-    </div><!-- /.page-content -->
-  </div><!-- /#page-bouquet -->
+    </div>
+  </div>
 
-  <!-- ════════════════════════════════════════════════════════════
-       CANDLE PAGE
-       ════════════════════════════════════════════════════════════ -->
+  <!-- CANDLE PAGE -->
   <div id="page-candle" class="page">
-    <div class="page-header">
-      <span class="page-title">🎂 Tiup Lilinnya</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">🎂 Tiup Lilinnya</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
     </div>
     <div class="page-content">
       <!-- CANDLE GAME -->
@@ -704,9 +696,9 @@
        DUNIANYA MELIN PAGE
        ════════════════════════════════════════════════════════════ -->
   <div id="page-dunianya" class="page">
-    <div class="page-header">
-      <span class="page-title">🌸 Dunianya Melin</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">🌸 Dunianya Melin</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
     </div>
     <div class="page-content">
       <!-- DUNIANYA MELIN -->
@@ -760,9 +752,9 @@
        SURPRISE PAGE
        ════════════════════════════════════════════════════════════ -->
   <div id="page-surprise" class="page">
-    <div class="page-header">
-      <span class="page-title">🎁 Ada Kejutan!</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">🎁 Ada Kejutan!</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
     </div>
     <div class="page-content">
       <!-- SURPRISE -->
@@ -783,9 +775,9 @@
        COUNTDOWN PAGE
        ════════════════════════════════════════════════════════════ -->
   <div id="page-countdown" class="page">
-    <div class="page-header">
-      <span class="page-title">⏳ Hitung Mundur</span>
-      <button class="page-back-btn" onclick="goPage('menu')">← Menu</button>
+    <div class="page-header flex items-center justify-between px-4 py-4 bg-gradient-to-b from-[rgba(22,0,16,0.95)] to-[rgba(15,0,6,0.92)] border-b border-pink-500/20">
+      <span class="page-title text-2xl font-semibold text-pink-500 font-cinzel">⏳ Hitung Mundur</span>
+      <button class="page-back-btn bg-pink-500/15 text-pink-500 border border-pink-500/30 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all hover:bg-pink-500/25 hover:border-pink-500/50" onclick="goPage('menu')">← Menu</button>
     </div>
     <div class="page-content">
       <div class="leopard-bar" style="height:35px;position:relative;z-index:2;"></div>
@@ -811,17 +803,17 @@
   <audio id="bg-music" loop>
     <source src="bg-music.mp3" type="audio/mpeg" />
   </audio>
-  <button id="music-btn" onclick="toggleMusic()" title="Play / Pause Musik">
-    <span id="music-icon">🎵</span>
-    <div class="music-rings">
-      <span></span><span></span><span></span>
+  <button id="music-btn" class="fixed bottom-8 right-8 z-40 w-16 h-16 rounded-full bg-gradient-to-br from-pink-500/30 to-pink-600/30 border-2 border-pink-500/50 flex items-center justify-center cursor-pointer transition-all hover:from-pink-500/40 hover:to-pink-600/40 hover:border-pink-500 shadow-lg" onclick="toggleMusic()" title="Play / Pause Musik">
+    <span id="music-icon" class="text-3xl">🎵</span>
+    <div class="music-rings absolute inset-0 flex items-center justify-center">
+      <span class="absolute w-14 h-14 rounded-full border-2 border-pink-500/30 animate-pulse"></span><span class="absolute w-10 h-10 rounded-full border-2 border-pink-500/20 animate-pulse" style="animation-delay:0.2s;"></span><span class="absolute w-6 h-6 rounded-full border-2 border-pink-500/10 animate-pulse" style="animation-delay:0.4s;"></span>
     </div>
   </button>
 
   <!-- Lightbox (Global) -->
-  <div id="lightbox">
-    <button id="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightbox-img" src="" alt="foto" />
+  <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center">
+    <button id="lightbox-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-pink-500/20 text-white text-xl border border-pink-500/50 flex items-center justify-center cursor-pointer transition-all hover:bg-pink-500/40 hover:border-pink-500" onclick="closeLightbox()">✕</button>
+    <img id="lightbox-img" class="max-w-full max-h-[90vh] object-contain" src="" alt="foto" />
   </div>
 
 </div><!-- /#main-site -->
