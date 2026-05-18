@@ -586,6 +586,107 @@
     .letter-body .highlight { color: var(--pink); font-weight: 600; }
     .letter-sig { margin-top: 2rem; font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold); text-align: right; letter-spacing: 0.05em; }
 
+    /* ── Loves Section ── */
+    .loves-section { background: linear-gradient(180deg, #160008 0%, #0f0006 100%); }
+
+    .loves-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .love-card {
+      border-radius: 20px;
+      padding: 2rem 1.4rem 1.6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
+      background: rgba(255,20,147,0.04);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .love-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: inherit;
+    }
+    .love-card:hover { transform: translateY(-8px) scale(1.03); }
+    .love-card:hover::before { opacity: 1; }
+
+    /* per-card accent colors */
+    .love-card.choco  { border-color: rgba(101,50,0,0.4); }
+    .love-card.choco::before  { background: radial-gradient(ellipse at 50% 120%, rgba(101,50,0,0.25), transparent 70%); }
+    .love-card.choco:hover    { box-shadow: 0 12px 48px rgba(101,50,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06); }
+
+    .love-card.soup   { border-color: rgba(200,80,0,0.35); }
+    .love-card.soup::before   { background: radial-gradient(ellipse at 50% 120%, rgba(200,80,0,0.22), transparent 70%); }
+    .love-card.soup:hover     { box-shadow: 0 12px 48px rgba(200,80,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06); }
+
+    .love-card.converse { border-color: rgba(220,30,30,0.35); }
+    .love-card.converse::before { background: radial-gradient(ellipse at 50% 120%, rgba(220,30,30,0.2), transparent 70%); }
+    .love-card.converse:hover   { box-shadow: 0 12px 48px rgba(220,30,30,0.35), inset 0 1px 0 rgba(255,255,255,0.06); }
+
+    .love-card.weeknd { border-color: rgba(100,0,180,0.35); }
+    .love-card.weeknd::before { background: radial-gradient(ellipse at 50% 120%, rgba(100,0,180,0.2), transparent 70%); }
+    .love-card.weeknd:hover   { box-shadow: 0 12px 48px rgba(100,0,180,0.35), inset 0 1px 0 rgba(255,255,255,0.06); }
+
+    .love-card.movie  { border-color: rgba(255,20,147,0.3); }
+    .love-card.movie::before  { background: radial-gradient(ellipse at 50% 120%, rgba(255,20,147,0.18), transparent 70%); }
+    .love-card.movie:hover    { box-shadow: 0 12px 48px rgba(255,20,147,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
+
+    .love-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    }
+    .love-card:hover .love-icon { transform: scale(1.25) rotate(-5deg); }
+
+    .love-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .love-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .love-tag {
+      display: inline-block;
+      margin-top: 0.9rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 640px) {
+      .loves-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .love-card  { padding: 1.5rem 1rem 1.3rem; }
+      .love-icon  { font-size: 2.4rem; }
+    }
+    @media (max-width: 360px) {
+      .loves-grid { grid-template-columns: 1fr; }
+    }
+
     /* Wishes */
     .wishes-section { background: #0f0006; }
     .wishes-grid {
@@ -1683,6 +1784,51 @@
     </div>
     <p class="bouquet-msg reveal">Ini buket bunga virtualku untukmu, Jahee 🌸</p>
     <p class="bouquet-sub reveal">Karena kamu berhak mendapatkan bunga setiap harinya 🌺</p>
+  </section>
+
+  <!-- DUNIANYA MELIN -->
+  <section class="loves-section section-pad">
+    <h2 class="section-title reveal">Dunianya Melin 🌸</h2>
+    <div class="section-divider reveal"></div>
+    <p class="reveal" style="color:rgba(255,255,255,0.55);margin-bottom:2.5rem;font-size:1rem;">Hal-hal kecil yang bikin kamu jadi kamu 💕</p>
+    <div class="loves-grid">
+
+      <div class="love-card choco reveal">
+        <div class="love-icon">🍫</div>
+        <div class="love-name">Dark Chocolate</div>
+        <div class="love-desc">Pahit di luar, manis di dalam — persis kayak kamu, Jahee.</div>
+        <span class="love-tag">#favorit</span>
+      </div>
+
+      <div class="love-card soup reveal">
+        <div class="love-icon">🍜</div>
+        <div class="love-name">Makanan Berkuah</div>
+        <div class="love-desc">Bakso, soto, mie ayam — kalau berkuah, pasti bikin kamu happy.</div>
+        <span class="love-tag">#comfort food</span>
+      </div>
+
+      <div class="love-card converse reveal">
+        <div class="love-icon">👟</div>
+        <div class="love-name">Converse</div>
+        <div class="love-desc">Simpel, klasik, timeless. Persis gayamu yang selalu kece tanpa perlu usaha.</div>
+        <span class="love-tag">#style</span>
+      </div>
+
+      <div class="love-card weeknd reveal">
+        <div class="love-icon">🎵</div>
+        <div class="love-name">The Weeknd</div>
+        <div class="love-desc">Blinding Lights sampai Save Your Tears — soundtrack hidupmu yang paling pas.</div>
+        <span class="love-tag">#musik</span>
+      </div>
+
+      <div class="love-card movie reveal">
+        <div class="love-icon">🎬</div>
+        <div class="love-name">Normal People</div>
+        <div class="love-desc">Connell & Marianne — cerita cinta yang terasa nyata, persis yang kamu suka.</div>
+        <span class="love-tag">#film favorit</span>
+      </div>
+
+    </div>
   </section>
 
   <!-- SURPRISE -->
