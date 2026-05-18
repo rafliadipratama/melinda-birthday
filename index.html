@@ -41,14 +41,21 @@
       --cream:     #fff5f8;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden !important;
+      width: 100%;
+      max-width: 100vw;
+    }
 
     body {
       background: var(--black);
       color: #fff;
       font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
+      overflow-x: hidden !important;
       overflow-y: hidden;
+      max-width: 100vw;
+      width: 100%;
     }
 
     /* ===== LEOPARD BAR ===== */
@@ -1184,19 +1191,22 @@
       #phase-intro            { padding: 1.5rem 1.2rem; }
       .lock-icon,
       .unlock-icon            { font-size: 3.5rem; margin-bottom: 0.8rem; }
+      .intro-title            { font-size: 1.4rem; }
       .intro-sub              { font-size: 0.88rem; margin-bottom: 1.2rem; }
       .hint-box               { font-size: 0.82rem; padding: 0.65rem 1rem; margin-bottom: 1.4rem; }
-      .btn-game               { padding: 0.75rem 1.8rem; font-size: 0.92rem; }
+      .btn-game               { padding: 0.75rem 1.8rem; font-size: 0.92rem; min-height: 44px; }
       .win-sub                { font-size: 0.88rem; }
+
+      /* Game arena */
+      #arena                  { top: 115px; min-height: 280px; }
 
       /* HUD */
       #game-hud               { padding: 1.8rem 1rem 0.7rem; gap: 0.25rem; }
       #hud-label              { font-size: 0.95rem; }
       #hud-count              { font-size: 1.2rem; }
       #hud-tip                { font-size: 0.68rem; }
-      #arena                  { top: 80px; }
       #speed-alert            { font-size: 1.5rem; }
-      .gheart                 { font-size: 2rem; }
+      .gheart                 { font-size: 2rem; min-width: 40px; min-height: 40px; }
 
       /* Hero */
       .hero-inner             { padding: 1.5rem 1rem; }
@@ -1238,6 +1248,40 @@
       .cdown-box              { min-width: 50px; }
       .cdown-num              { font-size: 1.3rem; }
       .gheart                 { font-size: 1.8rem; }
+    }
+
+    /* Ultra small (old phones, very narrow) */
+    @media (max-width: 320px) {
+      body                    { font-size: 13px; }
+      .section-pad            { padding: 2rem 0.8rem; }
+      .section-title          { font-size: 1.2rem; }
+      #phase-intro            { padding: 1.2rem 0.8rem; }
+      .lock-icon, .unlock-icon { font-size: 3rem; }
+      .intro-sub              { font-size: 0.8rem; }
+      .hint-box               { font-size: 0.75rem; padding: 0.5rem 0.8rem; }
+      .btn-game               { padding: 0.6rem 1.4rem; font-size: 0.85rem; }
+      .hero-inner             { padding: 1rem 0.8rem; }
+      .hero-name              { font-size: 1.8rem; }
+      .hero-sub               { font-size: 0.8rem; }
+      .btn-scroll             { padding: 0.6rem 1.4rem; font-size: 0.8rem; }
+      .letter-card            { padding: 1.2rem 0.8rem; border-radius: 12px; }
+      .letter-body            { font-size: 0.85rem; line-height: 1.6; }
+      .letter-body p:first-child { text-align: center; font-size: 1rem; }
+      .cake-outer             { width: 100%; max-width: 200px; margin: 1.2rem auto; }
+      .candles-row            { gap: 10px; }
+      .cake-text              { font-size: 0.45rem; }
+      .collage-grid           { gap: 5px; padding: 0.3rem; }
+      .ci                     { padding: 4px; }
+      .ci-cap                 { font-size: 0.5rem; padding: 1rem 0.3rem 0.3rem; }
+      .btn-candle             { padding: 0.7rem 1.6rem; font-size: 0.85rem; }
+      .loves-grid             { gap: 0.8rem; }
+      .love-card              { padding: 1.2rem 0.8rem 1rem; }
+      .love-icon              { font-size: 2.2rem; }
+      .love-name              { font-size: 0.85rem; }
+      .love-desc              { font-size: 0.75rem; }
+      .heart-btn              { width: 80px; height: 80px; font-size: 2rem; }
+      .cdown-box              { min-width: 45px; padding: 0.6rem 0.4rem; font-size: 0.7rem; }
+      .cdown-num              { font-size: 1.1rem; }
     }
 
     /* Touch: remove 300ms tap delay on buttons */
@@ -2749,7 +2793,10 @@ function toggleMusic() {
     music.play().then(() => {
       musicBtn.classList.add('playing');
       document.getElementById('music-icon').textContent = '🎶';
-    }).catch(() => {});
+    }).catch(err => {
+      console.log('Music play error:', err);
+      musicBtn.classList.remove('playing');
+    });
   } else {
     music.pause();
     musicBtn.classList.remove('playing');
