@@ -69,6 +69,8 @@
       align-items: center;
       justify-content: center;
       transition: opacity 0.9s ease, visibility 0.9s ease;
+      min-height: 100vh;
+      min-height: 100dvh;
     }
     #game-overlay.hidden {
       opacity: 0;
@@ -658,11 +660,86 @@
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 3px; }
 
+    /* ================================================================
+       RESPONSIVE
+    ================================================================ */
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      .section-pad            { padding: 3.5rem 1.2rem; }
+      .wishes-grid            { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .gallery-grid           { grid-template-columns: repeat(2, 1fr); }
+      .countdown-grid         { gap: 0.8rem; }
+      .cdown-box              { min-width: 75px; padding: 1rem 0.7rem; }
+      .cdown-num              { font-size: 2rem; }
+      .letter-card            { padding: 2rem 1.5rem; }
+    }
+
+    /* Mobile */
     @media (max-width: 480px) {
-      .letter-card { padding: 2rem 1.2rem; }
-      .cdown-box   { min-width: 70px; }
-      .cdown-num   { font-size: 2rem; }
-      .gheart      { font-size: 2rem; }
+      /* Game intro */
+      #phase-intro            { padding: 1.5rem 1.2rem; }
+      .lock-icon,
+      .unlock-icon            { font-size: 3.5rem; margin-bottom: 0.8rem; }
+      .intro-sub              { font-size: 0.88rem; margin-bottom: 1.2rem; }
+      .hint-box               { font-size: 0.82rem; padding: 0.65rem 1rem; margin-bottom: 1.4rem; }
+      .btn-game               { padding: 0.75rem 1.8rem; font-size: 0.92rem; }
+      .win-sub                { font-size: 0.88rem; }
+
+      /* HUD */
+      #game-hud               { padding: 0.5rem 1rem 0.7rem; gap: 0.25rem; }
+      #hud-label              { font-size: 0.95rem; }
+      #hud-count              { font-size: 1.2rem; }
+      #hud-tip                { font-size: 0.68rem; }
+      #arena                  { top: 80px; }
+      #speed-alert            { font-size: 1.5rem; }
+      .gheart                 { font-size: 2rem; }
+
+      /* Hero */
+      .hero-inner             { padding: 1.5rem 1rem; }
+      .hero-tag               { font-size: 0.72rem; letter-spacing: 2px; margin-bottom: 1rem; }
+      .hero-sub               { font-size: 0.88rem; margin-bottom: 1.5rem; }
+      .btn-scroll             { padding: 0.7rem 1.6rem; font-size: 0.9rem; }
+
+      /* Sections */
+      .section-pad            { padding: 2.8rem 1rem; }
+      .section-divider        { margin-bottom: 2rem; }
+
+      /* Letter */
+      .letter-card            { padding: 1.5rem 1rem; border-radius: 14px; }
+      .letter-body            { font-size: 0.92rem; line-height: 1.75; }
+      .letter-sig             { font-size: 1.3rem; }
+
+      /* Wishes — single column on small phones */
+      .wishes-grid            { grid-template-columns: 1fr; }
+      .wish-card              { padding: 1.4rem 1.2rem; }
+
+      /* Gallery — 2 col */
+      .gallery-grid           { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+
+      /* Surprise */
+      .heart-btn              { width: 96px; height: 96px; font-size: 2.4rem; }
+      .surprise-msg           { padding: 1.4rem 1rem; }
+      .surprise-msg p         { font-size: 0.92rem; }
+
+      /* Countdown */
+      .countdown-grid         { gap: 0.5rem; }
+      .cdown-box              { min-width: 58px; padding: 0.8rem 0.5rem; border-radius: 10px; }
+      .cdown-num              { font-size: 1.5rem; }
+      .cdown-label            { font-size: 0.6rem; letter-spacing: 0; }
+    }
+
+    /* Very small (iPhone SE, Galaxy A series) */
+    @media (max-width: 360px) {
+      .wishes-grid            { grid-template-columns: 1fr; }
+      .cdown-box              { min-width: 50px; }
+      .cdown-num              { font-size: 1.3rem; }
+      .gheart                 { font-size: 1.8rem; }
+    }
+
+    /* Touch: remove 300ms tap delay on buttons */
+    .btn-game, .btn-scroll, .heart-btn, .gheart {
+      touch-action: manipulation;
     }
   </style>
 </head>
@@ -887,7 +964,8 @@ function spawnHeart() {
   el.style.top  = y + 'px';
   el.style.setProperty('animation-delay', (Math.random() * 2) + 's');
 
-  el.addEventListener('click', (e) => collectHeart(h, e));
+  el.addEventListener('click',      (e) => collectHeart(h, e));
+  el.addEventListener('touchstart', (e) => { e.preventDefault(); collectHeart(h, e.touches[0]); }, { passive: false });
   arena.appendChild(el);
   pool.push(h);
 }
