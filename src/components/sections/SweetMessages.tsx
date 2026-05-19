@@ -58,14 +58,15 @@ const SweetMessages = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16"
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-center mb-10 sm:mb-12"
         >
-          <h2 className="font-playfair text-3xl sm:text-5xl italic mb-4" style={{ color: '#FF1493' }}>
+          <h2 className="font-playfair italic mb-2 sm:mb-3" style={{ color: '#FF1493', fontSize: 'clamp(1.5rem, 5vw, 2.25rem)' }}>
             💌 Kata-Kata Manis Untukmu
           </h2>
-          <p className="text-sm sm:text-base" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.85rem, 2vw, 1rem)' }}>
             Setiap kata ditulis dengan sepenuh hati
           </p>
         </motion.div>
@@ -74,14 +75,15 @@ const SweetMessages = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           className="space-y-6 sm:space-y-8"
         >
           {messages.map((message, idx) => (
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="rounded-2xl sm:rounded-3xl p-6 sm:p-8"
+              className="rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8"
               style={{
                 background: message.isLast
                   ? 'linear-gradient(135deg, rgba(255,182,193,0.1) 0%, rgba(255,192,203,0.1) 100%)'
@@ -90,25 +92,25 @@ const SweetMessages = () => {
               }}
             >
               {/* Title */}
-              <h3 className="font-playfair text-xl sm:text-2xl mb-4 sm:mb-6" style={{ color: '#FFD700' }}>
+              <h3 className="font-playfair mb-3 sm:mb-4" style={{ color: '#FFD700', fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)' }}>
                 {message.title}
               </h3>
 
               {/* Main content */}
-              <p className="text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 whitespace-pre-line" style={{ color: '#FFE4E1' }}>
+              <p className="leading-relaxed mb-3 sm:mb-4 whitespace-pre-line" style={{ color: '#FFE4E1', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
                 {message.content}
               </p>
 
               {/* Highlight for serious message */}
               {message.highlight && (
                 <div
-                  className="rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6"
+                  className="rounded-xl sm:rounded-2xl p-4 sm:p-5 mb-3 sm:mb-4"
                   style={{
                     background: 'rgba(255,255,255,0.05)',
                     border: '1px solid rgba(255,182,193,0.4)',
                   }}
                 >
-                  <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line font-playfair italic" style={{ color: '#FFB6D9' }}>
+                  <p className="leading-relaxed whitespace-pre-line font-playfair italic" style={{ color: '#FFB6D9', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
                     {message.highlight}
                   </p>
                 </div>
@@ -116,33 +118,33 @@ const SweetMessages = () => {
 
               {/* Sections for detailed messages */}
               {message.sections && (
-                <div className="space-y-4 sm:space-y-6">
+                <div className="space-y-3 sm:space-y-4">
                   {message.sections.map((section, sIdx) => (
                     <div
                       key={sIdx}
-                      className="rounded-xl sm:rounded-2xl p-4 sm:p-6"
+                      className="rounded-xl sm:rounded-2xl p-4 sm:p-5"
                       style={{
                         background: 'rgba(255,192,203,0.1)',
                         border: '1px solid rgba(255,182,193,0.3)',
                       }}
                     >
                       {/* Badge */}
-                      <div className="inline-block px-4 py-2 rounded-full mb-3 sm:mb-4" style={{ background: '#FF1493' }}>
-                        <span className="text-white font-bold text-xs sm:text-sm">{section.badge}</span>
+                      <div className="inline-block px-3 py-1.5 rounded-full mb-2 sm:mb-3" style={{ background: '#FF1493' }}>
+                        <span className="text-white font-bold" style={{ fontSize: 'clamp(0.7rem, 1.8vw, 0.85rem)' }}>{section.badge}</span>
                       </div>
 
                       {/* Label and message */}
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-3 sm:mb-4">
-                        <p style={{ color: '#FF69B4' }} className="font-semibold text-xs sm:text-sm">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
+                        <p style={{ color: '#FF69B4', fontSize: 'clamp(0.75rem, 1.8vw, 0.85rem)' }} className="font-semibold">
                           {section.label}
                         </p>
-                        <p style={{ color: '#FFD700' }} className="font-playfair italic text-xs sm:text-sm">
+                        <p style={{ color: '#FFD700', fontSize: 'clamp(0.75rem, 1.8vw, 0.85rem)' }} className="font-playfair italic">
                           {section.message}
                         </p>
                       </div>
 
                       {/* Section content */}
-                      <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#FFE4E1' }}>
+                      <p className="leading-relaxed" style={{ color: '#FFE4E1', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
                         {section.content}
                       </p>
                     </div>
@@ -156,9 +158,9 @@ const SweetMessages = () => {
         {/* Closing */}
         <motion.div
           variants={itemVariants}
-          className="text-center mt-12 sm:mt-16"
+          className="text-center mt-10 sm:mt-12"
         >
-          <p className="text-sm sm:text-base font-playfair italic" style={{ color: '#FFB6D9' }}>
+          <p className="font-playfair italic" style={{ color: '#FFB6D9', fontSize: 'clamp(0.9rem, 2.2vw, 1rem)' }}>
             Dengan sepenuh cinta ❤️
           </p>
         </motion.div>

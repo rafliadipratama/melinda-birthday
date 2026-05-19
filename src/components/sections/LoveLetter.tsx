@@ -1,4 +1,26 @@
+import { motion } from 'framer-motion'
+
 const LoveLetter = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: 'easeOut' },
+    },
+  }
+
   const photos = [
     { src: 'photos/p1.jpg', caption: 'Cantik ✨', rotation: -15, top: '5%', right: '5%' },
     { src: 'photos/p2.jpg', caption: 'My Love 💕', rotation: 10, top: '20%', right: '15%' },
@@ -8,7 +30,7 @@ const LoveLetter = () => {
 
   return (
     <section
-      className="min-h-screen w-full px-4 sm:px-6 py-16 flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen w-full px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 flex items-center justify-center relative overflow-hidden"
       style={{
         background: `
           repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.05) 35px, rgba(0,0,0,.05) 70px),
@@ -41,16 +63,28 @@ const LoveLetter = () => {
           backgroundPosition: '0% 0%'
         }}
       ></div>
-      <div className="max-w-5xl w-full mx-auto relative z-10 px-4 sm:px-6">
+      <div className="max-w-5xl w-full mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-playfair text-3xl sm:text-5xl italic" style={{ color: '#FFE4E1' }}>
+        <motion.div
+          className="text-center mb-6 sm:mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h2 className="font-playfair italic" style={{ color: '#FFE4E1', fontSize: 'clamp(1.5rem, 5vw, 2.25rem)' }}>
             💌 Surat Cinta Untukmu
           </h2>
-        </div>
+        </motion.div>
 
         {/* Main Layout - Envelope and Photos */}
-        <div className="relative flex flex-col lg:flex-row gap-8 items-start justify-between">
+        <motion.div
+          className="relative flex flex-col lg:flex-row gap-6 sm:gap-8 items-start justify-between"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {/* Left Side - Red Envelope Card */}
           <div className="flex-shrink-0 w-full max-w-lg mx-auto lg:mx-0">
             {/* Red Envelope */}
@@ -97,35 +131,41 @@ const LoveLetter = () => {
 
               {/* Letter Content */}
               <div style={{ color: '#FFF8F0' }}>
-                <p className="text-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6" style={{ color: '#FFE4E1' }}>
-                  🎂 SELAMAT ULANG TAHUN 🎂
+                <p className="text-center font-playfair italic mb-4 sm:mb-5" style={{ color: '#FFE4E1', fontSize: 'clamp(1rem, 2.5vw, 1.3rem)' }}>
+                  Untuk Melinda Az Zahra Hamid,
                 </p>
 
-                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed" style={{ fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
+                <div className="space-y-3 sm:space-y-4 leading-relaxed" style={{ fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)' }}>
                   <p>
-                    Hari ini adalah hari spesialmu, dan kami semua ingin merayakan <span style={{ color: '#FFE4E1', fontWeight: '600' }}>kesuksesan</span> yang telah kamu raih selama ini.
+                    Di hari yang paling special ini, aku cuma mau bilang satu hal: <span style={{ color: '#FFE4E1', fontWeight: '600' }}>terima kasih sudah jadi kamu</span>.
                   </p>
 
                   <p>
-                    Dari kecil hingga sekarang, kamu sudah membuktikan bahwa kamu adalah sosok yang <span style={{ color: '#FFE4E1', fontWeight: '600' }}>luar biasa</span>. Terima kasih telah hadir di dunia ini!
+                    Kamu nggak pernah tau seberapa besar pengaruh kehadiranmu buat aku. Senyummu bisa bikin hari yang paling berat jadi ringan. Matamu yang jujur bisa bikin aku ngerasa dimengerti tanpa harus ngomong banyak.
                   </p>
 
                   <p>
-                    Dunia menjadi lebih berwarna dengan kehadiran, tawa, dan kehangatan darimu. Kamu adalah inspirasi bagi banyak orang.
+                    Di usiamu yang ke-25 ini, aku pengen kamu tau bahwa kamu bukan cuma <span style={{ color: '#FFE4E1', fontWeight: '600' }}>"seseorang yang special"</span> — kamu adalah alasan aku percaya bahwa hal-hal indah itu nyata.
                   </p>
 
-                  <p>
-                    Semoga di tahun yang baru ini, kamu terus tumbuh, belajar, dan mencapai semua impian mu. Semoga kesehatan selalu menyertaimu! 💕
+                  <p className="pt-2">
+                    Selamat ulang tahun, sayang.
+                    <br/>
+                    Semoga 25 mu jadi tahun terbaik yang pernah kamu jalani.
                   </p>
                 </div>
 
-                <p className="text-center mt-6 sm:mt-8 text-base sm:text-lg font-bold" style={{ color: '#FFE4E1' }}>
-                  🎉 Banyak cinta & bahagia untukmu! 🎉
-                </p>
-
-                <p className="text-right mt-6 sm:mt-8 text-sm sm:text-base" style={{ color: '#FFE4E1' }}>
-                  — Dari Rafli ❤️
-                </p>
+                <div style={{
+                  marginTop: '1.5rem',
+                  paddingTop: '1.5rem',
+                  borderTop: '1px solid rgba(255,228,225,0.3)'
+                }}>
+                  <p className="text-right font-playfair italic" style={{ color: '#FFE4E1', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>
+                    Dengan sepenuh hati,
+                    <br/>
+                    — Rafli ❤️
+                  </p>
+                </div>
               </div>
             </div>
           </div>

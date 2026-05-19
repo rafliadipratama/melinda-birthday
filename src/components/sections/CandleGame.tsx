@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 const CandleGame = () => {
   const [candles, setCandles] = useState([
@@ -33,18 +34,39 @@ const CandleGame = () => {
   }
 
   return (
-    <section className="min-h-screen px-6 py-8 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="font-playfair text-5xl italic mb-2" style={{ color: '#FF1493' }}>
+    <section className="min-h-screen px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
+      <div className="max-w-3xl mx-auto text-center w-full">
+        <motion.h2
+          className="font-playfair text-3xl sm:text-4xl md:text-5xl italic mb-2 sm:mb-3 md:mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+          style={{ color: '#FF1493' }}
+        >
           🎂 Tiup Lilin Ulang Tahun
-        </h2>
-        <p className="text-lg mb-6" style={{ color: 'rgba(255,255,255,0.7)' }}>
+        </motion.h2>
+        <motion.p
+          className="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          style={{ color: 'rgba(255,255,255,0.7)' }}
+        >
           {allBlown ? '✨ Semua lilin sudah padam! ✨' : 'Buat doa terbaik & klik atau tiup lilinnya! 🎉'}
-        </p>
+        </motion.p>
 
         {/* Cake Container with proper spacing for candles */}
-        <div className="mb-8 flex justify-center" style={{ minHeight: '400px', display: 'flex', alignItems: 'flex-end' }}>
-          <div className="relative" style={{ perspective: '1000px', width: '520px' }}>
+        <motion.div
+          className="mb-6 sm:mb-8 flex justify-center w-full"
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+          style={{ minHeight: 'clamp(300px, 50vh, 450px)', display: 'flex', alignItems: 'flex-end' }}
+        >
+          <div className="relative" style={{ perspective: '1000px', width: 'clamp(300px, 90vw, 520px)' }}>
             {/* Wind Effect */}
             {blowEffect && (
               <div className="absolute pointer-events-none" style={{ inset: '-128px', top: 0 }}>
@@ -277,25 +299,64 @@ const CandleGame = () => {
             </div>
 
           </div>
-        </div>
+        </motion.div>
 
         {/* Blow Button */}
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
           onClick={handleBlow}
           disabled={allBlown}
-          className={`px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+          className={`px-6 sm:px-10 md:px-12 py-2 sm:py-3 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg transition-all duration-300 ${
             allBlown
               ? 'bg-gray-600 cursor-not-allowed'
               : 'bg-gradient-to-r from-pink-600 to-red-700 hover:scale-110 active:scale-95 hover:shadow-2xl hover:shadow-pink-600/50'
-          } text-white touch-manipulation mb-8`}
+          } text-white touch-manipulation mb-6 sm:mb-8`}
         >
           {allBlown ? '🎊 Lilin Sudah Padam!' : '💨 Tiup Semua Lilin!'}
-        </button>
+        </motion.button>
+
+        {/* Confetti burst on celebration */}
+        {allBlown && (
+          <>
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={`confetti-${i}`}
+                initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+                animate={{
+                  x: (Math.random() - 0.5) * 300,
+                  y: (Math.random() - 0.5) * 300,
+                  opacity: 0,
+                  scale: 0,
+                  rotate: Math.random() * 360,
+                }}
+                transition={{ duration: 1, ease: 'easeOut', delay: Math.random() * 0.2 }}
+                className="fixed pointer-events-none"
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  width: '12px',
+                  height: '12px',
+                  borderRadius: '50%',
+                  background: ['#FF1493', '#FFD700', '#FF69B4', '#00FF00', '#FF00FF'][Math.floor(Math.random() * 5)],
+                  zIndex: 40,
+                }}
+              />
+            ))}
+          </>
+        )}
 
         {/* Wish text after blown */}
         {allBlown && (
-          <div className="p-10 rounded-2xl border border-pink-500/50 bg-gradient-to-r from-pink-600/20 to-purple-600/20 backdrop-blur-md animate-in fade-in">
-            <p className="text-3xl font-playfair mb-4" style={{ color: '#FFD700' }}>
+          <motion.div
+            className="p-4 sm:p-6 md:p-10 rounded-xl sm:rounded-2xl border border-pink-500/50 bg-gradient-to-r from-pink-600/20 to-purple-600/20 backdrop-blur-md animate-in fade-in"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-2xl sm:text-3xl font-playfair mb-3 sm:mb-4" style={{ color: '#FFD700' }}>
               ✨ Doa Tersampaikan! ✨
             </p>
             <p className="text-lg leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.9)' }}>
@@ -305,7 +366,7 @@ const CandleGame = () => {
               Semoga semua harapan dan impian terindahmu terwujud di tahun ini.
               Kamu layak mendapatkan yang terbaik! 💕
             </p>
-          </div>
+          </motion.div>
         )}
 
         <style>{`

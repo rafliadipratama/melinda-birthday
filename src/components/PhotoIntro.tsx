@@ -6,18 +6,27 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: 'easeOut' },
+      scale: 1,
+      transition: { duration: 0.8, ease: 'easeOut', type: 'spring', stiffness: 100, damping: 15 },
+    },
+  }
+
+  const floatingVariants = {
+    animate: {
+      y: [0, -20, 0],
+      opacity: [0.4, 0.8, 0.4],
+      transition: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
     },
   }
 
@@ -33,12 +42,13 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
         {/* Floating heart 1 */}
         <motion.div
           animate={{
-            y: [0, -50, 0],
-            opacity: [0.3, 0.8, 0.3],
-            x: [-10, 10, -10],
+            y: [0, -60, 0],
+            opacity: [0.3, 0.9, 0.3],
+            x: [-15, 15, -15],
+            scale: [0.8, 1, 0.8],
           }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/4 right-20 text-5xl md:text-6xl"
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-1/4 right-20 text-5xl md:text-6xl filter drop-shadow-lg"
         >
           💕
         </motion.div>
@@ -46,12 +56,13 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
         {/* Floating heart 2 */}
         <motion.div
           animate={{
-            y: [20, -40, 20],
-            opacity: [0.2, 0.7, 0.2],
-            x: [15, -15, 15],
+            y: [20, -50, 20],
+            opacity: [0.2, 0.8, 0.2],
+            x: [20, -20, 20],
+            scale: [0.7, 1, 0.7],
           }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-          className="absolute bottom-1/3 left-12 text-4xl md:text-5xl"
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+          className="absolute bottom-1/3 left-12 text-4xl md:text-5xl filter drop-shadow-lg"
         >
           💖
         </motion.div>
@@ -59,12 +70,13 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
         {/* Floating heart 3 */}
         <motion.div
           animate={{
-            y: [-10, 40, -10],
-            opacity: [0.25, 0.6, 0.25],
-            x: [-20, 20, -20],
+            y: [-10, 50, -10],
+            opacity: [0.25, 0.7, 0.25],
+            x: [-25, 25, -25],
+            scale: [0.75, 1, 0.75],
           }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          className="absolute top-1/2 right-1/4 text-4xl md:text-5xl"
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          className="absolute top-1/2 right-1/4 text-4xl md:text-5xl filter drop-shadow-lg"
         >
           💗
         </motion.div>
@@ -72,12 +84,13 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
         {/* Floating heart 4 */}
         <motion.div
           animate={{
-            y: [30, -30, 30],
-            opacity: [0.2, 0.75, 0.2],
-            x: [20, -20, 20],
+            y: [30, -40, 30],
+            opacity: [0.2, 0.8, 0.2],
+            x: [25, -25, 25],
+            scale: [0.8, 1, 0.8],
           }}
-          transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-          className="absolute top-1/3 left-1/4 text-4xl md:text-5xl"
+          transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+          className="absolute top-1/3 left-1/4 text-4xl md:text-5xl filter drop-shadow-lg"
         >
           ❤️
         </motion.div>
@@ -85,12 +98,13 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
         {/* Floating rose */}
         <motion.div
           animate={{
-            y: [40, -40, 40],
-            opacity: [0.15, 0.5, 0.15],
+            y: [40, -50, 40],
+            opacity: [0.15, 0.6, 0.15],
             rotate: [0, 180, 360],
+            scale: [0.85, 1.1, 0.85],
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          className="absolute bottom-1/4 right-1/3 text-5xl md:text-6xl"
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          className="absolute bottom-1/4 right-1/3 text-5xl md:text-6xl filter drop-shadow-lg"
         >
           🌹
         </motion.div>
@@ -98,12 +112,13 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
         {/* Floating heart 5 */}
         <motion.div
           animate={{
-            y: [-20, 30, -20],
-            opacity: [0.3, 0.8, 0.3],
-            x: [-15, 15, -15],
+            y: [-20, 40, -20],
+            opacity: [0.3, 0.9, 0.3],
+            x: [-20, 20, -20],
+            scale: [0.75, 1, 0.75],
           }}
-          transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-          className="absolute bottom-1/2 right-10 text-3xl md:text-4xl"
+          transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+          className="absolute bottom-1/2 right-10 text-3xl md:text-4xl filter drop-shadow-lg"
         >
           💕
         </motion.div>
@@ -151,24 +166,12 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
               className="font-bold leading-tight mb-3 md:mb-4"
               style={{
                 color: '#FFD700',
-                fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
+                fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)',
                 fontFamily: 'Georgia, serif',
               }}
             >
-              Ucapan yang Sedikit<br />Lebih Serius
+              Selamat Ulang Tahun<br />yang ke 25<br />Melinda Az Zahra Hamid
             </motion.h1>
-
-            {/* Intro text */}
-            <motion.p
-              variants={itemVariants}
-              className="mb-4 md:mb-6 leading-relaxed"
-              style={{
-                color: '#FFE4E1',
-                fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)',
-              }}
-            >
-              Kalau kamu udah baca sampai bagian ini, berarti kamu bener-bener niati nerima kejutan kecil ini di hari ulang tahunmu. Jadi, ada beberapa kata yang pengin aku titip di sini.
-            </motion.p>
 
             {/* Main message box */}
             <motion.div
@@ -180,68 +183,42 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
               }}
             >
               <p
-                className="leading-relaxed mb-2 md:mb-3 font-medium"
-                style={{
-                  color: '#FFB6D9',
-                  fontSize: 'clamp(0.75rem, 1.6vw, 0.9rem)',
-                }}
-              >
-                Terima kasih sudah jadi kamu selama ini, dengan semua versi kamu; yang lagi seneng, lagi sedih, lagi cape, lagi heboh, semuanya.
-              </p>
-
-              <p
-                className="leading-relaxed mb-2 md:mb-3"
+                className="leading-relaxed"
                 style={{
                   color: '#FFE4E1',
-                  fontSize: 'clamp(0.75rem, 1.6vw, 0.9rem)',
+                  fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
                 }}
               >
-                Di umur 25 ini, aku cuma pengin kamu tahu kalau ada seseorang di sini yang bener-bener sayang sama kamu dan bangga sama kamu.
-              </p>
-
-              <p
-                className="leading-relaxed font-bold"
-                style={{
-                  color: '#FFD700',
-                  fontSize: 'clamp(0.8rem, 1.8vw, 1rem)',
-                }}
-              >
-                Selamat ulang tahun yang ke-25, Sayang. Semoga tahun ini jadi tahun yang lebih tembut buat kamu. ❤️
+                Hari ini kamu resmi 25 tahun, dan aku pengin kasih sesuatu yang kecil tapi tulus buat kamu. Klik button Rayakan untuk lihat apa yg aku siapkan, ini semua aku bikin khusus buat hari spesialmu. 💕
               </p>
             </motion.div>
-
-            {/* Signature */}
-            <motion.p
-              variants={itemVariants}
-              className="mb-4 md:mb-6"
-              style={{
-                color: '#FFB6D9',
-                fontSize: 'clamp(0.7rem, 1.5vw, 0.85rem)',
-                fontWeight: '500',
-              }}
-            >
-              terima kasih sayanggg 😍💕
-            </motion.p>
 
             {/* CTA Button */}
             <motion.button
               variants={itemVariants}
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.92 }}
+              whileHover={{ scale: 1.12, y: -4 }}
+              whileTap={{ scale: 0.95, y: 0 }}
               onClick={onContinue}
-              className="px-6 md:px-8 py-2.5 md:py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-2xl touch-manipulation"
+              className="px-6 md:px-8 py-2.5 md:py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-2xl touch-manipulation relative overflow-hidden"
               style={{
                 boxShadow: '0 0 20px rgba(255,20,147,0.6)',
                 fontSize: 'clamp(0.8rem, 1.8vw, 1rem)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 0 40px rgba(255,20,147,0.9), 0 0 60px rgba(255,20,147,0.6)'
+                e.currentTarget.style.boxShadow = '0 10px 40px rgba(255,20,147,0.9), 0 0 60px rgba(255,20,147,0.7)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = '0 0 20px rgba(255,20,147,0.6)'
               }}
             >
-              Mulai Rayakan 💖
+              <motion.span
+                className="inline-block"
+                whileHover={{ rotateZ: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                💖
+              </motion.span>
+              {' '}Mulai Rayakan
             </motion.button>
           </motion.div>
         </div>

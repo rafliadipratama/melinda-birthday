@@ -1,4 +1,26 @@
+import { motion } from 'framer-motion'
+
 const DunianyaMelin = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  }
+
   const traits = [
     { emoji: '💪', title: 'Kuat & Tangguh', desc: 'Mampu menghadapi tantangan apapun dengan ketenangan' },
     { emoji: '✨', title: 'Bercahaya', desc: 'Kehadiranmu membuat orang lain merasa lebih baik' },
@@ -17,49 +39,74 @@ const DunianyaMelin = () => {
   ]
 
   return (
-    <section className="min-h-screen px-6 py-20" style={{ backgroundColor: '#0a0005' }}>
+    <section className="min-h-screen px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20" style={{ backgroundColor: '#0a0005' }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-playfair text-5xl italic mb-4" style={{ color: '#FF1493' }}>
+        <motion.div
+          className="text-center mb-10 sm:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h2 className="font-playfair italic mb-2 sm:mb-3" style={{ color: '#FF1493', fontSize: 'clamp(1.5rem, 5vw, 2.25rem)' }}>
             🌸 Dunianya Melinda
           </h2>
-          <p className="text-lg" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.85rem, 2vw, 1rem)' }}>
             Cerita tentang seseorang yang istimewa
           </p>
-        </div>
+        </motion.div>
 
         {/* About Section */}
-        <div className="mb-16 p-8 rounded-2xl border border-pink-500/30 bg-pink-600/10 backdrop-blur-md">
-          <h3 className="font-playfair text-3xl mb-6" style={{ color: '#FFD700' }}>
+        <motion.div
+          className="mb-10 sm:mb-12 p-5 sm:p-6 md:p-8 rounded-2xl border border-pink-500/30 bg-pink-600/10 backdrop-blur-md"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h3 className="font-playfair mb-3 sm:mb-4" style={{ color: '#FFD700', fontSize: 'clamp(1.25rem, 4vw, 1.75rem)' }}>
             Tentang Dirimu
           </h3>
-          <p className="text-lg leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.9)' }}>
+          <p className="leading-relaxed mb-2 sm:mb-3" style={{ color: 'rgba(255,255,255,0.9)', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
             Melinda Az Zahra Hamid adalah sosok yang luar biasa. Bukan hanya karena penampilan,
             tetapi karena kepribadian yang hangat, hati yang mulia, dan semangat yang tidak pernah padam.
           </p>
-          <p className="text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
+          <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
             Dalam setiap interaksi, Anda menunjukkan kualitas-kualitas indah yang membuat orang
             sekitarmu merasa dihargai dan didengar. Itulah mengapa Anda sangat spesial.
           </p>
-        </div>
+        </motion.div>
 
         {/* Traits Grid */}
-        <div className="mb-16">
-          <h3 className="font-playfair text-3xl mb-8 text-center" style={{ color: '#FFD700' }}>
+        <motion.div
+          className="mb-10 sm:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h3 className="font-playfair mb-5 sm:mb-6 text-center" style={{ color: '#FFD700', fontSize: 'clamp(1.25rem, 4vw, 1.75rem)' }}>
             Kualitas Terbaik Darimu
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {traits.map((trait, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="p-6 rounded-2xl border border-pink-500/30 bg-pink-600/10 backdrop-blur-md hover:bg-pink-600/20 transition-all hover:scale-105"
+                variants={itemVariants}
+                className="p-4 sm:p-5 rounded-2xl border border-pink-500/30 bg-pink-600/10 backdrop-blur-md hover:bg-pink-600/20 transition-all hover:scale-105"
               >
-                <p className="text-5xl mb-3">{trait.emoji}</p>
-                <h4 className="font-playfair text-xl mb-2" style={{ color: '#FFD700' }}>
+                <p className="mb-2" style={{ fontSize: 'clamp(1.75rem, 4vw, 2rem)' }}>{trait.emoji}</p>
+                <h4 className="font-playfair mb-1.5 sm:mb-2" style={{ color: '#FFD700', fontSize: 'clamp(0.9rem, 2.2vw, 1rem)' }}>
                   {trait.title}
                 </h4>
-                <p style={{ color: 'rgba(255,255,255,0.7)' }}>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)' }}>
                   {trait.desc}
                 </p>
               </div>
@@ -68,33 +115,52 @@ const DunianyaMelin = () => {
         </div>
 
         {/* Memories Section */}
-        <div className="mb-16">
-          <h3 className="font-playfair text-3xl mb-8 text-center" style={{ color: '#FFD700' }}>
+        <motion.div
+          className="mb-10 sm:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h3 className="font-playfair mb-5 sm:mb-6 text-center" style={{ color: '#FFD700', fontSize: 'clamp(1.25rem, 4vw, 1.75rem)' }}>
             Hal yang Kami Hargai Darimu
           </h3>
-          <div className="space-y-4">
+          <motion.div
+            className="space-y-2.5 sm:space-y-3"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {memories.map((memory, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="p-6 rounded-2xl border-l-4 border-pink-500 bg-gradient-to-r from-pink-600/10 to-transparent"
+                variants={itemVariants}
+                className="p-4 sm:p-5 rounded-2xl border-l-4 border-pink-500 bg-gradient-to-r from-pink-600/10 to-transparent"
               >
-                <p className="text-lg" style={{ color: 'rgba(255,255,255,0.9)' }}>
+                <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
                   ✓ {memory}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Closing Message */}
-        <div className="p-8 rounded-2xl text-center border border-yellow-500/30 bg-yellow-600/10 backdrop-blur-md">
-          <p className="text-2xl mb-4" style={{ color: '#FFD700' }}>
+        <motion.div
+          className="p-5 sm:p-6 md:p-8 rounded-2xl text-center border border-yellow-500/30 bg-yellow-600/10 backdrop-blur-md"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <p className="mb-2 sm:mb-3" style={{ color: '#FFD700', fontSize: 'clamp(1.1rem, 3.5vw, 1.5rem)' }}>
             Terima kasih telah menjadi diri sendiri yang indah ✨
           </p>
-          <p className="text-lg" style={{ color: 'rgba(255,255,255,0.8)' }}>
+          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
             Dunia lebih cerah karena kehadiranmu. Terus bersinar seperti sekarang ini! 💫
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
