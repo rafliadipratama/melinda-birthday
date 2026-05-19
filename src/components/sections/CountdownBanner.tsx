@@ -7,11 +7,11 @@ const CountdownBanner = () => {
   useEffect(() => {
     const calculateCountdown = () => {
       const now = new Date()
-      let nextBirthday = new Date(now.getFullYear(), 6, 22) // July 22 this year
+      let nextBirthday = new Date(now.getFullYear(), 4, 20) // May 20 this year
 
       // If birthday already passed this year, target next year
       if (now > nextBirthday) {
-        nextBirthday = new Date(now.getFullYear() + 1, 6, 22)
+        nextBirthday = new Date(now.getFullYear() + 1, 4, 20)
       }
 
       const difference = nextBirthday.getTime() - now.getTime()
