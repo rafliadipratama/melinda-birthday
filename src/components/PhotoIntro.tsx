@@ -28,21 +28,84 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
         background: 'linear-gradient(135deg, #6B1128 0%, #8B1538 50%, #4A0C1A 100%)',
       }}
     >
-      {/* Decorative background elements */}
+      {/* Floating hearts animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Floating heart 1 */}
         <motion.div
-          animate={{ opacity: [0.1, 0.3, 0.1] }}
-          transition={{ duration: 6, repeat: Infinity }}
-          className="absolute top-10 right-10 text-7xl"
+          animate={{
+            y: [0, -50, 0],
+            opacity: [0.3, 0.8, 0.3],
+            x: [-10, 10, -10],
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-1/4 right-20 text-5xl md:text-6xl"
         >
           💕
         </motion.div>
+
+        {/* Floating heart 2 */}
         <motion.div
-          animate={{ opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity, delay: 1 }}
-          className="absolute bottom-20 left-10 text-6xl"
+          animate={{
+            y: [20, -40, 20],
+            opacity: [0.2, 0.7, 0.2],
+            x: [15, -15, 15],
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+          className="absolute bottom-1/3 left-12 text-4xl md:text-5xl"
+        >
+          💖
+        </motion.div>
+
+        {/* Floating heart 3 */}
+        <motion.div
+          animate={{
+            y: [-10, 40, -10],
+            opacity: [0.25, 0.6, 0.25],
+            x: [-20, 20, -20],
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          className="absolute top-1/2 right-1/4 text-4xl md:text-5xl"
+        >
+          💗
+        </motion.div>
+
+        {/* Floating heart 4 */}
+        <motion.div
+          animate={{
+            y: [30, -30, 30],
+            opacity: [0.2, 0.75, 0.2],
+            x: [20, -20, 20],
+          }}
+          transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+          className="absolute top-1/3 left-1/4 text-4xl md:text-5xl"
+        >
+          ❤️
+        </motion.div>
+
+        {/* Floating rose */}
+        <motion.div
+          animate={{
+            y: [40, -40, 40],
+            opacity: [0.15, 0.5, 0.15],
+            rotate: [0, 180, 360],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          className="absolute bottom-1/4 right-1/3 text-5xl md:text-6xl"
         >
           🌹
+        </motion.div>
+
+        {/* Floating heart 5 */}
+        <motion.div
+          animate={{
+            y: [-20, 30, -20],
+            opacity: [0.3, 0.8, 0.3],
+            x: [-15, 15, -15],
+          }}
+          transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+          className="absolute bottom-1/2 right-10 text-3xl md:text-4xl"
+        >
+          💕
         </motion.div>
       </div>
 
