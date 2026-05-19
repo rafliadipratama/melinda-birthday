@@ -158,7 +158,7 @@ const HeroSection = ({ onExplore }: HeroSectionProps) => {
           {/* CTA Buttons */}
           <motion.div
             variants={titleVariants}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            className="flex justify-center items-center"
           >
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -167,15 +167,6 @@ const HeroSection = ({ onExplore }: HeroSectionProps) => {
               className="px-10 py-4 bg-gradient-to-r from-wine-600 to-wine-700 text-white font-semibold rounded-full font-cormorant text-xl shadow-lg wine-glow-hover transition-all duration-300 hover:shadow-2xl hover:shadow-wine-600/50"
             >
               Explore Your Gifts 💝
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onExplore}
-              className="px-10 py-4 bg-white/20 backdrop-blur-md border-2 border-wine-300 text-white font-semibold rounded-full font-cormorant text-xl hover:bg-white/40 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/40 hover:border-wine-200"
-            >
-              Read Love Letter 💌
             </motion.button>
           </motion.div>
 
