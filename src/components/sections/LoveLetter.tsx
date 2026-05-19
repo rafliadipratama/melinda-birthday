@@ -41,25 +41,25 @@ const LoveLetter = () => {
           backgroundPosition: '0% 0%'
         }}
       ></div>
-      <div className="max-w-5xl w-full mx-auto relative z-10">
+      <div className="max-w-5xl w-full mx-auto relative z-10 px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="font-playfair text-5xl italic" style={{ color: '#FFE4E1' }}>
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-playfair text-3xl sm:text-5xl italic" style={{ color: '#FFE4E1' }}>
             💌 Surat Cinta Untukmu
           </h2>
         </div>
 
         {/* Main Layout - Envelope and Photos */}
-        <div className="relative flex gap-8 items-start justify-between">
+        <div className="relative flex flex-col lg:flex-row gap-8 items-start justify-between">
           {/* Left Side - Red Envelope Card */}
-          <div className="flex-shrink-0 w-full max-w-lg">
+          <div className="flex-shrink-0 w-full max-w-lg mx-auto lg:mx-0">
             {/* Red Envelope */}
             <div
               className="relative shadow-2xl transition-transform hover:scale-105 hover:shadow-3xl"
               style={{
                 background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 50%, #6B1128 100%)',
                 borderRadius: '20px 20px 30px 30px',
-                padding: '40px 35px',
+                padding: 'clamp(20px, 5vw, 40px) clamp(20px, 5vw, 35px)',
                 position: 'relative',
                 boxShadow: '0 20px 60px rgba(0,0,0,0.4)'
               }}
@@ -97,11 +97,11 @@ const LoveLetter = () => {
 
               {/* Letter Content */}
               <div style={{ color: '#FFF8F0' }}>
-                <p className="text-center text-2xl font-bold mb-6" style={{ color: '#FFE4E1' }}>
+                <p className="text-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6" style={{ color: '#FFE4E1' }}>
                   🎂 SELAMAT ULANG TAHUN 🎂
                 </p>
 
-                <div className="space-y-4 text-base leading-relaxed" style={{ fontSize: '0.95rem' }}>
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed" style={{ fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
                   <p>
                     Hari ini adalah hari spesialmu, dan kami semua ingin merayakan <span style={{ color: '#FFE4E1', fontWeight: '600' }}>kesuksesan</span> yang telah kamu raih selama ini.
                   </p>
@@ -119,11 +119,11 @@ const LoveLetter = () => {
                   </p>
                 </div>
 
-                <p className="text-center mt-8 text-lg font-bold" style={{ color: '#FFE4E1' }}>
+                <p className="text-center mt-6 sm:mt-8 text-base sm:text-lg font-bold" style={{ color: '#FFE4E1' }}>
                   🎉 Banyak cinta & bahagia untukmu! 🎉
                 </p>
 
-                <p className="text-right mt-8 text-base" style={{ color: '#FFE4E1' }}>
+                <p className="text-right mt-6 sm:mt-8 text-sm sm:text-base" style={{ color: '#FFE4E1' }}>
                   — Dari Rafli ❤️
                 </p>
               </div>

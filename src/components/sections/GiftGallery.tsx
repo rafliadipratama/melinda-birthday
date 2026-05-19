@@ -1,18 +1,18 @@
 ﻿const GiftGallery = () => {
   return (
-    <section className="min-h-screen px-6 py-20 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom, #0a0005, #160010)' }}>
+    <section className="min-h-screen px-4 sm:px-6 py-12 sm:py-20 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom, #0a0005, #160010)' }}>
       <div className="max-w-6xl w-full mx-auto text-center">
-        <h2 className="font-playfair text-5xl italic mb-4" style={{ color: '#FF1493' }}>
+        <h2 className="font-playfair text-3xl sm:text-5xl italic mb-3 sm:mb-4" style={{ color: '#FF1493' }}>
           🌹 Buket Bunga Istimewa
         </h2>
-        <p className="text-lg mb-16" style={{ color: 'rgba(255,255,255,0.7)' }}>
+        <p className="text-base sm:text-lg mb-10 sm:mb-16" style={{ color: 'rgba(255,255,255,0.7)' }}>
           Rangkaian bunga premium yang dipilih dengan cinta untuk hari spesialmu
         </p>
 
         {/* Flower Bouquet Display */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 mb-20">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-16 mb-12 sm:mb-20">
           {/* Bouquet Visual with SVG-style flowers */}
-          <div className="relative w-full max-w-md h-screen-sm flex items-center justify-center" style={{ minHeight: '500px' }}>
+          <div className="relative w-full max-w-md h-screen-sm flex items-center justify-center" style={{ minHeight: 'clamp(300px, 70vw, 500px)' }}>
             {/* Vase - more elegant */}
             <div className="absolute bottom-0 z-10" style={{ width: '140px' }}>
               {/* Vase Body */}
@@ -207,45 +207,45 @@
           </div>
 
           {/* Description */}
-          <div className="flex-1 text-left">
-            <h3 className="font-playfair text-4xl mb-8" style={{ color: '#FF1493' }}>
+          <div className="flex-1 text-left px-4 sm:px-0">
+            <h3 className="font-playfair text-2xl sm:text-4xl mb-6 sm:mb-8" style={{ color: '#FF1493' }}>
               Buket Mawar Premium
             </h3>
 
-            <div className="space-y-6" style={{ color: 'rgba(255,255,255,0.9)' }}>
+            <div className="space-y-4 sm:space-y-6" style={{ color: 'rgba(255,255,255,0.9)' }}>
               <div>
-                <p className="text-xl font-semibold mb-2" style={{ color: '#FFD700' }}>🌹 3 Mawar Merah Premium</p>
-                <p className="text-base leading-relaxed">Melambangkan cinta yang dalam, passion, dan kesetiaan. Setiap kelopak dipilih untuk kesempurnaannya.</p>
+                <p className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2" style={{ color: '#FFD700' }}>🌹 3 Mawar Merah Premium</p>
+                <p className="text-sm sm:text-base leading-relaxed">Melambangkan cinta yang dalam, passion, dan kesetiaan. Setiap kelopak dipilih untuk kesempurnaannya.</p>
               </div>
 
               <div>
-                <p className="text-xl font-semibold mb-2" style={{ color: '#FF69B4' }}>🌸 Bunga Sakura Pink</p>
-                <p className="text-base leading-relaxed">Melambangkan keindahan yang lembut, keanggunan, dan kehidupan yang indah yang terus berkembang.</p>
+                <p className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2" style={{ color: '#FF69B4' }}>🌸 Bunga Sakura Pink</p>
+                <p className="text-sm sm:text-base leading-relaxed">Melambangkan keindahan yang lembut, keanggunan, dan kehidupan yang indah yang terus berkembang.</p>
               </div>
 
               <div>
-                <p className="text-xl font-semibold mb-2" style={{ color: '#4a7c2c' }}>🍃 Aksesoris Hijau</p>
-                <p className="text-base leading-relaxed">Menambahkan kesegaran, kehidupan, dan kesuksesan pada setiap rangkaian yang sempurna.</p>
+                <p className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2" style={{ color: '#4a7c2c' }}>🍃 Aksesoris Hijau</p>
+                <p className="text-sm sm:text-base leading-relaxed">Menambahkan kesegaran, kehidupan, dan kesuksesan pada setiap rangkaian yang sempurna.</p>
               </div>
 
               <div>
-                <p className="text-xl font-semibold mb-2" style={{ color: '#FFD700' }}>💛 Vas Emas Eksklusif</p>
-                <p className="text-base leading-relaxed">Menempatkan buket dengan elegan, mencerminkan kemewahan dan kehangatan cinta yang abadi.</p>
+                <p className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2" style={{ color: '#FFD700' }}>💛 Vas Emas Eksklusif</p>
+                <p className="text-sm sm:text-base leading-relaxed">Menempatkan buket dengan elegan, mencerminkan kemewahan dan kehangatan cinta yang abadi.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Special Message */}
-        <div className="p-12 rounded-3xl border-2 max-w-3xl mx-auto" style={{
+        <div className="p-6 sm:p-12 rounded-3xl border-2 max-w-3xl mx-auto" style={{
           borderColor: 'rgba(255,20,147,0.6)',
           background: 'linear-gradient(135deg, rgba(255,20,147,0.15) 0%, rgba(219,112,147,0.15) 100%)',
           boxShadow: '0 10px 40px rgba(255,20,147,0.2)'
         }}>
-          <p className="text-3xl font-playfair mb-6" style={{ color: '#FF1493' }}>
+          <p className="text-2xl sm:text-3xl font-playfair mb-4 sm:mb-6" style={{ color: '#FF1493' }}>
             💌 Dengan Sepenuh Cinta
           </p>
-          <p className="text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.95)' }}>
+          <p className="text-sm sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.95)' }}>
             Buket ini adalah masterpiece yang dibuat khusus untuk merayakan dirimu. Setiap bunga dipilih dengan cermat,
             setiap detail dipikirkan dengan mendalam, karena kamu pantas mendapatkan yang terbaik dari yang terbaik.
             Semoga keindahan bunga ini mencerminkan keindahan jiwa dan hati nuranimu yang luar biasa istimewa. 🌹✨
