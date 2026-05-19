@@ -181,28 +181,28 @@ const LoveLetter = () => {
           </div>
 
           {/* Right Side - Polaroid Photos */}
-          <div className="flex-1 relative w-full lg:w-auto" style={{ minHeight: 'clamp(250px, 60vw, 500px)' }}>
+          <div className="flex-1 relative w-full lg:w-auto" style={{ minHeight: 'clamp(300px, 70vw, 500px)' }}>
             {photos.map((photo, idx) => (
               <div
                 key={idx}
                 className="absolute transition-transform hover:scale-110 hover:z-50 cursor-pointer"
                 style={{
-                  top: `clamp(5%, ${photo.top}, 100%)`,
-                  right: `clamp(5%, ${photo.right}, 95%)`,
+                  top: `clamp(${5 + idx * 10}%, ${photo.top}, 90%)`,
+                  right: `clamp(${5 + idx * 8}%, ${photo.right}, 90%)`,
                   transform: `rotate(${photo.rotation}deg)`,
                   transformOrigin: 'center'
                 }}
               >
                 {/* Polaroid frame */}
                 <div
-                  className="bg-white shadow-xl relative overflow-hidden"
+                  className="bg-white shadow-lg sm:shadow-xl relative overflow-hidden"
                   style={{
-                    width: 'clamp(90px, 20vw, 140px)',
+                    width: 'clamp(110px, 22vw, 140px)',
                     aspectRatio: '3/4',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
                     background: 'linear-gradient(135deg, #FFFAFA 0%, #FFF5EE 100%)',
-                    padding: 'clamp(5px, 1vw, 8px)',
-                    paddingBottom: 'clamp(20px, 4vw, 30px)'
+                    padding: 'clamp(6px, 1.2vw, 8px)',
+                    paddingBottom: 'clamp(22px, 4.5vw, 30px)'
                   }}
                 >
                   {/* Photo area with actual image */}
@@ -221,8 +221,8 @@ const LoveLetter = () => {
                   </div>
 
                   {/* Polaroid bottom white space for caption */}
-                  <div style={{ height: '22px' }} className="flex items-center justify-center">
-                    <p className="text-xs text-gray-500 italic text-center leading-none">{photo.caption}</p>
+                  <div style={{ height: 'clamp(18px, 3vw, 22px)' }} className="flex items-center justify-center">
+                    <p className="text-gray-500 italic text-center leading-none" style={{ fontSize: 'clamp(0.65rem, 1.5vw, 0.75rem)' }}>{photo.caption}</p>
                   </div>
                 </div>
               </div>
