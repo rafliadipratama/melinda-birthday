@@ -20,7 +20,7 @@ const CustomCursor = () => {
 
     checkTouchDevice()
     window.addEventListener('resize', checkTouchDevice)
-    return () => window.removeEventListener('resize', checkTouchDevice)
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
@@ -46,6 +46,7 @@ const CustomCursor = () => {
     window.addEventListener('mouseout', handleMouseOut)
 
     return () => {
+      window.removeEventListener('resize', checkTouchDevice)
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseover', handleMouseOver)
       window.removeEventListener('mouseout', handleMouseOut)
