@@ -36,7 +36,7 @@ const DunianyaMelin = () => {
     { emoji: '👟', title: 'Converse Enthusiast', desc: 'Style clasic dengan sepatu Converse favorit' },
     { emoji: '🍜', title: 'Makanan Berkuah', desc: 'Menyukai warm comfort food dengan kuah yang lezat' },
     { emoji: '📺', title: 'Normal People Binge', desc: 'Penonton setia series "Normal People" dengan cerita yang mendalam' },
-    { emoji: '🎬', title: 'Megan Fox Admirer', desc: 'Salah satu aktris favorit dengan gaya dan pesona yang memukau' }
+    { emoji: '🎬', title: 'Megan Fox', desc: 'Aktris favorit dengan gaya dan pesona yang memukau' }
   ]
 
   const memories = [
