@@ -32,7 +32,7 @@ const DunianyaMelin = () => {
 
   const favorites = [
     { emoji: '🍫', title: 'Dark Chocolate Lover', desc: 'Menyukai cita rasa dark chocolate yang kaya dan sophisticated', image: '/favorites/dark-chocolate.webp' },
-    { emoji: '🎵', title: 'The Weeknd Fan', desc: 'Pecinta musik The Weeknd dengan melodi yang mendalam', image: null },
+    { emoji: '🎵', title: 'The Weeknd Fan', desc: 'Pecinta musik The Weeknd dengan melodi yang mendalam', image: '/favorites/the-weeknd.jpg' },
     { emoji: '👟', title: 'Converse Enthusiast', desc: 'Style clasic dengan sepatu Converse favorit', image: '/favorites/converse.avif' },
     { emoji: '🍜', title: 'Makanan Berkuah', desc: 'Menyukai warm comfort food dengan kuah yang lezat', image: '/favorites/makanan-berkuah.jpg' },
     { emoji: '📺', title: 'Normal People', desc: 'Penonton setia series "Normal People" dengan cerita yang mendalam', image: null },
