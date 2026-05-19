@@ -4,6 +4,7 @@ import HeroSection from './components/sections/HeroSection'
 import RomanticIntro from './components/RomanticIntro'
 import MenuHub from './components/MenuHub'
 import MusicPlayer from './components/MusicPlayer'
+import CustomCursor from './components/CustomCursor'
 
 // Lazy load other sections
 const GiftGallery = lazy(() => import('./components/sections/GiftGallery'))
@@ -22,11 +23,6 @@ function App() {
   const [introShown, setIntroShown] = useState(false)
   const [currentPage, setCurrentPage] = useState<PageType>('hero')
 
-  if (!introShown) {
-    return <RomanticIntro onContinue={() => setIntroShown(true)} />
-  }
-
-  // Handle page navigation
   const handleSelectSection = (section: string) => {
     setCurrentPage(section as PageType)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -37,10 +33,20 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  if (!introShown) {
+    return (
+      <>
+        <CustomCursor />
+        <RomanticIntro onContinue={() => setIntroShown(true)} />
+      </>
+    )
+  }
+
   // Render hero + menu
   if (currentPage === 'hero') {
     return (
       <>
+        <CustomCursor />
         <MusicPlayer />
         <AnimatePresence mode="wait">
           <motion.div
@@ -65,6 +71,7 @@ function App() {
   if (currentPage === 'menu') {
     return (
       <>
+        <CustomCursor />
         <MusicPlayer />
         <AnimatePresence mode="wait">
           <motion.div
@@ -88,78 +95,79 @@ function App() {
   // Render selected section with back button
   return (
     <>
+      <CustomCursor />
       <MusicPlayer />
       <div className="w-full overflow-x-hidden bg-black">
         {/* Back to Menu Button */}
         <button
-        onClick={handleBackToMenu}
-        className="fixed top-6 left-6 z-40 px-4 py-2 bg-pink-600/80 hover:bg-pink-600 text-white rounded-full text-sm transition-all hover:scale-110 backdrop-blur-md"
-      >
-        ← Kembali ke Menu
-      </button>
+          onClick={handleBackToMenu}
+          className="fixed top-6 left-6 z-40 px-4 py-2 bg-pink-600/80 hover:bg-pink-600 text-white rounded-full text-sm transition-all hover:scale-110 backdrop-blur-md"
+        >
+          ← Kembali ke Menu
+        </button>
 
         {/* Render selected page with animation */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentPage}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-        >
-          {currentPage === 'letter' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <LoveLetter />
-            </Suspense>
-          )}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.5 }}
+          >
+            {currentPage === 'letter' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <LoveLetter />
+              </Suspense>
+            )}
 
-          {currentPage === 'photos' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <PhotoTimeline />
-            </Suspense>
-          )}
+            {currentPage === 'photos' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <PhotoTimeline />
+              </Suspense>
+            )}
 
-          {currentPage === 'wishes' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <WishWall />
-            </Suspense>
-          )}
+            {currentPage === 'wishes' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <WishWall />
+              </Suspense>
+            )}
 
-          {currentPage === 'countdown' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <CountdownBanner />
-            </Suspense>
-          )}
+            {currentPage === 'countdown' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <CountdownBanner />
+              </Suspense>
+            )}
 
-          {currentPage === 'bouquet' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <GiftGallery />
-            </Suspense>
-          )}
+            {currentPage === 'bouquet' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <GiftGallery />
+              </Suspense>
+            )}
 
-          {currentPage === 'candle' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <CandleGame />
-            </Suspense>
-          )}
+            {currentPage === 'candle' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <CandleGame />
+              </Suspense>
+            )}
 
-          {currentPage === 'dunia' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <DunianyaMelin />
-            </Suspense>
-          )}
+            {currentPage === 'dunia' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <DunianyaMelin />
+              </Suspense>
+            )}
 
-          {currentPage === 'surprise' && (
-            <Suspense fallback={<div className="min-h-screen bg-black" />}>
-              <Surprise />
-            </Suspense>
-          )}
+            {currentPage === 'surprise' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <Surprise />
+              </Suspense>
+            )}
 
-          <Suspense fallback={null}>
-            <Footer />
-          </Suspense>
-        </motion.div>
-      </AnimatePresence>
+            <Suspense fallback={null}>
+              <Footer />
+            </Suspense>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </>
   )
