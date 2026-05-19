@@ -31,12 +31,12 @@ const DunianyaMelin = () => {
   ]
 
   const favorites = [
-    { emoji: '🍫', title: 'Dark Chocolate Lover', desc: 'Menyukai cita rasa dark chocolate yang kaya dan sophisticated' },
-    { emoji: '🎵', title: 'The Weeknd Fan', desc: 'Pecinta musik The Weeknd dengan melodi yang mendalam' },
-    { emoji: '👟', title: 'Converse Enthusiast', desc: 'Style clasic dengan sepatu Converse favorit' },
-    { emoji: '🍜', title: 'Makanan Berkuah', desc: 'Menyukai warm comfort food dengan kuah yang lezat' },
-    { emoji: '📺', title: 'Normal People Binge', desc: 'Penonton setia series "Normal People" dengan cerita yang mendalam' },
-    { emoji: '🎬', title: 'Megan Fox', desc: 'Aktris favorit dengan gaya dan pesona yang memukau' }
+    { emoji: '🍫', title: 'Dark Chocolate Lover', desc: 'Menyukai cita rasa dark chocolate yang kaya dan sophisticated', image: '/favorites/dark-chocolate.webp' },
+    { emoji: '🎵', title: 'The Weeknd Fan', desc: 'Pecinta musik The Weeknd dengan melodi yang mendalam', image: null },
+    { emoji: '👟', title: 'Converse Enthusiast', desc: 'Style clasic dengan sepatu Converse favorit', image: null },
+    { emoji: '🍜', title: 'Makanan Berkuah', desc: 'Menyukai warm comfort food dengan kuah yang lezat', image: null },
+    { emoji: '📺', title: 'Normal People Binge', desc: 'Penonton setia series "Normal People" dengan cerita yang mendalam', image: null },
+    { emoji: '🎬', title: 'Megan Fox', desc: 'Aktris favorit dengan gaya dan pesona yang memukau', image: null }
   ]
 
   const memories = [
@@ -109,15 +109,33 @@ const DunianyaMelin = () => {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="p-4 sm:p-5 rounded-2xl border border-yellow-500/30 bg-yellow-600/10 backdrop-blur-md hover:bg-yellow-600/20 transition-all hover:scale-105"
+                className="rounded-2xl border border-yellow-500/30 bg-yellow-600/10 backdrop-blur-md overflow-hidden hover:scale-105 transition-all hover:shadow-2xl hover:shadow-yellow-500/30 cursor-pointer group"
               >
-                <p className="mb-2" style={{ fontSize: 'clamp(1.75rem, 4vw, 2rem)' }}>{fav.emoji}</p>
-                <h4 className="font-playfair mb-1.5 sm:mb-2" style={{ color: '#FFD700', fontSize: 'clamp(0.9rem, 2.2vw, 1rem)' }}>
-                  {fav.title}
-                </h4>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)' }}>
-                  {fav.desc}
-                </p>
+                {/* Image or emoji fallback */}
+                {fav.image ? (
+                  <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-yellow-600/20 to-yellow-900/20">
+                    <img
+                      src={fav.image}
+                      alt={fav.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  </div>
+                ) : (
+                  <div className="h-48 sm:h-56 flex items-center justify-center bg-gradient-to-br from-yellow-600/20 to-yellow-900/20">
+                    <p style={{ fontSize: 'clamp(3rem, 8vw, 4rem)' }}>{fav.emoji}</p>
+                  </div>
+                )}
+
+                {/* Text content */}
+                <div className="p-4 sm:p-5">
+                  <h4 className="font-playfair mb-2" style={{ color: '#FFD700', fontSize: 'clamp(0.95rem, 2.2vw, 1.1rem)' }}>
+                    {fav.title}
+                  </h4>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)' }}>
+                    {fav.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
