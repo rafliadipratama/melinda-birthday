@@ -60,11 +60,10 @@ const PhotoTimeline = () => {
         </motion.p>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="visible"
         >
           {photos.map((photo, idx) => (
             <motion.div
@@ -73,7 +72,7 @@ const PhotoTimeline = () => {
               onClick={() => setSelectedPhotoIdx(idx)}
               className="relative group cursor-pointer rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl w-full"
               style={{
-                aspectRatio: '4/5',
+                aspectRatio: '1',
                 boxShadow: 'none'
               }}
               onMouseEnter={(e) => {
