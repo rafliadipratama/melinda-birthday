@@ -43,12 +43,12 @@ const Surprise = () => {
     {
       icon: '🎁',
       title: 'Wishlist Terwujud',
-      content: 'Semua doa dan harapanmu akan kami doakan agar terwujud. Kamu berhak mendapat yang terbaik! 🌟'
+      content: 'Semua doa dan harapanmu akan aku doakan agar terwujud. Kamu berhak mendapat yang terbaik! 🌟'
     },
     {
       icon: '🌹',
       title: 'Cinta dari Hati',
-      content: 'Terima kasih sudah mempercayakan hatimu kepada kami. Kami akan selalu menjaga kepercayaan itu. 💖'
+      content: 'Terima kasih sudah mempercayakan hatimu kepada aku. Aku akan selalu menjaga kepercayaan itu. 💖'
     },
     {
       icon: '✨',
@@ -58,7 +58,7 @@ const Surprise = () => {
     {
       icon: '🎊',
       title: 'Perayaan Selamanya',
-      content: 'Setiap hari dengan dirimu adalah perayaan. Kami beruntung bisa berbagi hidup denganmu. 🎉'
+      content: 'Setiap hari dengan dirimu adalah perayaan. Aku beruntung bisa berbagi hidup denganmu. 🎉'
     },
     {
       icon: '💎',
@@ -82,7 +82,7 @@ const Surprise = () => {
             🎁 Ada Kejutan Spesial!
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.85rem, 2vw, 1rem)' }}>
-            Buka setiap hadiah untuk menemukan pesan spesial dari kami 💝
+            Buka setiap hadiah untuk menemukan pesan spesial dariku 💝
           </p>
         </motion.div>
 
@@ -189,7 +189,7 @@ const Surprise = () => {
           </p>
           <p className="leading-relaxed mb-3 sm:mb-4" style={{ color: 'rgba(255,255,255,0.9)', fontSize: 'clamp(0.85rem, 2vw, 0.95rem)' }}>
             Kejutan terbesar adalah mengetahui bahwa ada orang yang peduli dengan kebahagiaan kita.
-            Dan kamu adalah orang-orang istimewa itu bagi kami.
+            Dan kamu adalah orang istimewa itu bagiku.
           </p>
           <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)' }}>
             Terima kasih telah hadir. Selamat ulang tahun yang penuh kasih sayang! 💕
