@@ -133,7 +133,7 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
               }}
             >
               <img
-                src="/photos/p2.jpg"
+                src="/photos/intro.jpg"
                 alt="Melinda Az Zahra Hamid"
                 className="w-full h-full object-cover"
               />
