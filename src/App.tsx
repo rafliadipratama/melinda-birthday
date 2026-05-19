@@ -1,7 +1,7 @@
 import { Suspense, lazy, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import HeroSection from './components/sections/HeroSection'
-import MiniGame from './components/MiniGame'
+import RomanticIntro from './components/RomanticIntro'
 import MenuHub from './components/MenuHub'
 import MusicPlayer from './components/MusicPlayer'
 
@@ -19,11 +19,11 @@ const Footer = lazy(() => import('./components/sections/Footer'))
 type PageType = 'hero' | 'menu' | 'letter' | 'bouquet' | 'photos' | 'candle' | 'wishes' | 'dunia' | 'surprise' | 'countdown'
 
 function App() {
-  const [gameCompleted, setGameCompleted] = useState(false)
+  const [introShown, setIntroShown] = useState(false)
   const [currentPage, setCurrentPage] = useState<PageType>('hero')
 
-  if (!gameCompleted) {
-    return <MiniGame onGameComplete={() => setGameCompleted(true)} />
+  if (!introShown) {
+    return <RomanticIntro onContinue={() => setIntroShown(true)} />
   }
 
   // Handle page navigation
