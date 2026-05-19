@@ -120,7 +120,12 @@ const CandleGame = () => {
           viewport={{ once: true, amount: 0.3 }}
           style={{ color: 'rgba(255,255,255,0.7)' }}
         >
-          {allBlown ? '✨ Semua lilin sudah padam! ✨' : 'Buat doa terbaik & klik atau tiup lilinnya! 🎉'}
+          {allBlown ? '✨ Semua lilin sudah padam! ✨' : (
+            <>
+              <span className="hidden md:inline">Buat doa terbaik & klik lilin satu per satu! 🎉</span>
+              <span className="md:hidden">Buat doa terbaik & klik atau tiup lilinnya! 🎉</span>
+            </>
+          )}
         </motion.p>
 
         {/* Microphone Button */}
@@ -387,7 +392,7 @@ const CandleGame = () => {
           </div>
         </motion.div>
 
-        {/* Blow Button */}
+        {/* Blow Button - Mobile Only */}
         <motion.button
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -395,7 +400,7 @@ const CandleGame = () => {
           viewport={{ once: true, amount: 0.3 }}
           onClick={handleBlow}
           disabled={allBlown}
-          className={`px-6 sm:px-10 md:px-12 py-2 sm:py-3 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg transition-all duration-300 ${
+          className={`md:hidden px-6 sm:px-10 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 ${
             allBlown
               ? 'bg-gray-600 cursor-not-allowed'
               : 'bg-gradient-to-r from-pink-600 to-red-700 hover:scale-110 active:scale-95 hover:shadow-2xl hover:shadow-pink-600/50'

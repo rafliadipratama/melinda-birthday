@@ -137,21 +137,31 @@ const LoveLetter = () => {
 
                 <div className="space-y-3 sm:space-y-4 leading-relaxed" style={{ fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)' }}>
                   <p>
-                    Di hari yang paling special ini, aku cuma mau bilang satu hal: <span style={{ color: '#FFE4E1', fontWeight: '600' }}>terima kasih sudah jadi kamu</span>.
+                    Melinda, di hari istimewa ini aku ingin berhenti sejenak dari semua kebiasaan dan hanya memikirkan satu hal: <span style={{ color: '#FFE4E1', fontWeight: '600' }}>berapa beruntungnya aku bisa kenal dirimu</span>.
                   </p>
 
                   <p>
-                    Kamu nggak pernah tau seberapa besar pengaruh kehadiranmu buat aku. Senyummu bisa bikin hari yang paling berat jadi ringan. Matamu yang jujur bisa bikin aku ngerasa dimengerti tanpa harus ngomong banyak.
+                    Sejak hari pertama, ada sesuatu yang berbeda tentang cara kamu tersenyum. Sesuatu yang membuat dunia terasa lebih penuh warna. Dalam setiap percakapan, dalam setiap momen bersama, aku terus menemukan layer baru dari keindahan hatimu yang aku nggak tahu sebelumnya.
                   </p>
 
                   <p>
-                    Di usiamu yang ke-25 ini, aku pengen kamu tau bahwa kamu bukan cuma <span style={{ color: '#FFE4E1', fontWeight: '600' }}>"seseorang yang special"</span> — kamu adalah alasan aku percaya bahwa hal-hal indah itu nyata.
+                    Kamu punya cara yang spesial untuk membuat orang merasa dihargai — bukan karena apa yang kamu lakukan, tapi karena <span style={{ color: '#FFE4E1', fontWeight: '600' }}>gimana kamu benar-benar peduli</span>. Matamu yang hangat bisa bikin aku lupa dengan semua kecemasan. Suaramu yang lembut bisa jadi tempat pulang terbaik buat aku.
+                  </p>
+
+                  <p>
+                    Di setiap keindahan dunia — sunset, musik favorit, dark chocolate yang sempurna — aku terus mengingatmu. Karena kamu adalah bukti nyata bahwa ada hal-hal yang worth it untuk diperjuangkan, untuk dimaafkan, untuk dicintai sepenuh hati.
+                  </p>
+
+                  <p>
+                    Di usiamu yang ke-25 ini, aku pengen kamu tau bahwa kamu bukan hanya seseorang istimewa buat aku. <span style={{ color: '#FFE4E1', fontWeight: '600' }}>Kamu adalah rumah buat aku</span>. Tempat di mana aku bisa jadi diri sendiri yang paling asli, paling vulnerable, paling bahagia.
                   </p>
 
                   <p className="pt-2">
-                    Selamat ulang tahun, sayang.
+                    Selamat ulang tahun, cinta.
                     <br/>
-                    Semoga 25 mu jadi tahun terbaik yang pernah kamu jalani.
+                    Semoga setiap hari di tahun ini penuh dengan momen-momen yang membuat hatimu tersenyum seperti saat ini.
+                    <br/>
+                    Aku janji akan terus membuat hari-harimu lebih indah. Setiap hari. Selamanya.
                   </p>
                 </div>
 
