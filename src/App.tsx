@@ -1,7 +1,7 @@
 import { Suspense, lazy, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import HeroSection from './components/sections/HeroSection'
-import RomanticIntro from './components/RomanticIntro'
+import PhotoIntro from './components/PhotoIntro'
 import MenuHub from './components/MenuHub'
 import MusicPlayer from './components/MusicPlayer'
 import CustomCursor from './components/CustomCursor'
@@ -38,7 +38,7 @@ function App() {
     return (
       <>
         <CustomCursor />
-        <RomanticIntro onContinue={() => setIntroShown(true)} />
+        <PhotoIntro onContinue={() => setIntroShown(true)} />
       </>
     )
   }
