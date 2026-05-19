@@ -218,7 +218,7 @@ const LoveLetter = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <style>{`

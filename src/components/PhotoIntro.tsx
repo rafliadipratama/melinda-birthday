@@ -125,24 +125,23 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
       </div>
 
       <motion.div
-        className="relative z-10 w-full h-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8"
-        style={{ maxWidth: '900px' }}
+        className="relative z-10 w-full h-full flex flex-col items-center justify-center px-3 xs:px-4 sm:px-6 md:px-8 py-8 sm:py-12"
+        style={{ maxWidth: '1000px', overflowY: 'auto' }}
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Content wrapper */}
-        <div className="w-full max-h-full flex flex-col md:flex-row gap-6 md:gap-10 items-center justify-center">
-          {/* Photo - Left side on desktop */}
+        <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12 items-center justify-center">
+          {/* Photo - Top on mobile, Left side on desktop */}
           <motion.div
             variants={itemVariants}
-            className="w-full md:w-2/5 flex justify-center"
-            style={{ maxHeight: 'calc(100vh - 120px)' }}
+            className="w-full xs:w-4/5 sm:w-3/5 md:w-1/2 lg:w-2/5 flex justify-center flex-shrink-0"
           >
             <div
-              className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl w-full max-w-sm"
+              className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl w-full"
               style={{
-                maxHeight: '500px',
+                maxWidth: '320px',
                 boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
                 aspectRatio: '3/4',
               }}
@@ -155,18 +154,18 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
             </div>
           </motion.div>
 
-          {/* Text content - Right side on desktop */}
+          {/* Text content - Bottom on mobile, Right side on desktop */}
           <motion.div
-            className="w-full md:w-3/5 flex flex-col items-center md:items-start text-center md:text-left"
+            className="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left"
             variants={containerVariants}
           >
             {/* Title */}
             <motion.h1
               variants={itemVariants}
-              className="font-bold leading-tight mb-3 md:mb-4"
+              className="font-bold leading-tight mb-2 sm:mb-4 lg:mb-5 px-2 sm:px-0"
               style={{
                 color: '#FFD700',
-                fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)',
+                fontSize: 'clamp(1.2rem, 4.5vw, 2rem)',
                 fontFamily: 'Georgia, serif',
               }}
             >
@@ -176,17 +175,19 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
             {/* Main message box */}
             <motion.div
               variants={itemVariants}
-              className="mb-4 md:mb-6 p-4 md:p-6 rounded-2xl md:rounded-3xl w-full"
+              className="mb-3 sm:mb-4 lg:mb-6 p-3 sm:p-4 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-3xl w-full"
               style={{
                 background: 'linear-gradient(135deg, rgba(255,20,147,0.2) 0%, rgba(219,112,147,0.2) 100%)',
                 border: '2px solid rgba(255,182,193,0.4)',
+                maxWidth: '500px',
+                margin: '0 auto',
               }}
             >
               <p
                 className="leading-relaxed"
                 style={{
                   color: '#FFE4E1',
-                  fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
+                  fontSize: 'clamp(0.75rem, 2vw, 0.95rem)',
                 }}
               >
                 Hari ini kamu resmi 25 tahun, dan aku pengin kasih sesuatu yang kecil tapi tulus buat kamu. Klik button Rayakan untuk lihat apa yg aku siapkan, ini semua aku bikin khusus buat hari spesialmu. 💕
@@ -199,10 +200,10 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
               whileHover={{ scale: 1.12, y: -4 }}
               whileTap={{ scale: 0.95, y: 0 }}
               onClick={onContinue}
-              className="px-6 md:px-8 py-2.5 md:py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-2xl touch-manipulation relative overflow-hidden"
+              className="px-5 sm:px-7 md:px-8 py-2 sm:py-2.5 lg:py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-2xl touch-manipulation relative overflow-hidden whitespace-nowrap"
               style={{
                 boxShadow: '0 0 20px rgba(255,20,147,0.6)',
-                fontSize: 'clamp(0.8rem, 1.8vw, 1rem)',
+                fontSize: 'clamp(0.8rem, 2vw, 1rem)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.boxShadow = '0 10px 40px rgba(255,20,147,0.9), 0 0 60px rgba(255,20,147,0.7)'

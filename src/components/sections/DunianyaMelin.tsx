@@ -109,10 +109,10 @@ const DunianyaMelin = () => {
                 <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)' }}>
                   {trait.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Memories Section */}
         <motion.div
