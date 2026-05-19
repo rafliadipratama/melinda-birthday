@@ -6,9 +6,9 @@ interface MenuHubProps {
 
 const MenuHub = ({ onSelectSection }: MenuHubProps) => {
   const menuItems = [
+    { id: 'dunia', icon: '🌸', label: 'Dunianya Melin', desc: 'Tentang dirimu yang spesial' },
     { id: 'letter', icon: '💌', label: 'Surat Cinta', desc: 'Pesan dari hati' },
     { id: 'photos', icon: '📸', label: 'Kenang-Kenangan', desc: 'Koleksi momen indah' },
-    { id: 'dunia', icon: '🌸', label: 'Dunianya Melin', desc: 'Tentang dirimu yang spesial' },
     { id: 'messages', icon: '💕', label: 'Kata-Kata Manis', desc: 'Ucapan serius untukmu' },
     { id: 'bouquet', icon: '🌹', label: 'Buket Bunga', desc: 'Rangkaian bunga istimewa' },
     { id: 'candle', icon: '🎂', label: 'Tiup Lilin', desc: 'Permainan ulang tahun' },

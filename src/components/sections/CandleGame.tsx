@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 const CandleGame = () => {
@@ -10,6 +10,12 @@ const CandleGame = () => {
     { id: 5, lit: true, blown: false }
   ])
   const [blowEffect, setBlowEffect] = useState(false)
+  const [micActive, setMicActive] = useState(false)
+  const [micPermission, setMicPermission] = useState<'granted' | 'denied' | 'pending' | 'unavailable'>('pending')
+  const audioContextRef = useRef<AudioContext | null>(null)
+  const analyserRef = useRef<AnalyserNode | null>(null)
+  const dataArrayRef = useRef<any>(null)
+  const streamRef = useRef<MediaStream | null>(null)
 
   const allBlown = candles.every(c => !c.lit)
 
@@ -32,6 +38,66 @@ const CandleGame = () => {
     setBlowEffect(true)
     setTimeout(() => setBlowEffect(false), 600)
   }
+
+  const enableMicrophone = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false } })
+      streamRef.current = stream
+      setMicPermission('granted')
+      setMicActive(true)
+
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
+      audioContextRef.current = audioContext
+      const analyser = audioContext.createAnalyser()
+      analyserRef.current = analyser
+      analyser.fftSize = 256
+      const bufferLength = analyser.frequencyBinCount
+      dataArrayRef.current = new Uint8Array(bufferLength)
+
+      const source = audioContext.createMediaStreamSource(stream)
+      source.connect(analyser)
+
+      let lastBlowTime = 0
+      const detectBlowing = () => {
+        if (!dataArrayRef.current || !analyserRef.current) return
+
+        analyserRef.current.getByteFrequencyData(dataArrayRef.current)
+        const average = dataArrayRef.current.reduce((a: number, b: number) => a + b) / dataArrayRef.current.length
+
+        if (average > 45 && Date.now() - lastBlowTime > 500) {
+          lastBlowTime = Date.now()
+          handleBlow()
+        }
+
+        requestAnimationFrame(detectBlowing)
+      }
+
+      detectBlowing()
+    } catch (error) {
+      setMicPermission('denied')
+    }
+  }
+
+  const disableMicrophone = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(track => track.stop())
+    }
+    if (audioContextRef.current) {
+      audioContextRef.current.close()
+    }
+    setMicActive(false)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop())
+      }
+      if (audioContextRef.current) {
+        audioContextRef.current.close()
+      }
+    }
+  }, [])
 
   return (
     <section className="min-h-screen px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
@@ -56,6 +122,26 @@ const CandleGame = () => {
         >
           {allBlown ? '✨ Semua lilin sudah padam! ✨' : 'Buat doa terbaik & klik atau tiup lilinnya! 🎉'}
         </motion.p>
+
+        {/* Microphone Button */}
+        {!allBlown && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            onClick={micActive ? disableMicrophone : enableMicrophone}
+            className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 mb-4 ${
+              micActive
+                ? 'bg-gradient-to-r from-red-600 to-pink-600 text-white shadow-lg shadow-red-600/50'
+                : micPermission === 'denied'
+                ? 'bg-gray-600 text-white cursor-not-allowed'
+                : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 hover:shadow-lg'
+            }`}
+          >
+            {micActive ? '🎤 Mikrofon Aktif' : micPermission === 'denied' ? '❌ Akses Ditolak' : '🎤 Aktifkan Suara'}
+          </motion.button>
+        )}
 
         {/* Cake Container with proper spacing for candles */}
         <motion.div
