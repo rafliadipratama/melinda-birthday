@@ -22,32 +22,32 @@ const GiftGallery = () => {
   }
 
   return (
-    <section className="min-h-screen px-4 sm:px-6 md:px-8 py-10 sm:py-16 md:py-20 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom, #0a0005, #160010)' }}>
+    <section className="min-h-screen px-3 xs:px-4 sm:px-6 md:px-8 py-8 xs:py-10 sm:py-16 md:py-20 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom, #0a0005, #160010)' }}>
       <div className="max-w-6xl w-full mx-auto text-center">
         <motion.h2
-          className="font-playfair italic mb-2 sm:mb-3"
+          className="font-playfair italic mb-2 xs:mb-2.5 sm:mb-3"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true, amount: 0.3 }}
-          style={{ color: '#FF1493', fontSize: 'clamp(1.5rem, 5vw, 2.25rem)' }}
+          style={{ color: '#FF1493', fontSize: 'clamp(1.4rem, 5vw, 2.25rem)' }}
         >
           🌹 Buket Bunga Istimewa
         </motion.h2>
         <motion.p
-          className="mb-8 sm:mb-10"
+          className="mb-6 xs:mb-7 sm:mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           viewport={{ once: true, amount: 0.3 }}
-          style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.85rem, 2vw, 1rem)' }}
+          style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.8rem, 2.2vw, 1rem)' }}
         >
           Rangkaian bunga premium yang dipilih dengan cinta untuk hari spesialmu
         </motion.p>
 
         {/* Flower Bouquet Display */}
         <motion.div
-          className="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-16 mb-12 sm:mb-20"
+          className="flex flex-col lg:flex-row items-center justify-center gap-4 xs:gap-6 sm:gap-10 md:gap-16 mb-10 xs:mb-12 sm:mb-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

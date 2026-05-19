@@ -53,7 +53,7 @@ const SweetMessages = () => {
   ]
 
   return (
-    <section className="min-h-screen px-4 sm:px-6 py-12 sm:py-20" style={{ background: 'linear-gradient(to bottom, #0a0005, #160010)' }}>
+    <section className="min-h-screen px-3 xs:px-4 sm:px-6 py-10 xs:py-12 sm:py-20" style={{ background: 'linear-gradient(to bottom, #0a0005, #160010)' }}>
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <motion.div

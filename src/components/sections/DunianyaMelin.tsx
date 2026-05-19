@@ -47,7 +47,7 @@ const DunianyaMelin = () => {
   ]
 
   return (
-    <section className="min-h-screen px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20" style={{ backgroundColor: '#0a0005' }}>
+    <section className="min-h-screen px-3 xs:px-4 sm:px-6 md:px-8 py-10 xs:py-12 sm:py-16 md:py-20" style={{ backgroundColor: '#0a0005' }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div

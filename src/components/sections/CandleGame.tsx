@@ -100,7 +100,7 @@ const CandleGame = () => {
   }, [])
 
   return (
-    <section className="min-h-screen px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
+    <section className="min-h-screen px-3 xs:px-4 sm:px-6 md:px-8 py-6 xs:py-8 sm:py-10 md:py-12 flex flex-col items-center justify-center" style={{ backgroundColor: '#0a0005' }}>
       <div className="max-w-3xl mx-auto text-center w-full">
         <motion.h2
           className="font-playfair text-3xl sm:text-4xl md:text-5xl italic mb-2 sm:mb-3 md:mb-4"

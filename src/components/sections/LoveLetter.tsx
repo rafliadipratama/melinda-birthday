@@ -30,7 +30,7 @@ const LoveLetter = () => {
 
   return (
     <section
-      className="min-h-screen w-full px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen w-full px-3 xs:px-4 sm:px-6 md:px-8 py-10 xs:py-12 sm:py-16 md:py-20 flex items-center justify-center relative overflow-hidden"
       style={{
         background: `
           repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.05) 35px, rgba(0,0,0,.05) 70px),

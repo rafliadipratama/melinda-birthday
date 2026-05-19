@@ -56,7 +56,7 @@ const HeroSection = ({ onExplore }: HeroSectionProps) => {
   }
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-wine-900 via-wine-800 to-wine-950">
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-wine-900 via-wine-800 to-wine-950 px-3 xs:px-4 sm:px-6">
       {/* Animated falling petals */}
       <div className="absolute inset-0 pointer-events-none">
         {hearts.map((i) => (
