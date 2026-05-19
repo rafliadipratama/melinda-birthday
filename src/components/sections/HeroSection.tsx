@@ -169,16 +169,6 @@ const HeroSection = ({ onExplore }: HeroSectionProps) => {
               Explore Your Gifts 💝
             </motion.button>
           </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="mt-16 text-wine-200"
-          >
-            <p className="font-lato text-sm mb-2">Scroll to discover</p>
-            <Heart className="w-6 h-6 mx-auto" />
-          </motion.div>
         </motion.div>
       </div>
 
