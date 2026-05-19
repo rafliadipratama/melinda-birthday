@@ -30,7 +30,7 @@ const LoveLetter = () => {
 
   return (
     <section
-      className="min-h-screen w-full px-3 xs:px-4 sm:px-6 md:px-8 py-10 xs:py-12 sm:py-16 md:py-20 flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen w-full px-3 xs:px-4 sm:px-6 md:px-8 py-10 xs:py-12 sm:py-16 md:py-20 flex items-center justify-center relative overflow-x-hidden lg:overflow-hidden"
       style={{
         background: `
           repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.05) 35px, rgba(0,0,0,.05) 70px),
@@ -181,14 +181,14 @@ const LoveLetter = () => {
           </div>
 
           {/* Right Side - Polaroid Photos */}
-          <div className="flex-1 relative h-96" style={{ minHeight: '500px' }}>
+          <div className="flex-1 relative w-full lg:w-auto" style={{ minHeight: 'clamp(250px, 60vw, 500px)' }}>
             {photos.map((photo, idx) => (
               <div
                 key={idx}
                 className="absolute transition-transform hover:scale-110 hover:z-50 cursor-pointer"
                 style={{
-                  top: photo.top,
-                  right: photo.right,
+                  top: `clamp(5%, ${photo.top}, 100%)`,
+                  right: `clamp(5%, ${photo.right}, 95%)`,
                   transform: `rotate(${photo.rotation}deg)`,
                   transformOrigin: 'center'
                 }}
@@ -197,12 +197,12 @@ const LoveLetter = () => {
                 <div
                   className="bg-white shadow-xl relative overflow-hidden"
                   style={{
-                    width: '140px',
+                    width: 'clamp(90px, 20vw, 140px)',
                     aspectRatio: '3/4',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
                     background: 'linear-gradient(135deg, #FFFAFA 0%, #FFF5EE 100%)',
-                    padding: '8px',
-                    paddingBottom: '30px'
+                    padding: 'clamp(5px, 1vw, 8px)',
+                    paddingBottom: 'clamp(20px, 4vw, 30px)'
                   }}
                 >
                   {/* Photo area with actual image */}
