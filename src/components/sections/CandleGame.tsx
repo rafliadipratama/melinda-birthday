@@ -128,7 +128,7 @@ const CandleGame = () => {
           )}
         </motion.p>
 
-        {/* Microphone Button */}
+        {/* Microphone Button - Mobile Only */}
         {!allBlown && (
           <motion.button
             initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ const CandleGame = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
             onClick={micActive ? disableMicrophone : enableMicrophone}
-            className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 mb-4 ${
+            className={`md:hidden px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 mb-4 ${
               micActive
                 ? 'bg-gradient-to-r from-red-600 to-pink-600 text-white shadow-lg shadow-red-600/50'
                 : micPermission === 'denied'
