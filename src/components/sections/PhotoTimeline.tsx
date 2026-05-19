@@ -29,7 +29,7 @@ const PhotoTimeline = () => {
     { src: 'photos/p3.jpg', caption: 'Senyum ✨' },
     { src: 'photos/p4.jpg', caption: 'My Girl 💖' },
     { src: 'photos/p5.jpg', caption: 'Melin ❤️' },
-    { src: 'photos/p6.jpg', caption: 'Indah 🌸' },
+    { src: 'photos/p6.jpg', caption: 'Beautiful 💗' },
     { src: 'photos/p7.jpg', caption: 'Perfect 💝' },
     { src: 'photos/p8.jpg', caption: 'Birthday! 🎂' },
     { src: 'photos/p9.jpg', caption: 'Everything 🥰' }

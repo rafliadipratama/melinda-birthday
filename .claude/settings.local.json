@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\USER\\\\birthday-melinda\" -Exclude \"node_modules\")",
-      "Bash(Select-Object -Property Name, PSIsContainer)"
+      "Bash(Select-Object -Property Name, PSIsContainer)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
