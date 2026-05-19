@@ -15,9 +15,10 @@ const WishWall = lazy(() => import('./components/sections/WishWall'))
 const CandleGame = lazy(() => import('./components/sections/CandleGame'))
 const DunianyaMelin = lazy(() => import('./components/sections/DunianyaMelin'))
 const Surprise = lazy(() => import('./components/sections/Surprise'))
+const SweetMessages = lazy(() => import('./components/sections/SweetMessages'))
 const Footer = lazy(() => import('./components/sections/Footer'))
 
-type PageType = 'hero' | 'menu' | 'letter' | 'bouquet' | 'photos' | 'candle' | 'wishes' | 'dunia' | 'surprise' | 'countdown'
+type PageType = 'hero' | 'menu' | 'letter' | 'bouquet' | 'photos' | 'candle' | 'wishes' | 'dunia' | 'surprise' | 'countdown' | 'messages'
 
 function App() {
   const [introShown, setIntroShown] = useState(false)
@@ -160,6 +161,12 @@ function App() {
             {currentPage === 'surprise' && (
               <Suspense fallback={<div className="min-h-screen bg-black" />}>
                 <Surprise />
+              </Suspense>
+            )}
+
+            {currentPage === 'messages' && (
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <SweetMessages />
               </Suspense>
             )}
 

@@ -5,6 +5,7 @@ interface MenuHubProps {
 const MenuHub = ({ onSelectSection }: MenuHubProps) => {
   const menuItems = [
     { id: 'letter', icon: '💌', label: 'Surat Cinta', desc: 'Pesan spesial untukmu' },
+    { id: 'messages', icon: '💕', label: 'Kata-Kata Manis', desc: 'Ungkapan dari hati' },
     { id: 'bouquet', icon: '🌹', label: 'Buket Bunga', desc: 'Rangkaian bunga indah' },
     { id: 'photos', icon: '📸', label: 'Foto-Foto', desc: 'Koleksi momen indah' },
     { id: 'candle', icon: '🎂', label: 'Tiup Lilin', desc: 'Permainan interaktif' },
