@@ -71,7 +71,7 @@ const PhotoTimeline = () => {
               key={idx}
               variants={itemVariants}
               onClick={() => setSelectedPhotoIdx(idx)}
-              className="relative group cursor-pointer rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl"
+              className="relative group cursor-pointer rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl w-full"
               style={{
                 aspectRatio: '4/5',
                 boxShadow: 'none'
@@ -89,8 +89,8 @@ const PhotoTimeline = () => {
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white font-playfair text-xl sm:text-2xl">💗 {photo.caption}</span>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 sm:p-4 group-hover:from-pink-900/70 transition-all duration-300">
-                <p className="text-white font-playfair text-sm sm:text-lg group-hover:text-pink-200 transition-colors duration-300">{photo.caption}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4 group-hover:from-pink-900/80 transition-all duration-300">
+                <p className="text-white font-playfair text-sm sm:text-lg group-hover:text-pink-200 transition-colors duration-300" style={{ fontSize: 'clamp(0.75rem, 2vw, 1.125rem)' }}>{photo.caption}</p>
               </div>
             </motion.div>
           ))}
