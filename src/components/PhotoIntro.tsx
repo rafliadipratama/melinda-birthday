@@ -176,7 +176,7 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
             {/* Main message box */}
             <motion.div
               variants={itemVariants}
-              className="mb-4 sm:mb-6 lg:mb-8 p-4 sm:p-5 lg:p-7 rounded-xl sm:rounded-2xl lg:rounded-3xl w-full max-w-lg"
+              className="mb-6 sm:mb-8 lg:mb-10 p-4 sm:p-5 lg:p-7 rounded-xl sm:rounded-2xl lg:rounded-3xl w-full max-w-lg"
               style={{
                 background: 'linear-gradient(135deg, rgba(255,20,147,0.25) 0%, rgba(219,112,147,0.25) 100%)',
                 border: '2px solid rgba(255,182,193,0.5)',
