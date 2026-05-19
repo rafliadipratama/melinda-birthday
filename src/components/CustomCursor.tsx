@@ -122,20 +122,11 @@ const CustomCursor = () => {
         </motion.div>
       ))}
 
-      {!isTouchDevice && (
-        <style>{`
-          * {
-            cursor: none;
-          }
-        `}</style>
-      )}
-      {isTouchDevice && (
-        <style>{`
-          * {
-            cursor: none !important;
-          }
-        `}</style>
-      )}
+      <style>{`
+        * {
+          cursor: none;
+        }
+      `}</style>
     </>
   )
 }
