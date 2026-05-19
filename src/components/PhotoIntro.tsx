@@ -162,11 +162,12 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
             {/* Title */}
             <motion.h1
               variants={itemVariants}
-              className="font-bold leading-tight mb-2 sm:mb-4 lg:mb-5 px-2 sm:px-0"
+              className="font-bold leading-tight mb-3 sm:mb-5 lg:mb-7 px-2 sm:px-0"
               style={{
-                color: '#FFD700',
-                fontSize: 'clamp(1.2rem, 4.5vw, 2rem)',
+                color: '#FFFFFF',
+                fontSize: 'clamp(1.3rem, 5vw, 2.2rem)',
                 fontFamily: 'Georgia, serif',
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)',
               }}
             >
               Selamat Ulang Tahun<br />yang ke 25<br />Melinda Az Zahra Hamid
@@ -175,19 +176,19 @@ const PhotoIntro = ({ onContinue }: { onContinue: () => void }) => {
             {/* Main message box */}
             <motion.div
               variants={itemVariants}
-              className="mb-3 sm:mb-4 lg:mb-6 p-3 sm:p-4 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-3xl w-full"
+              className="mb-4 sm:mb-6 lg:mb-8 p-4 sm:p-5 lg:p-7 rounded-xl sm:rounded-2xl lg:rounded-3xl w-full max-w-lg"
               style={{
-                background: 'linear-gradient(135deg, rgba(255,20,147,0.2) 0%, rgba(219,112,147,0.2) 100%)',
-                border: '2px solid rgba(255,182,193,0.4)',
-                maxWidth: '500px',
-                margin: '0 auto',
+                background: 'linear-gradient(135deg, rgba(255,20,147,0.25) 0%, rgba(219,112,147,0.25) 100%)',
+                border: '2px solid rgba(255,182,193,0.5)',
+                backdropFilter: 'blur(10px)',
               }}
             >
               <p
-                className="leading-relaxed"
+                className="leading-relaxed font-cormorant"
                 style={{
-                  color: '#FFE4E1',
-                  fontSize: 'clamp(0.75rem, 2vw, 0.95rem)',
+                  color: '#FFFFFF',
+                  fontSize: 'clamp(0.8rem, 2.2vw, 1rem)',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.3)',
                 }}
               >
                 Hari ini kamu resmi 25 tahun, dan aku pengin kasih sesuatu yang kecil tapi tulus buat kamu. Klik button Rayakan untuk lihat apa yg aku siapkan, ini semua aku bikin khusus buat hari spesialmu. 💕
